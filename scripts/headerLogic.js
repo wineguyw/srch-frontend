@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function logoutUser() {
         alert("You've been logged out due to inactivity.");
         localStorage.removeItem("token");
-        window.location.href = "/srch-frontend/LandingPage/index.html";
+        window.location.href = "./index.html";
     }
 
     // Detect user activity (resets the timer on movement or interaction)

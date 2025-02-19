@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
       const token = localStorage.getItem("token");
       if (!token) {
-          window.location.href = "/LandingPage/index.html";
-          return;
+        window.location.href = "./index.html";
+        return;
       }
 
       // Fetch user data
@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else {
           console.error("Failed to fetch user data:", userData.error);
           localStorage.removeItem("token");
-          window.location.href = "/LandingPage/index.html";
-      }
+          window.location.href = "./index.html";
+        }
   } catch (error) {
       console.error("Error fetching user data:", error);
       localStorage.removeItem("token");
-      window.location.href = "/LandingPage/index.html";
-  }
+      window.location.href = "./index.html";
+    }
 
   // Auto Logout After 1 Hour of Inactivity
   let logoutTimer;
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (logoutButton) {
       logoutButton.addEventListener("click", () => {
           localStorage.removeItem("token");
-          window.location.href = "/LandingPage/index.html"; // Redirect to homepage
-      });
+          window.location.href = "./index.html";
+        });
   }
 });
