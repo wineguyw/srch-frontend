@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Redirect to profile page after 3 seconds
           setTimeout(() => {
-            window.location.href = "/srch-frontend/ProfilePage/";
+            window.location.href = "./ProfilePage/";
           }, 3000);
         } else {
           alert(result.error || "Signup failed. Please try again.");
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
           loginModal.classList.add("hidden");
 
           // Redirect to profile page
-          window.location.href = "/srch-frontend/ProfilePage/";
+          window.location.href = "./ProfilePage/";
         } else {
           alert(result.error || "Invalid login credentials.");
         }
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function logoutUser() {
     alert("You've been logged out due to inactivity.");
     localStorage.removeItem("token");
-    window.location.href = "/srch-frontend/LandingPage/";
+    window.location.href = "./LandingPage/";
   }
 
   // Detect user activity
@@ -222,11 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
   regionItems.forEach(item => {
       item.addEventListener("click", () => {
         const link = item.getAttribute("data-link");
-        if (link.startsWith("/")) {
-            window.location.href = "/srch-frontend" + link;
-        } else {
-            window.location.href = "/srch-frontend/RegionsPage/" + link;        
-          }
+        window.location.href = link;  // ✅ Use the correct direct path
       });
 
       // Optional: Add a hover effect to indicate interactivity
