@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuscany | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/srch-frontend/RegionsPage/Tuscany/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+            <div class="auth-section">
+                <img id="profile-icon" src="/srch-frontend/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+                     onclick="window.location.href='/ProfilePage/index.html'"/>
+                <div id="auth-buttons">
+                    <button id="login-button" class="login-btn">Login</button>
+                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
+                </div>
+            </div>    
+        </div>
+    </header>
+
+    <!-- Large Banner Section -->
+    <section class="region-banner">
+        <div class="region-banner-overlay">
+            <h1 class="region-title">Tuscany</h1>
+            <p>Rolling hills, historic vineyards, and world-renowned wines define the heart of Italy.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="region-content">
+
+        <!-- Historical Overview -->
+        <section class="history-section">
+            <h2>A Legacy in Every Sip</h2>
+            <div class="history-grid">
+                <div class="history-card">
+                    <h3>800 BC - The Etruscans</h3>
+                    <p>Ancient Etruscans cultivated vineyards, establishing Tuscany as a historic wine region.</p>
+                </div>
+                <div class="history-card">
+                    <h3>1716 - The First Wine Laws</h3>
+                    <p>Cosimo III de' Medici defined Chianti’s borders, making it one of the first protected wine regions.</p>
+                </div>
+                <div class="history-card">
+                    <h3>Today - A Symbol of Italian Excellence</h3>
+                    <p>Tuscany’s wines, from Chianti Classico to Super Tuscans, set the global standard for fine Italian wine.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Tuscany -->
+        <section class="modern-napa">
+            <h2>The Tuscany of Today</h2>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <h3>Popular Grapes</h3>
+                    <p>Sangiovese, Cabernet Sauvignon, Merlot, Vernaccia, Trebbiano, Canaiolo</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Acres Under Vine</h3>
+                    <p>Over 150,000 acres of vineyards, home to some of Italy’s most prestigious wines.</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Famous Wineries</h3>
+                    <p>Antinori, Biondi Santi, Castello Banfi, Frescobaldi, Tenuta San Guido (Sassicaia)</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/srch-frontend/scripts/headerLogic.js" defer></script>
+</body>
+</html>

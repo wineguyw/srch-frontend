@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napa Valley | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/srch-frontend/RegionsPage/NapaValley/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+            <div class="auth-section">
+                <img id="profile-icon" src="/srch-frontend/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+                     onclick="window.location.href='/srch-frontend/ProfilePage/index.html'"/>
+                <div id="auth-buttons">
+                    <button id="login-button" class="login-btn">Login</button>
+                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
+                </div>
+            </div>    
+        </div>
+    </header>
+
+    <!-- Large Banner Section -->
+    <section class="region-banner">
+        <div class="region-banner-overlay">
+            <h1 class="region-title">Napa Valley</h1>
+            <p>Where world-class wine meets stunning landscapes and rich history.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="region-content">
+
+        <!-- Historical Overview -->
+        <section class="history-section">
+            <h2>A Legacy in Every Sip</h2>
+            <div class="history-grid">
+                <div class="history-card">
+                    <h3>1850s - The Beginning</h3>
+                    <p>Settlers began planting grapevines, shaping the future of Napa Valley.</p>
+                </div>
+                <div class="history-card">
+                    <h3>1976 - The Judgment of Paris</h3>
+                    <p>Napa wines stunned the world by outperforming French wines in a blind taste test.</p>
+                </div>
+                <div class="history-card">
+                    <h3>Today - A Global Wine Icon</h3>
+                    <p>Home to over 400 wineries, Napa continues to redefine excellence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Napa Valley -->
+        <section class="modern-napa">
+            <h2>The Napa Valley of Today</h2>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <h3>Popular Grapes</h3>
+                    <p>Cabernet Sauvignon, Chardonnay, Merlot, Sauvignon Blanc, Pinot Noir</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Acres Under Vine</h3>
+                    <p>Over 45,000 acres of vineyards, producing world-class wines.</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Famous Wineries</h3>
+                    <p>Opus One, Stag's Leap Wine Cellars, Beringer, Caymus, Robert Mondavi</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/srch-frontend/scripts/headerLogic.js" defer></script>
+</body>
+</html>

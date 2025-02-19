@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendoza | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/srch-frontend/RegionsPage/Mendoza/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+                <h1 class="site-title">SRCH</h1>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+                    <li><a href="/srch-frontend/ExplorePage/">Regions</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-section">
+                <img id="profile-icon" src="/srch-frontend/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+                     onclick="window.location.href='/srch-frontend/ProfilePage/index.html'"/>
+                <div id="auth-buttons">
+                    <button id="login-button" class="login-btn">Login</button>
+                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
+                </div>
+            </div>    
+        </div>
+    </header>
+
+    <!-- Large Banner Section -->
+    <section class="region-banner">
+        <div class="region-banner-overlay">
+            <h1 class="region-title">Mendoza</h1>
+            <p>Argentina’s heart of winemaking, where high-altitude vineyards craft bold and elegant wines.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="region-content">
+
+        <!-- Historical Overview -->
+        <section class="history-section">
+            <h2>A Legacy in Every Sip</h2>
+            <div class="history-grid">
+                <div class="history-card">
+                    <h3>1500s - The Spanish Arrival</h3>
+                    <p>Spanish settlers introduced viticulture to Mendoza, bringing the first grapevines to Argentina.</p>
+                </div>
+                <div class="history-card">
+                    <h3>1800s - The Birth of Malbec</h3>
+                    <p>French agronomist Michel Aimé Pouget brought Malbec to Argentina, forever changing Mendoza's wine identity.</p>
+                </div>
+                <div class="history-card">
+                    <h3>Today - A Global Wine Powerhouse</h3>
+                    <p>Producing over 70% of Argentina’s wine, Mendoza is recognized worldwide for its high-altitude, high-quality wines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Mendoza -->
+        <section class="modern-napa">
+            <h2>The Mendoza of Today</h2>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <h3>Popular Grapes</h3>
+                    <p>Malbec, Cabernet Sauvignon, Bonarda, Syrah, Torrontés, Chardonnay</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Acres Under Vine</h3>
+                    <p>Over 360,000 acres of vineyards, making it the largest wine region in Argentina.</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Famous Wineries</h3>
+                    <p>Catena Zapata, Bodega Norton, Trapiche, Achával-Ferrer, Bodega Salentein</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/srch-frontend/scripts/headerLogic.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bordeaux | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/srch-frontend/RegionsPage/Bordeaux/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+<a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+            <div class="auth-section">
+                <img id="profile-icon" src="/srch-frontend/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+                     onclick="window.location.href='/srch-frontend/ProfilePage/index.html'"/>
+                <div id="auth-buttons">
+                    <button id="login-button" class="login-btn">Login</button>
+                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
+                </div>
+            </div>    
+        </div>
+    </header>
+
+    <!-- Large Banner Section -->
+    <section class="region-banner">
+        <div class="region-banner-overlay">
+            <h1 class="region-title">Bordeaux</h1>
+            <p>The birthplace of legendary wines, where tradition and terroir shape every bottle.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="region-content">
+
+        <!-- Historical Overview -->
+        <section class="history-section">
+            <h2>A Legacy in Every Sip</h2>
+            <div class="history-grid">
+                <div class="history-card">
+                    <h3>12th Century - The English Influence</h3>
+                    <p>Bordeaux’s wine trade flourished under English rule, exporting wines across Europe.</p>
+                </div>
+                <div class="history-card">
+                    <h3>1855 - The Bordeaux Classification</h3>
+                    <p>Napoleon III’s classification ranked Bordeaux’s top estates, solidifying their prestige.</p>
+                </div>
+                <div class="history-card">
+                    <h3>Today - The Global Standard</h3>
+                    <p>Bordeaux remains the world’s benchmark for fine wine, blending heritage with innovation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Bordeaux -->
+        <section class="modern-napa">
+            <h2>The Bordeaux of Today</h2>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <h3>Popular Grapes</h3>
+                    <p>Merlot, Cabernet Sauvignon, Cabernet Franc, Malbec, Petit Verdot, Sémillon, Sauvignon Blanc</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Acres Under Vine</h3>
+                    <p>Over 290,000 acres of vineyards, producing some of the world’s most sought-after wines.</p>
+                </div>
+                <div class="modern-card">
+                    <h3>Famous Wineries</h3>
+                    <p>Château Margaux, Château Latour, Château Mouton Rothschild, Château Haut-Brion, Château Pétrus</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/srch-frontend/scripts/headerLogic.js" defer></script>
+</body>
+</html>

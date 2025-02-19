@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRCH - Account Settings</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+  <link rel="stylesheet" href="/srch-frontend/SettingsPage/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+        <img
+        id="profile-icon"
+        src="/srch-frontend/images/Icons/default-profile.png"
+        alt="Profile"
+        class="profile-img hidden"
+        onclick="window.location.href='/srch-frontend/ProfilePage/index.html'"
+    />    
+        <div id="auth-buttons">
+            <button id="login-button" class="login-btn">Login</button>
+            <button id="get-started-btn" class="get-started-btn">Get Started</button>
+        </div>
+    </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="settings-main">
+    <section class="settings-container">
+      <h2>Account Settings</h2>
+      <p>Manage your account details and preferences.</p>
+
+      <div class="settings-card">
+        <h3>Profile Details</h3>
+        <p>Modify your account information and settings.</p>
+
+        <div class="account-options">
+          <button class="settings-btn">Edit Profile</button>
+          <button class="settings-btn">Change Password</button>
+          <button class="settings-btn">Notification Preferences</button>
+          <button id="logout-button" class="logout-btn">Log Out</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>About SRCH</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Wine Resources</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <a href="/srch-frontend/RegionsPage/index.html">
+              <li><a href="#">Wine Styles</a></li>
+            <li><a href="#">Top Deals</a></li>
+            <li><a href="#">Stories & Insights</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Get the Best Wine Deals & Insights Weekly</h4>
+        <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/srch-frontend/scripts/headerLogic.js"></script>
+  <script src="/srch-frontend/SettingsPage/settings.js"></script>
+</body>
+</html>

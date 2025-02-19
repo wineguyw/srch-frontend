@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRCH - Your Profile</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="/srch-frontend/ProfilePage/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+
+  <div class="auth-section">
+        <img
+            id="profile-icon"
+            src="/srch-frontend/images/Icons/default-profile.png"
+            alt="Profile"
+            class="profile-img hidden"
+            onclick="window.location.href='/srch-frontend/ProfilePage/'"
+            />
+        <div id="profile-dropdown" class="dropdown hidden">
+          <a href="/srch-frontend/ProfilePage/index.html">Profile</a>
+          <a href="/srch-frontend/SettingsPage/">Settings</a>
+        </div>
+      </div>
+    </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="profile-main">
+    <section class="welcome-section">
+      <h1>Welcome to Your SRCH Profile</h1>
+      <p>Your personalized wine journey starts here. Let’s explore!</p>
+    </section>
+
+    <!-- Preferences Dashboard -->
+    <section class="preferences-section">
+      <h2>Your Preferences</h2>
+      <!-- Wine Type Selection -->
+      <div class="preference-group">
+        <h3>What type of wine do you enjoy?</h3>
+        <div class="preference-options" id="wine-type-options">
+          <button class="option-btn" data-value="red">Red</button>
+          <button class="option-btn" data-value="white">White</button>
+          <button class="option-btn" data-value="rose">Rosé</button>
+          <button class="option-btn" data-value="sparkling">Sparkling</button>
+        </div>
+      </div>
+      <!-- Varietals Selection -->
+      <div class="preference-group">
+        <h3>Pick your favorite varietals:</h3>
+        <div class="preference-options" id="varietals-options">
+          <button class="option-btn" data-value="pinot-noir">Pinot Noir</button>
+          <button class="option-btn" data-value="chardonnay">Chardonnay</button>
+          <button class="option-btn" data-value="merlot">Merlot</button>
+          <button class="option-btn" data-value="sauvignon-blanc">Sauvignon Blanc</button>
+        </div>
+      </div>
+      <!-- Region Selection -->
+      <div class="preference-group">
+        <h3>Which wine regions are you curious about?</h3>
+        <div class="preference-options" id="regions-options">
+          <button class="option-btn" data-value="napa-valley">Napa Valley</button>
+          <button class="option-btn" data-value="bordeaux">Bordeaux</button>
+          <button class="option-btn" data-value="mendoza">Mendoza</button>
+          <button class="option-btn" data-value="tuscany">Tuscany</button>
+        </div>
+      </div>
+      <!-- Save Preferences Button -->
+      <div class="save-preferences">
+        <button class="submit-btn" id="save-preferences-btn">Save Preferences</button>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer id="main-footer">
+  <div class="footer-container">
+    <!-- Left Section: Quick Links -->
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>About SRCH</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Wine Resources</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/srch-frontend/ExplorePage/index.html">Wine Regions</a></li>
+          <li><a href="#">Wine Styles</a></li>
+          <li><a href="#">Top Deals</a></li>
+          <li><a href="#">Stories & Insights</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center Section: Newsletter Signup -->
+    <div class="footer-newsletter">
+      <h4>Get the Best Wine Deals & Insights Weekly</h4>
+      <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Right Section: Social Media -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    
+    <!-- Add FontAwesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    </div>
+  </div>
+
+  <!-- Bottom Section: Copyright & Terms -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+
+  <!-- JavaScript -->
+  <script src="/srch-frontend/LandingPage/landingPage.js"></script>
+  <script src="/srch-frontend/scripts/headerLogic.js"></script>
+</body>
+</html>

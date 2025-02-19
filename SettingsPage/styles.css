@@ -1,0 +1,64 @@
+/* Ensure the body takes up full space and pushes footer down */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body fills the full viewport */
+}
+
+/* Ensure main content takes up most of the screen */
+.main-content {
+  flex-grow: 1; /* Fills remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile settings section - centers and takes more vertical space */
+.settings-main {
+  flex-grow: 1; /* Expands dynamically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  min-height: 75vh; /* Makes sure it pushes down */
+  padding: 3rem 0; /* Adds padding for spacing */
+  background: #f9f9f9;
+}
+
+/* The main settings container */
+.settings-container {
+  width: 90%;
+  max-width: 500px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Ensures the buttons and settings options are spaced out */
+.account-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+/* Button styling */
+.settings-btn,
+.logout-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: #5a2d2f;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.settings-btn:hover,
+.logout-btn:hover {
+  background-color: #7c4244;
+}

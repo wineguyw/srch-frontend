@@ -1,0 +1,92 @@
+:root {
+  --explore-title-margin-top: 50px; /* Default starting position, adjust as needed */
+}
+
+.explore-main {
+  text-align: center;
+  padding: var(--explore-title-margin-top) 0 20px;
+  background: #121212;
+  position: relative;
+}
+
+.explore-title {
+  position: relative;
+  z-index: 3;
+  margin-top: var(--explore-title-margin-top);
+}
+
+.explore-title h1 {
+  font-family: 'Shrikhand', cursive;
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: -10px;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.explore-title p {
+  color: #bbbbbb;
+  font-size: 1.2rem;
+  margin-bottom: -15px;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* 🎛 Compact Filter Panel */
+.filter-panel {
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  background: rgba(26, 26, 26, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  width: 280px;
+  z-index: 5;
+  text-align: left;
+}
+
+.filter-group {
+  margin-bottom: 12px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9rem;
+  background: #222;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.explore-map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+#globeViz {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  margin-top: -20px;
+}
+
+.footer {
+  background-color: #222222;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1rem;
+}

@@ -1,0 +1,76 @@
+/* Reset Margins & Ensure Consistency */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Make Sure Content Starts Below Header */
+body {
+    padding-top: 80px; /* Adjust this to match the header height */
+}
+
+/* Large Banner Section */
+.region-banner {
+    width: 100%;
+    min-height: 45vh; /* Ensures it actually takes 45% of the viewport */
+    max-height: 50vh; /* Ensures it doesn't shrink */
+    background-image: url('/srch-frontend/images/Regions/Mendoza-banner.jpg');
+    background-size: cover;
+    background-position: center top 32%; /* Adjust the percentage as needed */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+/* Banner Overlay */
+.region-banner-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    width: 100%;
+    position: absolute;
+    bottom: 10%; /* Moves text overlay slightly up */
+}
+
+/* Section Layout */
+.history-section, .modern-napa {
+    text-align: center;
+    padding: 60px 0;
+}
+
+/* Grid Layout for Cards */
+.history-grid, .modern-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Cards for Content */
+.history-card, .modern-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 280px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Cards */
+.history-card:hover, .modern-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #5a2d2f;
+    color: white;
+}

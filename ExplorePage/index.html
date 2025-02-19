@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Regions | SRCH</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Global Styles (Updated Paths) -->
+<link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+<link rel="stylesheet" href="/srch-frontend/ExplorePage/styles.css">
+
+  <!-- Globe.gl Script -->
+  <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/srch-frontend/LandingPage/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/srch-frontend/LandingPage/index.html">Home</a></li>
+          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>          
+          <li><a href="#">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+        <img
+            id="profile-icon"
+            src="/srch-frontend/images/Icons/default-profile.png"
+            alt="Profile"
+            class="profile-img hidden"
+            onclick="window.location.href='/srch-frontend/ProfilePage/index.html'"
+        />
+        <div id="auth-buttons">
+            <button id="login-button" class="login-btn">Login</button>
+            <button id="get-started-btn" class="get-started-btn">Get Started</button>
+        </div>
+      </div> <!-- ✅ MOVE THIS HERE to properly close .auth-section -->
+      
+  </header>
+
+  <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
+  <div class="filter-panel">
+    <h2>Wine Region Selector</h2>
+    <div class="filter-group">
+      <label for="countryFilter">Country:</label>
+      <select id="countryFilter">
+        <option value="">Select a Country</option>
+        <option value="USA">USA</option>
+        <option value="France">France</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Australia">Australia</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Chile">Chile</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="regionFilter">Wine Region:</label>
+      <select id="regionFilter" disabled>
+        <option value="">Select a Region</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 🌍 Main Explore Section -->
+  <section class="explore-main">
+    <div class="explore-title">
+      <h1>Explore the World's Wine Regions</h1>
+      <p>Click on a region to learn more about its wines, varietals, and unique culture.</p>
+    </div>
+    <div class="explore-map-container">
+      <div id="globeViz"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. <a href="#">Contact Us</a></p>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="/srch-frontend/ExplorePage/exploreRegions.js" defer></script>
+  <script src="/srch-frontend/scripts/headerLogic.js" defer></script>  
+</body>
+</html>
