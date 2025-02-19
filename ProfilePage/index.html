@@ -8,22 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/srch-frontend/CentralCSS/base.css">
+  <link rel="stylesheet" href="/CentralCSS/base.css">
   <!-- Page-Specific Styles -->
-  <link rel="stylesheet" href="/srch-frontend/ProfilePage/styles.css">
+  <link rel="stylesheet" href="./ProfilePage/styles.css">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="header-container">
-      <a href="./index.html" class="site-title-link">
+      <a href="/index.html" class="site-title-link">
         <h1 class="site-title">SRCH</h1>
       </a>
       <nav class="nav">
         <ul class="nav-links">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="/srch-frontend/ExplorePage/">Explore</a></li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/ExplorePage/">Explore</a></li>
           <li><a href="#">Regions</a></li>
           <li><a href="#">Stories</a></li>
         </ul>
@@ -32,14 +32,14 @@
   <div class="auth-section">
         <img
             id="profile-icon"
-            src="/srch-frontend/images/Icons/default-profile.png"
+            src="/images/Icons/default-profile.png"
             alt="Profile"
             class="profile-img hidden"
             onclick="window.location.href='/srch-frontend/ProfilePage/'"
             />
         <div id="profile-dropdown" class="dropdown hidden">
-          <a href="/srch-frontend/ProfilePage/index.html">Profile</a>
-          <a href="/srch-frontend/SettingsPage/">Settings</a>
+          <a href="./ProfilePage/index.html">Profile</a>
+          <a href="/SettingsPage/">Settings</a>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@
       <div class="footer-column">
         <h4>Explore</h4>
         <ul>
-          <li><a href="/srch-frontend/ExplorePage/index.html">Wine Regions</a></li>
+          <li><a href="/ExplorePage/index.html">Wine Regions</a></li>
           <li><a href="#">Wine Styles</a></li>
           <li><a href="#">Top Deals</a></li>
           <li><a href="#">Stories & Insights</a></li>
@@ -151,7 +151,7 @@
 
 
   <!-- JavaScript -->
-  <script src="/srch-frontend/LandingPage/landingPage.js"></script>
-  <script src="/srch-frontend/scripts/headerLogic.js"></script>
+  <script src="/LandingPage/landingPage.js"></script>
+  <script src="/scripts/headerLogic.js"></script>
 </body>
 </html>
