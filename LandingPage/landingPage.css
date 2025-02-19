@@ -4,7 +4,7 @@
   text-align: center;
   padding: 100px 20px 40px;
   margin-top: 80px;
-  background: url('/srch-frontend/images/LandingPage/wine-hero.jpg') no-repeat center center;
+  background: url('./images/LandingPage/wine-hero.jpg') no-repeat center center;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   border-bottom: 6px solid #311212;
