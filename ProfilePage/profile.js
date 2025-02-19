@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       // Fetch user data
-      const response = await fetch("http://localhost:5000/api/profile", {
-          headers: {
+      const response = await fetch("https://srch-backend.onrender.com/api/profile", {
+        headers: {
               Authorization: `Bearer ${token}`,
           },
       });
