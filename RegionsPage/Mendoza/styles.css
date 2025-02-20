@@ -15,7 +15,7 @@ body {
     width: 100%;
     min-height: 45vh; /* Ensures it actually takes 45% of the viewport */
     max-height: 50vh; /* Ensures it doesn't shrink */
-    background-image: url('/srch-frontend/images/Regions/Mendoza-banner.jpg');
+    background-image: url('/images/Regions/Mendoza-banner.jpg');
     background-size: cover;
     background-position: center top 32%; /* Adjust the percentage as needed */
     background-repeat: no-repeat;
