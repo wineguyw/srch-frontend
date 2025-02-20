@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         // Send data to API
-        const response = await fetch("https://srch-backend.onrender.com/api/signup", {
+        const response = await fetch("https://srch-backend.onrender.com/api/auth/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Redirect to profile page after 3 seconds
           setTimeout(() => {
-            window.location.href = "./ProfilePage/";
+            window.location.href = "/ProfilePage/";
           }, 3000);
         } else {
           alert(result.error || "Signup failed. Please try again.");
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("https://srch-backend.onrender.com/api/login", {
+        const response = await fetch("https://srch-backend.onrender.com/api/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
           loginModal.classList.add("hidden");
 
           // Redirect to profile page
-          window.location.href = "./ProfilePage/";
+          window.location.href = "/ProfilePage/";
         } else {
           alert(result.error || "Invalid login credentials.");
         }
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function logoutUser() {
     alert("You've been logged out due to inactivity.");
     localStorage.removeItem("token");
-    window.location.href = "./LandingPage/";
+    window.location.href = "/index.html/";
   }
 
   // Detect user activity
@@ -220,13 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const regionItems = document.querySelectorAll(".region-item");
 
   regionItems.forEach(item => {
-      item.addEventListener("click", () => {
-        const link = item.getAttribute("data-link");
-        window.location.href = link;  // ✅ Use the correct direct path
-      });
+    item.addEventListener("click", () => {
+      let link = item.getAttribute("data-link");
+      if (!link.startsWith("/")) {
+        link = "/RegionsPage/" + link;  // ✅ Ensure absolute path
+      }
+      window.location.href = link;
+    });
 
-      // Optional: Add a hover effect to indicate interactivity
-      item.style.cursor = "pointer";
-  });
-});
-
+    item.style.cursor = "pointer";
+  });  // ✅ Correctly closes forEach()
+});  // ✅ Correctly closes DOMContentLoaded event
