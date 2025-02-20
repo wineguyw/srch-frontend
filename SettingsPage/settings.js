@@ -22,6 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutButton.addEventListener("click", () => {
         localStorage.removeItem("token"); // Remove stored session data
         alert("You have been logged out.");
-        window.location.href = "/srch-frontend/LandingPage/index.html"; // Redirect to homepage
+        window.location.href = "/LandingPage/index.html"; // Redirect to homepage
     });
 });
