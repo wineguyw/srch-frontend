@@ -1,11 +1,10 @@
 // Check if Three.js and ThreeGlobe are available before proceeding
 if (typeof THREE === 'undefined') {
   console.error("❌ ERROR: Three.js library is not loaded! Please include <script src='https://unpkg.com/three@0.160.1/build/three.min.js'></script> in your HTML.");
-  return;
 }
 if (typeof Globe === 'undefined') {
   console.error("❌ ERROR: ThreeGlobe library is not loaded! Please include <script src='https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js'></script> in your HTML after Three.js.");
-  return;
+  return; // Exit if ThreeGlobe is not loaded, but this is now in a valid block
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -243,14 +242,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return { x, y };
   }
 
-  // 🔹 Function to Get Tile URL from Lat/Lng and Zoom with Error Handling
+  // 🔹 Function to Get Tile URL from Lat/Lng and Zoom with Error Handling and Fallback
   function getTileUrl(lat, lng, zoom) {
     const { x, y } = latLngToTileCoords(lat, lng, zoom);
     // Cap zoom level at 10 (satellite-v9 typically supports up to zoom 10)
     const validZoom = Math.min(10, Math.max(0, Math.floor(zoom)));
-    const tileUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${validZoom}/${x}/${y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}`;
-    console.log(`🗺️ Generated Tile URL: ${tileUrl}`);
-    return tileUrl;
+    try {
+      const tileUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${validZoom}/${x}/${y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}`;
+      console.log(`🗺️ Generated Tile URL: ${tileUrl}`);
+      return tileUrl;
+    } catch (error) {
+      console.error("Error generating Mapbox tile URL:", error);
+      // Fallback to OpenStreetMap tiles if Mapbox fails
+      const osmUrl = `https://tile.openstreetmap.org/${validZoom}/${x}/${y}.png`;
+      console.log(`🗺️ Falling back to OpenStreetMap Tile URL: ${osmUrl}`);
+      return osmUrl;
+    }
   }
 
   // 🌍 Initialize Globe with a Mid-Range Tile (Starting View) or Fallback
@@ -316,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return tileUrl;
         } catch (error) {
           console.error("Error loading tile:", error);
-          return 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Earth_from_Space_%28cropped%29.jpg'; // Reliable fallback image
+          return 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Earth_from_Space_%28cropped%29.jpg/800px-Earth_from_Space_%28cropped%29.jpg'; // Reliable fallback image
         }
       });
     }
