@@ -1,3 +1,9 @@
+// Ensure Three.js and ThreeGlobe are available
+if (typeof Globe === 'undefined') {
+  console.error("❌ ERROR: ThreeGlobe library is not loaded! Please include <script src='https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js'></script> in your HTML.");
+  return;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const globeContainer = document.getElementById("globeViz");
   const countryFilter = document.getElementById("countryFilter");
@@ -6,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const subregionGroup = document.getElementById("subregionGroup"); // ✅ Add this
 
   if (!globeContainer) {
-    console.error("❌ ERROR: Globe container #globeViz NOT found in the DOM!");
+    console.error("❌ ERROR: Globe container #globeViz NOT found in the DOM! Please ensure <div id='globeViz'></div> exists in your HTML.");
     return;
   }
 
