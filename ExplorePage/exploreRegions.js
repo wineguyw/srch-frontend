@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 🌍 Initialize the Globe with NASA GIBS Tiles (Dynamic Tile Loading)
 // Define tile-based texture function
-const getTileUrl = ({ x, y, z }) => 
+const getTileUrl = (x, y, z) => 
   `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${z}/${y}/${x}.jpg`;
 
 const myGlobe = Globe()
@@ -239,24 +239,30 @@ const myGlobe = Globe()
 
 myGlobe(globeContainer);
 
+// 🔹 Define function to generate correct Tile URL
+function getTileUrl(x, y, z) {
+  return `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${z}/${y}/${x}.jpg`;
+}
+
 // 🔹 Function: Dynamically Update Tile Layer Based on Zoom
 function updateTileLayer(zoomFactor) {
   let zoomLevel;
 
   if (zoomFactor > 1.0) {
-    zoomLevel = 4; // Global overview
+    zoomLevel = 4;  // Global view
   } else if (zoomFactor > 0.5) {
-    zoomLevel = 6; // Country zoom
+    zoomLevel = 6;  // Country zoom
   } else if (zoomFactor > 0.2) {
-    zoomLevel = 8; // Region zoom
+    zoomLevel = 8;  // Region zoom
   } else {
-    zoomLevel = 10; // Subregion (maximum resolution)
+    zoomLevel = 10; // Subregion zoom (max resolution)
   }
 
-  const tileUrl = `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${zoomLevel}/{y}/{x}.jpg`;
+  // Correctly fetch the tile image for zoom level
+  const tileUrl = getTileUrl(0, 0, zoomLevel);
 
   console.log(`🗺️ Updating tile layer: ${tileUrl}`);
-  myGlobe.globeImageUrl(tileUrl);
+  myGlobe.globeImageUrl(tileUrl);  // ✅ Update texture
 }
 
 // **Enable Auto-Rotation**
@@ -292,10 +298,9 @@ let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther a
 function stopAndZoom(lat, lng, zoomFactor) {
   console.log(`📌 Applying Zoom - Lat: ${lat}, Lng: ${lng}, Zoom: ${zoomFactor}`);
   stopAutoRotate();
-  currentZoomLevel = zoomFactor;  // Store new zoom level
+  currentZoomLevel = zoomFactor; 
 
-  // 🔄 Update the tile layer dynamically
-  updateTileLayer(zoomFactor);
+  updateTileLayer(zoomFactor);  // Update tile based on zoom
 
   myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
 }
