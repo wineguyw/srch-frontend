@@ -239,11 +239,6 @@ const myGlobe = Globe()
 
 myGlobe(globeContainer);
 
-// 🔹 Define function to generate correct Tile URL
-function getTileUrl(x, y, z) {
-  return `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${z}/${y}/${x}.jpg`;
-}
-
 // 🔹 Function: Dynamically Update Tile Layer Based on Zoom
 function updateTileLayer(zoomFactor) {
   let zoomLevel;
