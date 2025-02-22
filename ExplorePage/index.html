@@ -13,11 +13,8 @@
   <link rel="stylesheet" href="/CentralCSS/base.css">
   <link rel="stylesheet" href="/ExplorePage/styles.css">
 
-  <!-- Three.js and ThreeGlobe Scripts (Using ES Modules for Three.js to avoid deprecation warning) -->
-  <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.160.1/build/three.module.js';
-    window.THREE = THREE; // Make THREE globally available for ThreeGlobe
-  </script>
+  <!-- Three.js and ThreeGlobe Scripts (Using UMD versions for compatibility) -->
+  <script src="https://unpkg.com/three@0.160.1/build/three.min.js"></script>
   <script src="https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js"></script>
 </head>
 <body>
@@ -47,7 +44,7 @@
             <button id="login-button" class="login-btn">Login</button>
             <button id="get-started-btn" class="get-started-btn">Get Started</button>
         </div>
-      </div> <!-- ✅ MOVE THIS HERE to properly close .auth-section -->
+      </div>
   </header>
 
   <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
