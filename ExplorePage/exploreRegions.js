@@ -221,14 +221,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // 🌍 Initialize the Globe with Mapbox Tiles
-const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoid2luZXNyY2h3IiwiYSI6ImNtN2dwcjF4YjBlMzQyc3B0Njk5cnc0ZTYifQ.v8sNFWpPLojtEo0r67v6kQ";  // 🔹 Replace this with your actual key
+const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoid2luZXNyY2h3IiwiYSI6ImNtN2dwcjF4YjBlMzQyc3B0Njk5cnc0ZTYifQ.v8sNFWpPLojtEo0r67v6kQ"; // ✅ Replace with actual key
 
-// Define the tile-based function using Mapbox Satellite imagery
-const getTileUrl = (x, y, z) => 
-  `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${z}/${x}/${y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
+// 🔹 Function to Convert Lat/Lng to Tile Coordinates (Web Mercator Projection)
+function latLngToTileCoords(lat, lng, zoom) {
+  const x = Math.floor(((lng + 180) / 360) * Math.pow(2, zoom));
+  const y = Math.floor(
+    (1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom)
+  );
+  return { x, y };
+}
+
+
+
+// 🔹 Function to Get Tile URL from Lat/Lng and Zoom
+function getTileUrl(lat, lng, zoom) {
+  const { x, y } = latLngToTileCoords(lat, lng, zoom);
+  return `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${zoom}/${x}/${y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
+}
+
+// 🌍 Initialize Globe with a Mid-Range Tile (Starting View)
+const initialTileUrl = getTileUrl(39.8283, -98.5795, 5); // Default to USA center with medium zoom
 
 const myGlobe = Globe()
-  .globeImageUrl(getTileUrl) // Use Mapbox tiles
+  .globeImageUrl(() => initialTileUrl) // ✅ Start with a mid-range tile
   .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
   .backgroundColor('#121212')
   .ringsData(ringsData)
@@ -242,29 +258,27 @@ const myGlobe = Globe()
 
 myGlobe(globeContainer);
 
-// 🔹 Function: Dynamically Update Tile Layer Based on Zoom
-function updateTileLayer(zoomFactor) {
+// 🔹 Function: Dynamically Update Tile Layer Based on Zoom & Position
+function updateTileLayer(zoomFactor, lat, lng) {
   let zoomLevel;
 
   if (zoomFactor > 1.0) {
-    zoomLevel = 4;  // Global view
+    zoomLevel = 3;  // Global View
   } else if (zoomFactor > 0.5) {
-    zoomLevel = 6;  // Country zoom
+    zoomLevel = 5;  // Country View
   } else if (zoomFactor > 0.2) {
-    zoomLevel = 8;  // Region zoom
+    zoomLevel = 7;  // Region View
   } else {
-    zoomLevel = 12; // Subregion zoom (max resolution)
+    zoomLevel = 10; // Subregion View (Max Detail)
   }
 
-  // Fetch new Mapbox tile image for zoom level
-  const tileUrl = getTileUrl(0, 0, zoomLevel);
-
+  const tileUrl = getTileUrl(lat, lng, zoomLevel);
   console.log(`🗺️ Updating tile layer: ${tileUrl}`);
-  myGlobe.globeImageUrl(tileUrl);
+  
+  myGlobe.globeImageUrl(() => tileUrl);  // ✅ Ensure correct tile updates
 }
 
-
-// **Enable Auto-Rotation**
+// 🔹 **Enable Auto-Rotation**
 let autoRotate = true;
 const rotationSpeed = 0.02; // Adjust for smooth motion
 
@@ -282,7 +296,7 @@ function rotateGlobe() {
 
 rotateGlobe(); // Start rotation on page load
 
-// **Stop Auto-Rotation on Interaction**
+// 🔹 **Stop Auto-Rotation on Interaction**
 function stopAutoRotate() {
   autoRotate = false;
 }
@@ -290,19 +304,22 @@ function stopAutoRotate() {
 globeContainer.addEventListener("mousedown", stopAutoRotate);
 globeContainer.addEventListener("touchstart", stopAutoRotate);
 
-// **Track Current Zoom Level**
+// 🔹 **Track Current Zoom Level**
 let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther away)
 
-// **Stop Rotation and Apply Smooth Zoom**
+// 🔹 **Stop Rotation and Apply Smooth Zoom**
 function stopAndZoom(lat, lng, zoomFactor) {
   console.log(`📌 Applying Zoom - Lat: ${lat}, Lng: ${lng}, Zoom: ${zoomFactor}`);
   stopAutoRotate();
-  currentZoomLevel = zoomFactor; 
+  currentZoomLevel = zoomFactor;  // Store new zoom level
 
-  updateTileLayer(zoomFactor);  // Update tile based on zoom
+  updateTileLayer(zoomFactor, lat, lng);  // ✅ Fetch the correct tile
 
   myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
 }
+
+
+
 
 // **Country Selection - Zoom In More**
 countryFilter.addEventListener("change", () => {
