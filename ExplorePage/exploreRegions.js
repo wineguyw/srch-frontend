@@ -278,12 +278,12 @@ countryFilter.addEventListener("change", () => {
   regionFilter.disabled = !selectedCountry;
 
   if (selectedCountry) {
-    wineRegions[selectedCountry].regions.forEach(region => {
+    Object.keys(wineRegions[selectedCountry].regions).forEach(region => {
       const option = document.createElement("option");
       option.value = region;
       option.textContent = region;
       regionFilter.appendChild(option);
-    });
+    });    
 
     // **Ensure country zooms in more than default**
     stopAndZoom(
