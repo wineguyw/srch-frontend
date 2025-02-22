@@ -219,13 +219,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ringsData = allLabels.flatMap(generateRings);
 
-// 🌍 Initialize the Globe with NASA GIBS Tiles (Dynamic Tile Loading)
-// Define tile-based texture function
+
+// 🌍 Initialize the Globe with Mapbox Tiles
+const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoid2luZXNyY2h3IiwiYSI6ImNtN2dwcjF4YjBlMzQyc3B0Njk5cnc0ZTYifQ.v8sNFWpPLojtEo0r67v6kQ";  // 🔹 Replace this with your actual key
+
+// Define the tile-based function using Mapbox Satellite imagery
 const getTileUrl = (x, y, z) => 
-  `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${z}/${y}/${x}.jpg`;
+  `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${z}/${x}/${y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
 
 const myGlobe = Globe()
-  .globeImageUrl(getTileUrl) // Use the tile-based function
+  .globeImageUrl(getTileUrl) // Use Mapbox tiles
   .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
   .backgroundColor('#121212')
   .ringsData(ringsData)
@@ -250,15 +253,16 @@ function updateTileLayer(zoomFactor) {
   } else if (zoomFactor > 0.2) {
     zoomLevel = 8;  // Region zoom
   } else {
-    zoomLevel = 10; // Subregion zoom (max resolution)
+    zoomLevel = 12; // Subregion zoom (max resolution)
   }
 
-  // Correctly fetch the tile image for zoom level
+  // Fetch new Mapbox tile image for zoom level
   const tileUrl = getTileUrl(0, 0, zoomLevel);
 
   console.log(`🗺️ Updating tile layer: ${tileUrl}`);
-  myGlobe.globeImageUrl(tileUrl);  // ✅ Update texture
+  myGlobe.globeImageUrl(tileUrl);
 }
+
 
 // **Enable Auto-Rotation**
 let autoRotate = true;
