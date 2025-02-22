@@ -122,7 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ]}
         }
     }
-  };
+};
+
 
   const allLabels = [
     // USA
@@ -179,22 +180,22 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "McLaren Vale", country: "Australia", lat: -35.219, lng: 138.546 }, 
     { name: "Coonawarra", country: "Australia", lat: -37.287, lng: 140.833 },
 
-    // New Zealand
+// New Zealand
     { name: "Wairarapa", country: "New Zealand", lat: -40.948, lng: 175.659 },
     { name: "Canterbury", country: "New Zealand", lat: -43.531, lng: 172.636 },
 
-    // South Africa
+// South Africa
     { name: "Walker Bay", country: "South Africa", lat: -34.417, lng: 19.279 },
     { name: "Franschhoek", country: "South Africa", lat: -33.911, lng: 19.125 },
 
-    // Argentina
+// Argentina
     { name: "La Rioja", country: "Argentina", lat: -29.413, lng: -66.855 },
     { name: "Catamarca", country: "Argentina", lat: -28.469, lng: -65.779 },
 
-    // Chile
+// Chile
     { name: "Aconcagua Valley", country: "Chile", lat: -32.830, lng: -70.706 },
     { name: "Itata Valley", country: "Chile", lat: -36.675, lng: -72.792 },
-  ];
+];
 
   // Generate multiple expanding rings per location
   const generateRings = (location) => {
@@ -218,205 +219,188 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ringsData = allLabels.flatMap(generateRings);
 
-  // 🌍 Initialize the Globe with Mapbox Tiles
-  const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoid2VzbGV5ZWxsaW90dCIsImEiOiJjbTdncXJvMzMxMDB1Mmxwdmlyb2s0c2JlIn0.nOaxv1GoC7lp-ko57CKNSQ"; // ✅ Updated with new token
 
-  // 🔹 Function to Convert Lat/Lng to Tile Coordinates (Web Mercator Projection)
-  function latLngToTileCoords(lat, lng, zoom) {
-    // Ensure latitude is within Mapbox bounds (-85.0511 to 85.0511)
-    const clampedLat = Math.max(-85.0511, Math.min(85.0511, lat));
-    const x = Math.floor(((lng + 180) / 360) * Math.pow(2, zoom));
-    const y = Math.floor(
-      (1 - Math.log(Math.tan(clampedLat * Math.PI / 180) + 1 / Math.cos(clampedLat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom)
+// 🌍 Initialize the Globe with Mapbox Tiles
+const MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoid2luZXNyY2h3IiwiYSI6ImNtN2dwcjF4YjBlMzQyc3B0Njk5cnc0ZTYifQ.v8sNFWpPLojtEo0r67v6kQ"; // ✅ Replace with actual key
+
+// 🔹 Function to Convert Lat/Lng to Tile Coordinates (Web Mercator Projection)
+function latLngToTileCoords(lat, lng, zoom) {
+  const x = Math.floor(((lng + 180) / 360) * Math.pow(2, zoom));
+  const y = Math.floor(
+    (1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom)
+  );
+  return { x, y };
+}
+
+
+
+// 🔹 Function to Get Tile URL from Lat/Lng and Zoom
+function getTileUrl(lat, lng, zoom) {
+  const { x, y } = latLngToTileCoords(lat, lng, zoom);
+  return `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${zoom}/${x}/${y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
+}
+
+// 🌍 Initialize Globe with a Mid-Range Tile (Starting View)
+const initialTileUrl = getTileUrl(39.8283, -98.5795, 5); // Default to USA center with medium zoom
+
+const myGlobe = Globe()
+  .globeImageUrl(() => initialTileUrl) // ✅ Start with a mid-range tile
+  .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+  .backgroundColor('#121212')
+  .ringsData(ringsData)
+  .ringColor(d => d.color)
+  .ringMaxRadius(d => d.maxRadius)
+  .ringPropagationSpeed(d => d.propagationSpeed)
+  .ringRepeatPeriod(d => d.repeatPeriod)
+  .showAtmosphere(true)
+  .atmosphereColor('rgba(158, 141, 141, 0.3)')
+  .atmosphereAltitude(0.25);
+
+myGlobe(globeContainer);
+
+// 🔹 Function: Dynamically Update Tile Layer Based on Zoom & Position
+function updateTileLayer(zoomFactor, lat, lng) {
+  let zoomLevel;
+
+  if (zoomFactor > 1.0) {
+    zoomLevel = 3;  // Global View
+  } else if (zoomFactor > 0.5) {
+    zoomLevel = 5;  // Country View
+  } else if (zoomFactor > 0.2) {
+    zoomLevel = 7;  // Region View
+  } else {
+    zoomLevel = 10; // Subregion View (Max Detail)
+  }
+
+  const tileUrl = getTileUrl(lat, lng, zoomLevel);
+  console.log(`🗺️ Updating tile layer: ${tileUrl}`);
+  
+  myGlobe.globeImageUrl(() => tileUrl);  // ✅ Ensure correct tile updates
+}
+
+// 🔹 **Enable Auto-Rotation**
+let autoRotate = true;
+const rotationSpeed = 0.02; // Adjust for smooth motion
+
+function rotateGlobe() {
+  if (autoRotate) {
+    const currentView = myGlobe.pointOfView();
+    myGlobe.pointOfView({
+      lat: currentView.lat,
+      lng: currentView.lng + rotationSpeed,
+      altitude: currentView.altitude
+    });
+    requestAnimationFrame(rotateGlobe);
+  }
+}
+
+rotateGlobe(); // Start rotation on page load
+
+// 🔹 **Stop Auto-Rotation on Interaction**
+function stopAutoRotate() {
+  autoRotate = false;
+}
+
+globeContainer.addEventListener("mousedown", stopAutoRotate);
+globeContainer.addEventListener("touchstart", stopAutoRotate);
+
+// 🔹 **Track Current Zoom Level**
+let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther away)
+
+// 🔹 **Stop Rotation and Apply Smooth Zoom**
+function stopAndZoom(lat, lng, zoomFactor) {
+  console.log(`📌 Applying Zoom - Lat: ${lat}, Lng: ${lng}, Zoom: ${zoomFactor}`);
+  stopAutoRotate();
+  currentZoomLevel = zoomFactor;  // Store new zoom level
+
+  updateTileLayer(zoomFactor, lat, lng);  // ✅ Fetch the correct tile
+
+  myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
+}
+
+
+
+
+// **Country Selection - Zoom In More**
+countryFilter.addEventListener("change", () => {
+  const selectedCountry = countryFilter.value;
+  console.log("🔍 Zooming to Country:", selectedCountry);
+
+  regionFilter.innerHTML = '<option value="">Select a Region</option>';
+  regionFilter.disabled = !selectedCountry;
+
+  if (selectedCountry) {
+    Object.keys(wineRegions[selectedCountry].regions).forEach(region => {
+      const option = document.createElement("option");
+      option.value = region;
+      option.textContent = region;
+      regionFilter.appendChild(option);
+    });    
+
+    // **Ensure country zooms in more than default**
+    stopAndZoom(
+      wineRegions[selectedCountry].lat, 
+      wineRegions[selectedCountry].lng, 
+      Math.max(0.7, currentZoomLevel * 0.6)  // Closer zoom level
     );
-    return { x, y };
   }
+});
 
-  // 🔹 Function to Get Tile URL from Lat/Lng and Zoom with Error Handling
-  function getTileUrl(lat, lng, zoom) {
-    const { x, y } = latLngToTileCoords(lat, lng, zoom);
-    // Ensure zoom level is within Mapbox bounds (0-22 for most styles, but 0-10 for satellite-v9 typically)
-    const validZoom = Math.min(10, Math.max(0, zoom)); // Cap at 10 to avoid issues
-    const tileUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/${validZoom}/${x}/${y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}`;
-    console.log(`🗺️ Generated Tile URL: ${tileUrl}`);
-    return tileUrl;
-  }
+// **Region Selection - Zoom Even Closer**
+regionFilter.addEventListener("change", () => {
+  const selectedCountry = countryFilter.value;
+  const selectedRegion = regionFilter.value;
+  console.log(`🔍 Zooming to Region: ${selectedRegion}`);
 
-  // 🌍 Initialize Globe with a Mid-Range Tile (Starting View)
-  const initialTileUrl = getTileUrl(39.8283, -98.5795, 5); // Default to USA center with medium zoom
+  // Reset & disable subregion dropdown initially
+  subregionFilter.innerHTML = '<option value="">Select a Subregion</option>';
+  subregionFilter.disabled = true;
+  subregionGroup.style.display = "none"; // Hide initially
 
-  const myGlobe = Globe()
-    .globeImageUrl(() => {
-      try {
-        return initialTileUrl; // Start with initial tile
-      } catch (error) {
-        console.error("Error loading initial tile:", error);
-        return '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'; // Fallback image
-      }
-    })
-    .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-    .backgroundColor('#121212')
-    .ringsData(ringsData)
-    .ringColor(d => d.color)
-    .ringMaxRadius(d => d.maxRadius)
-    .ringPropagationSpeed(d => d.propagationSpeed)
-    .ringRepeatPeriod(d => d.repeatPeriod)
-    .showAtmosphere(true)
-    .atmosphereColor('rgba(158, 141, 141, 0.3)')
-    .atmosphereAltitude(0.25)
-    .onZoom(() => {
-      const pov = myGlobe.pointOfView();
-      updateTileLayer(pov.altitude, pov.lat, pov.lng);
-    });
+  // Find the correct region object in wineRegions
+  const regionData = wineRegions[selectedCountry]?.regions[selectedRegion];
 
-  myGlobe(globeContainer);
+  if (regionData) {
+    stopAndZoom(regionData.lat, regionData.lng, Math.max(0.2, currentZoomLevel * 0.35));
 
-  // 🔹 Function: Dynamically Update Tile Layer Based on Zoom & Position
-  function updateTileLayer(zoomFactor, lat, lng) {
-    let zoomLevel;
+    // If subregions exist, populate the dropdown
+    if (regionData.subregions && regionData.subregions.length > 0) {
+      console.log(`🟢 Found ${regionData.subregions.length} subregions for ${selectedRegion}`);
+      subregionFilter.disabled = false;
+      subregionGroup.style.display = "block"; // Show the subregion filter
 
-    if (zoomFactor > 1.0) {
-      zoomLevel = 3;  // Global View
-    } else if (zoomFactor > 0.5) {
-      zoomLevel = 5;  // Country View
-    } else if (zoomFactor > 0.2) {
-      zoomLevel = 7;  // Region View
-    } else {
-      zoomLevel = 10; // Subregion View (Max Detail)
-    }
-
-    const tileUrl = getTileUrl(lat, lng, zoomLevel);
-    console.log(`🗺️ Updating tile layer: ${tileUrl}`);
-    
-    myGlobe.globeImageUrl(() => {
-      try {
-        return tileUrl;
-      } catch (error) {
-        console.error("Error loading tile:", error);
-        return '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'; // Fallback image
-      }
-    });
-  }
-
-  // 🔹 **Enable Auto-Rotation**
-  let autoRotate = true;
-  const rotationSpeed = 0.02; // Adjust for smooth motion
-
-  function rotateGlobe() {
-    if (autoRotate) {
-      const currentView = myGlobe.pointOfView();
-      myGlobe.pointOfView({
-        lat: currentView.lat,
-        lng: currentView.lng + rotationSpeed,
-        altitude: currentView.altitude
-      });
-      requestAnimationFrame(rotateGlobe);
-    }
-  }
-
-  rotateGlobe(); // Start rotation on page load
-
-  // 🔹 **Stop Auto-Rotation on Interaction**
-  function stopAutoRotate() {
-    autoRotate = false;
-  }
-
-  globeContainer.addEventListener("mousedown", stopAutoRotate);
-  globeContainer.addEventListener("touchstart", stopAutoRotate);
-
-  // 🔹 **Track Current Zoom Level**
-  let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther away)
-
-  // 🔹 **Stop Rotation and Apply Smooth Zoom**
-  function stopAndZoom(lat, lng, zoomFactor) {
-    console.log(`📌 Applying Zoom - Lat: ${lat}, Lng: ${lng}, Zoom: ${zoomFactor}`);
-    stopAutoRotate();
-    currentZoomLevel = zoomFactor;  // Store new zoom level
-
-    updateTileLayer(zoomFactor, lat, lng);  // ✅ Fetch the correct tile
-
-    myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
-  }
-
-  // **Country Selection - Zoom In More**
-  countryFilter.addEventListener("change", () => {
-    const selectedCountry = countryFilter.value;
-    console.log("🔍 Zooming to Country:", selectedCountry);
-
-    regionFilter.innerHTML = '<option value="">Select a Region</option>';
-    regionFilter.disabled = !selectedCountry;
-
-    if (selectedCountry) {
-      Object.keys(wineRegions[selectedCountry].regions).forEach(region => {
+      regionData.subregions.forEach(subregion => {
         const option = document.createElement("option");
-        option.value = region;
-        option.textContent = region;
-        regionFilter.appendChild(option);
-      });    
-
-      // **Ensure country zooms in more than default**
-      stopAndZoom(
-        wineRegions[selectedCountry].lat, 
-        wineRegions[selectedCountry].lng, 
-        Math.max(0.7, currentZoomLevel * 0.6)  // Closer zoom level
-      );
+        option.value = subregion.name;
+        option.textContent = subregion.name;
+        subregionFilter.appendChild(option);
+      });
     }
-  });
+  } else {
+    console.warn(`⚠️ Region Data Not Found: ${selectedRegion}`);
+  }
+});
 
-  // **Region Selection - Zoom Even Closer**
-  regionFilter.addEventListener("change", () => {
-    const selectedCountry = countryFilter.value;
-    const selectedRegion = regionFilter.value;
-    console.log(`🔍 Zooming to Region: ${selectedRegion}`);
+// **Subregion Selection - Zoom to Subregion**
+subregionFilter.addEventListener("change", () => {
+  const selectedCountry = countryFilter.value;
+  const selectedRegion = regionFilter.value;
+  const selectedSubregion = subregionFilter.value;
 
-    // Reset & disable subregion dropdown initially
-    subregionFilter.innerHTML = '<option value="">Select a Subregion</option>';
-    subregionFilter.disabled = true;
-    subregionGroup.style.display = "none"; // Hide initially
+  console.log(`🔍 Zooming to Subregion: ${selectedSubregion}`);
 
-    // Find the correct region object in wineRegions
-    const regionData = wineRegions[selectedCountry]?.regions[selectedRegion];
+  // Find the selected subregion data
+  const subregionData = wineRegions[selectedCountry]?.regions[selectedRegion]?.subregions
+    .find(subregion => subregion.name === selectedSubregion);
 
-    if (regionData) {
-      stopAndZoom(regionData.lat, regionData.lng, Math.max(0.2, currentZoomLevel * 0.35));
+  if (subregionData) {
+    stopAndZoom(subregionData.lat, subregionData.lng, Math.max(0.05, currentZoomLevel * 0.2));
+  } else {
+    console.warn(`⚠️ Subregion Data Not Found: ${selectedSubregion}`);
+  }
+});
 
-      // If subregions exist, populate the dropdown
-      if (regionData.subregions && regionData.subregions.length > 0) {
-        console.log(`🟢 Found ${regionData.subregions.length} subregions for ${selectedRegion}`);
-        subregionFilter.disabled = false;
-        subregionGroup.style.display = "block"; // Show the subregion filter
-
-        regionData.subregions.forEach(subregion => {
-          const option = document.createElement("option");
-          option.value = subregion.name;
-          option.textContent = subregion.name;
-          subregionFilter.appendChild(option);
-        });
-      }
-    } else {
-      console.warn(`⚠️ Region Data Not Found: ${selectedRegion}`);
-    }
-  });
-
-  // **Subregion Selection - Zoom to Subregion**
-  subregionFilter.addEventListener("change", () => {
-    const selectedCountry = countryFilter.value;
-    const selectedRegion = regionFilter.value;
-    const selectedSubregion = subregionFilter.value;
-
-    console.log(`🔍 Zooming to Subregion: ${selectedSubregion}`);
-
-    // Find the selected subregion data
-    const subregionData = wineRegions[selectedCountry]?.regions[selectedRegion]?.subregions
-      .find(subregion => subregion.name === selectedSubregion);
-
-    if (subregionData) {
-      stopAndZoom(subregionData.lat, subregionData.lng, Math.max(0.05, currentZoomLevel * 0.2));
-    } else {
-      console.warn(`⚠️ Subregion Data Not Found: ${selectedSubregion}`);
-    }
-  });
 
   // ✅ Globe Initialized
   console.log("✅ Globe Initialized with Auto-Rotation!");
-}); // <-- Ensure this closing bracket exists
+}); // <-- Make sure this closing bracket exists
