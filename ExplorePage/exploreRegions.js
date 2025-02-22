@@ -294,7 +294,7 @@ countryFilter.addEventListener("change", () => {
     stopAndZoom(
       wineRegions[selectedCountry].lat, 
       wineRegions[selectedCountry].lng, 
-      Math.max(0.7, currentZoomLevel * 0.8)  // Closer zoom level
+      Math.max(0.7, currentZoomLevel * 0.6)  // Closer zoom level
     );
   }
 });
@@ -314,7 +314,7 @@ regionFilter.addEventListener("change", () => {
   const regionData = wineRegions[selectedCountry]?.regions[selectedRegion];
 
   if (regionData) {
-    stopAndZoom(regionData.lat, regionData.lng, Math.max(0.5, currentZoomLevel * 0.8));
+    stopAndZoom(regionData.lat, regionData.lng, Math.max(0.2, currentZoomLevel * 0.35));
 
     // If subregions exist, populate the dropdown
     if (regionData.subregions && regionData.subregions.length > 0) {
@@ -347,7 +347,7 @@ subregionFilter.addEventListener("change", () => {
     .find(subregion => subregion.name === selectedSubregion);
 
   if (subregionData) {
-    stopAndZoom(subregionData.lat, subregionData.lng, Math.max(0.4, currentZoomLevel * 0.8));
+    stopAndZoom(subregionData.lat, subregionData.lng, Math.max(0.05, currentZoomLevel * 0.2));
   } else {
     console.warn(`⚠️ Subregion Data Not Found: ${selectedSubregion}`);
   }
