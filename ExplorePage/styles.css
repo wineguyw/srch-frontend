@@ -60,6 +60,63 @@
   cursor: pointer;
 }
 
+/* 🔹 Subregion Dropdown */
+#subregionFilter {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #181818;
+  color: white;
+  border: 1px solid #777;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+/* 🔹 Ensure all dropdowns are aligned */
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 🔹 Floating Name Tags for Wine Regions & Subregions */
+.globe-label {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  transition: opacity 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+/* 🔹 Subregion labels should be slightly smaller */
+.globe-label.subregion {
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #444;
+  padding: 3px 8px;
+}
+
+.globe-label.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+.globe-label.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
 .explore-map-container {
   display: flex;
   justify-content: center;

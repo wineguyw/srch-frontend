@@ -11,18 +11,117 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ Initializing Globe...");
 
   const wineRegions = {
-    USA: { lat: 39.8283, lng: -98.5795, zoom: 1.5, regions: ["Napa Valley", "Sonoma County", "Central Coast, CA", "Oregon", "Washington", "Finger Lakes", "Willamette Valley", "Paso Robles"] },
-    France: { lat: 46.6034, lng: 1.8883, zoom: 1.7, regions: ["Bordeaux", "Burgundy", "Loire Valley", "Champagne", "Rhone Valley", "Alsace", "Provence", "Languedoc"] },
-    Italy: { lat: 41.8719, lng: 12.5674, zoom: 1.7, regions: ["Tuscany", "Piedmont", "Veneto", "Sicily", "Umbria", "Trentino-Alto Adige", "Friuli Venezia Giulia"] },
-    Spain: { lat: 40.4637, lng: -3.7492, zoom: 1.8, regions: ["Rioja", "Priorat", "Ribera del Duero", "Penedès", "Galicia"] },
-    Portugal: { lat: 39.3999, lng: -8.2245, zoom: 1.8, regions: ["Douro Valley", "Alentejo", "Madeira", "Vinho Verde"] },
-    Australia: { lat: -25.2744, lng: 133.7751, zoom: 1.8, regions: ["Barossa Valley", "Hunter Valley", "Margaret River", "Yarra Valley", "Clare Valley"] },
-    "New Zealand": { lat: -40.9006, lng: 174.8860, zoom: 1.8, regions: ["Marlborough", "Central Otago", "Hawke's Bay", "Gisborne"] },
-    "South Africa": { lat: -30.5595, lng: 22.9375, zoom: 1.8, regions: ["Stellenbosch", "Swartland", "Paarl", "Constantia"] },
-    Argentina: { lat: -38.4161, lng: -63.6167, zoom: 1.8, regions: ["Mendoza", "Patagonia", "Salta", "San Juan"] },
-    Chile: { lat: -35.6751, lng: -71.5430, zoom: 1.8, regions: ["Maipo Valley", "Colchagua Valley", "Casablanca Valley", "Limarí Valley"] },
-    Germany: { lat: 51.1657, lng: 10.4515, zoom: 1.8, regions: ["Mosel", "Rheingau", "Baden", "Franken", "Pfalz"] }
+    USA: { 
+        lat: 39.8283, lng: -98.5795, zoom: 1.5, 
+        regions: {
+            "Napa Valley": { lat: 38.2975, lng: -122.2869, zoom: 0.3, subregions: [
+                { name: "St. Helena AVA", lat: 38.505, lng: -122.470 },
+                { name: "Oakville AVA", lat: 38.428, lng: -122.408 },
+                { name: "Yountville AVA", lat: 38.401, lng: -122.361 }
+            ]},
+            "Sonoma County": { lat: 38.433, lng: -122.515, zoom: 0.3, subregions: [
+                { name: "Russian River Valley", lat: 38.495, lng: -122.950 },
+                { name: "Alexander Valley", lat: 38.648, lng: -122.867 }
+            ]}
+        }
+    },
+
+    France: { 
+        lat: 46.6034, lng: 1.8883, zoom: 1.7, 
+        regions: {
+            "Bordeaux": { lat: 44.8378, lng: -0.5792, zoom: 0.3, subregions: [
+                { name: "Médoc", lat: 45.100, lng: -0.850 },
+                { name: "Saint-Émilion", lat: 44.895, lng: -0.155 }
+            ]}
+        }
+    },
+
+    Italy: { 
+        lat: 41.8719, lng: 12.5674, zoom: 1.7, 
+        regions: {
+            "Tuscany": { lat: 43.7711, lng: 11.2486, zoom: 0.3, subregions: [
+                { name: "Chianti", lat: 43.469, lng: 11.046 },
+                { name: "Montalcino", lat: 43.056, lng: 11.489 }
+            ]}
+        }
+    },
+
+    Spain: { 
+        lat: 40.4637, lng: -3.7492, zoom: 1.8, 
+        regions: {
+            "Rioja": { lat: 42.303, lng: -2.427, zoom: 0.3, subregions: [
+                { name: "Alta", lat: 42.418, lng: -2.723 },
+                { name: "Alavesa", lat: 42.608, lng: -2.579 }
+            ]}
+        }
+    },
+
+    Portugal: { 
+        lat: 39.3999, lng: -8.2245, zoom: 1.8, 
+        regions: {
+            "Douro Valley": { lat: 41.160, lng: -7.720, zoom: 0.3, subregions: [
+                { name: "Cima Corgo", lat: 41.117, lng: -7.722 },
+                { name: "Baixo Corgo", lat: 41.197, lng: -7.728 }
+            ]}
+        }
+    },
+
+    Australia: { 
+        lat: -25.2744, lng: 133.7751, zoom: 1.8, 
+        regions: {
+            "Barossa Valley": { lat: -34.554, lng: 138.958, zoom: 0.3, subregions: [
+                { name: "Eden Valley", lat: -34.554, lng: 139.054 }
+            ]}
+        }
+    },
+
+    "New Zealand": { 
+        lat: -40.9006, lng: 174.8860, zoom: 1.8, 
+        regions: {
+            "Marlborough": { lat: -41.5134, lng: 173.9612, zoom: 0.3, subregions: [
+                { name: "Wairau Valley", lat: -41.517, lng: 173.916 }
+            ]}
+        }
+    },
+
+    "South Africa": { 
+        lat: -30.5595, lng: 22.9375, zoom: 1.8, 
+        regions: {
+            "Stellenbosch": { lat: -33.934, lng: 18.860, zoom: 0.3, subregions: [
+                { name: "Simonsberg", lat: -33.890, lng: 18.860 }
+            ]}
+        }
+    },
+
+    Argentina: { 
+        lat: -38.4161, lng: -63.6167, zoom: 1.8, 
+        regions: {
+            "Mendoza": { lat: -32.889, lng: -68.845, zoom: 0.3, subregions: [
+                { name: "Luján de Cuyo", lat: -32.97, lng: -68.88 },
+                { name: "Uco Valley", lat: -33.61, lng: -69.21 }
+            ]}
+        }
+    },
+
+    Chile: { 
+        lat: -35.6751, lng: -71.5430, zoom: 1.8, 
+        regions: {
+            "Maipo Valley": { lat: -33.772, lng: -70.675, zoom: 0.3, subregions: [
+                { name: "Alto Maipo", lat: -33.650, lng: -70.700 }
+            ]}
+        }
+    },
+
+    Germany: { 
+        lat: 51.1657, lng: 10.4515, zoom: 1.8, 
+        regions: {
+            "Mosel": { lat: 49.744, lng: 6.627, zoom: 0.3, subregions: [
+                { name: "Bernkastel", lat: 49.915, lng: 6.920 }
+            ]}
+        }
+    }
 };
+
 
   const allLabels = [
     // USA
