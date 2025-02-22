@@ -9,12 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Global Styles (Updated Paths) -->
-<link rel="stylesheet" href="/CentralCSS/base.css">
-<link rel="stylesheet" href="/ExplorePage/styles.css">
+  <!-- Global Styles (Updated Paths) -->
+  <link rel="stylesheet" href="/CentralCSS/base.css">
+  <link rel="stylesheet" href="/ExplorePage/styles.css">
 
-  <!-- Globe.gl Script -->
-  <script src="https://unpkg.com/globe.gl"></script>
+  <!-- Three.js and ThreeGlobe Scripts -->
+  <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+  <script src="https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -44,45 +45,44 @@
             <button id="get-started-btn" class="get-started-btn">Get Started</button>
         </div>
       </div> <!-- ✅ MOVE THIS HERE to properly close .auth-section -->
-      
   </header>
 
- <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
- <div class="filter-panel">
-  <h2>Wine Region Selector</h2>
+  <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
+  <div class="filter-panel">
+    <h2>Wine Region Selector</h2>
 
-  <div class="filter-group">
-    <label for="countryFilter">Country:</label>
-    <select id="countryFilter">
-      <option value="">Select a Country</option>
-      <option value="USA">USA</option>
-      <option value="France">France</option>
-      <option value="Italy">Italy</option>
-      <option value="Spain">Spain</option>
-      <option value="Portugal">Portugal</option>
-      <option value="Australia">Australia</option>
-      <option value="New Zealand">New Zealand</option>
-      <option value="South Africa">South Africa</option>
-      <option value="Argentina">Argentina</option>
-      <option value="Chile">Chile</option>
-    </select>
-  </div>
+    <div class="filter-group">
+      <label for="countryFilter">Country:</label>
+      <select id="countryFilter">
+        <option value="">Select a Country</option>
+        <option value="USA">USA</option>
+        <option value="France">France</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Australia">Australia</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Chile">Chile</option>
+      </select>
+    </div>
 
-  <div class="filter-group">
-    <label for="regionFilter">Wine Region:</label>
-    <select id="regionFilter" disabled>
-      <option value="">Select a Region</option>
-    </select>
-  </div>
+    <div class="filter-group">
+      <label for="regionFilter">Wine Region:</label>
+      <select id="regionFilter" disabled>
+        <option value="">Select a Region</option>
+      </select>
+    </div>
 
-  <!-- ✅ NEW: Subregion Filter (Initially Hidden) -->
-  <div class="filter-group" id="subregionGroup" style="display: none;">
-    <label for="subregionFilter">Subregion:</label>
-    <select id="subregionFilter" disabled>
-      <option value="">Select a Subregion</option>
-    </select>
+    <!-- ✅ NEW: Subregion Filter (Initially Hidden) -->
+    <div class="filter-group" id="subregionGroup" style="display: none;">
+      <label for="subregionFilter">Subregion:</label>
+      <select id="subregionFilter" disabled>
+        <option value="">Select a Subregion</option>
+      </select>
+    </div>
   </div>
-</div>
 
   <!-- 🌍 Main Explore Section -->
   <section class="explore-main">
@@ -91,13 +91,13 @@
       <p>Click on a region to learn more about its wines, varietals, and unique culture.</p>
     </div>
     <div class="explore-map-container">
-      <div id="globeViz"></div>
+      <div id="globeViz" style="width: 100%; height: 100vh;"></div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. <a href="#">Contact Us</a></p>
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate. <a href="#">Contact Us</a></p>
   </footer>
 
   <!-- Custom JavaScript -->
