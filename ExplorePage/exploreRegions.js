@@ -219,47 +219,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ringsData = allLabels.flatMap(generateRings);
 
-  // Initialize the Globe
-  const myGlobe = Globe()
-  .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+// 🌍 Initialize the Globe with NASA GIBS Tiles (Dynamic Tile Loading)
+const myGlobe = Globe()
+  .globeImageUrl(() => 
+    `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level4/{y}/{x}.jpg`
+  )
   .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
   .backgroundColor('#121212')
-    .ringsData(ringsData)
-    .ringColor(d => d.color)
-    .ringMaxRadius(d => d.maxRadius)
-    .ringPropagationSpeed(d => d.propagationSpeed)
-    .ringRepeatPeriod(d => d.repeatPeriod)
-    .showAtmosphere(true)
-    .atmosphereColor('rgba(158, 141, 141, 0.3)')
-    .atmosphereAltitude(0.25);
+  .ringsData(ringsData)
+  .ringColor(d => d.color)
+  .ringMaxRadius(d => d.maxRadius)
+  .ringPropagationSpeed(d => d.propagationSpeed)
+  .ringRepeatPeriod(d => d.repeatPeriod)
+  .showAtmosphere(true)
+  .atmosphereColor('rgba(158, 141, 141, 0.3)')
+  .atmosphereAltitude(0.25);
 
-  myGlobe(globeContainer);
+myGlobe(globeContainer);
 
-  // **Enable Auto-Rotation**
-  let autoRotate = true;
-  const rotationSpeed = 0.02; // Adjust for smooth motion
+// 🔹 Function: Dynamically Update Tile Layer Based on Zoom
+function updateTileLayer(zoomFactor) {
+  let zoomLevel;
 
-  function rotateGlobe() {
-    if (autoRotate) {
-      const currentView = myGlobe.pointOfView();
-      myGlobe.pointOfView({
-        lat: currentView.lat,
-        lng: currentView.lng + rotationSpeed,
-        altitude: currentView.altitude
-      });
-      requestAnimationFrame(rotateGlobe);
-    }
+  if (zoomFactor > 1.0) {
+    zoomLevel = 4; // Global overview
+  } else if (zoomFactor > 0.5) {
+    zoomLevel = 6; // Country zoom
+  } else if (zoomFactor > 0.2) {
+    zoomLevel = 8; // Region zoom
+  } else {
+    zoomLevel = 10; // Subregion (maximum resolution)
   }
 
-  rotateGlobe(); // Start rotation on page load
+  const tileUrl = `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${zoomLevel}/{y}/{x}.jpg`;
 
-  // **Stop Auto-Rotation on Interaction**
-  function stopAutoRotate() {
-    autoRotate = false;
+  console.log(`🗺️ Updating tile layer: ${tileUrl}`);
+  myGlobe.globeImageUrl(tileUrl);
+}
+
+// **Enable Auto-Rotation**
+let autoRotate = true;
+const rotationSpeed = 0.02; // Adjust for smooth motion
+
+function rotateGlobe() {
+  if (autoRotate) {
+    const currentView = myGlobe.pointOfView();
+    myGlobe.pointOfView({
+      lat: currentView.lat,
+      lng: currentView.lng + rotationSpeed,
+      altitude: currentView.altitude
+    });
+    requestAnimationFrame(rotateGlobe);
   }
+}
 
-  globeContainer.addEventListener("mousedown", stopAutoRotate);
-  globeContainer.addEventListener("touchstart", stopAutoRotate);
+rotateGlobe(); // Start rotation on page load
+
+// **Stop Auto-Rotation on Interaction**
+function stopAutoRotate() {
+  autoRotate = false;
+}
+
+globeContainer.addEventListener("mousedown", stopAutoRotate);
+globeContainer.addEventListener("touchstart", stopAutoRotate);
 
 // **Track Current Zoom Level**
 let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther away)
@@ -270,9 +292,11 @@ function stopAndZoom(lat, lng, zoomFactor) {
   stopAutoRotate();
   currentZoomLevel = zoomFactor;  // Store new zoom level
 
+  // 🔄 Update the tile layer dynamically
+  updateTileLayer(zoomFactor);
+
   myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
 }
-
 
 // **Country Selection - Zoom In More**
 countryFilter.addEventListener("change", () => {
