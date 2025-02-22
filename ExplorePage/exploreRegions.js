@@ -334,6 +334,26 @@ regionFilter.addEventListener("change", () => {
   }
 });
 
+// **Subregion Selection - Zoom to Subregion**
+subregionFilter.addEventListener("change", () => {
+  const selectedCountry = countryFilter.value;
+  const selectedRegion = regionFilter.value;
+  const selectedSubregion = subregionFilter.value;
+
+  console.log(`🔍 Zooming to Subregion: ${selectedSubregion}`);
+
+  // Find the selected subregion data
+  const subregionData = wineRegions[selectedCountry]?.regions[selectedRegion]?.subregions
+    .find(subregion => subregion.name === selectedSubregion);
+
+  if (subregionData) {
+    stopAndZoom(subregionData.lat, subregionData.lng, Math.max(0.1, currentZoomLevel * 0.4));
+  } else {
+    console.warn(`⚠️ Subregion Data Not Found: ${selectedSubregion}`);
+  }
+});
+
+
   // ✅ Globe Initialized
   console.log("✅ Globe Initialized with Auto-Rotation!");
 }); // <-- Make sure this closing bracket exists
