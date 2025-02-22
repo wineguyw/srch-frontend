@@ -1,7 +1,6 @@
 // Check if Three.js and ThreeGlobe are available before proceeding
 if (typeof Globe === 'undefined') {
-  console.error("❌ ERROR: ThreeGlobe library is not loaded! Please include <script src='https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js'></script> in your HTML.");
-  return; // Exit if Globe is not defined, but this should now be inside a function or block
+  console.error("❌ ERROR: ThreeGlobe library is not loaded! Please include <script src='https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js'></script> in your HTML after Three.js.");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -412,7 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionData = wineRegions[selectedCountry]?.regions[selectedRegion];
 
     if (regionData) {
-      stopAndZoom(regionData.lat, dataRegion.lng, Math.max(0.2, currentZoomLevel * 0.35));
+      stopAndZoom(regionData.lat, regionData.lng, Math.max(0.2, currentZoomLevel * 0.35));
 
       // If subregions exist, populate the dropdown
       if (regionData.subregions && regionData.subregions.length > 0) {

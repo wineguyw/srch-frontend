@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="/CentralCSS/base.css">
   <link rel="stylesheet" href="/ExplorePage/styles.css">
 
-  <!-- Three.js and ThreeGlobe Scripts -->
-  <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+  <!-- Three.js and ThreeGlobe Scripts (Using ES Modules for Three.js to avoid deprecation warning) -->
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.1/build/three.module.js';
+    window.THREE = THREE; // Make THREE globally available for ThreeGlobe
+  </script>
   <script src="https://unpkg.com/three-globe@2.29.2/dist/three-globe.min.js"></script>
 </head>
 <body>
