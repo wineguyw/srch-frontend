@@ -47,33 +47,42 @@
       
   </header>
 
-  <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
-  <div class="filter-panel">
-    <h2>Wine Region Selector</h2>
-    <div class="filter-group">
-      <label for="countryFilter">Country:</label>
-      <select id="countryFilter">
-        <option value="">Select a Country</option>
-        <option value="USA">USA</option>
-        <option value="France">France</option>
-        <option value="Italy">Italy</option>
-        <option value="Spain">Spain</option>
-        <option value="Portugal">Portugal</option>
-        <option value="Australia">Australia</option>
-        <option value="New Zealand">New Zealand</option>
-        <option value="South Africa">South Africa</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Chile">Chile</option>
-      </select>
-    </div>
+ <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
+ <div class="filter-panel">
+  <h2>Wine Region Selector</h2>
 
-    <div class="filter-group">
-      <label for="regionFilter">Wine Region:</label>
-      <select id="regionFilter" disabled>
-        <option value="">Select a Region</option>
-      </select>
-    </div>
+  <div class="filter-group">
+    <label for="countryFilter">Country:</label>
+    <select id="countryFilter">
+      <option value="">Select a Country</option>
+      <option value="USA">USA</option>
+      <option value="France">France</option>
+      <option value="Italy">Italy</option>
+      <option value="Spain">Spain</option>
+      <option value="Portugal">Portugal</option>
+      <option value="Australia">Australia</option>
+      <option value="New Zealand">New Zealand</option>
+      <option value="South Africa">South Africa</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Chile">Chile</option>
+    </select>
   </div>
+
+  <div class="filter-group">
+    <label for="regionFilter">Wine Region:</label>
+    <select id="regionFilter" disabled>
+      <option value="">Select a Region</option>
+    </select>
+  </div>
+
+  <!-- ✅ NEW: Subregion Filter (Initially Hidden) -->
+  <div class="filter-group" id="subregionGroup" style="display: none;">
+    <label for="subregionFilter">Subregion:</label>
+    <select id="subregionFilter" disabled>
+      <option value="">Select a Subregion</option>
+    </select>
+  </div>
+</div>
 
   <!-- 🌍 Main Explore Section -->
   <section class="explore-main">
