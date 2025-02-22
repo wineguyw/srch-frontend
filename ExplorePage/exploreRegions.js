@@ -220,10 +220,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const ringsData = allLabels.flatMap(generateRings);
 
 // 🌍 Initialize the Globe with NASA GIBS Tiles (Dynamic Tile Loading)
+// Define tile-based texture function
+const getTileUrl = ({ x, y, z }) => 
+  `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level${z}/${y}/${x}.jpg`;
+
 const myGlobe = Globe()
-  .globeImageUrl(() => 
-    `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level4/{y}/{x}.jpg`
-  )
+  .globeImageUrl(getTileUrl) // Use the tile-based function
   .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
   .backgroundColor('#121212')
   .ringsData(ringsData)
