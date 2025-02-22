@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const globeContainer = document.getElementById("globeViz");
   const countryFilter = document.getElementById("countryFilter");
   const regionFilter = document.getElementById("regionFilter");
+  const subregionFilter = document.getElementById("subregionFilter"); // ✅ Add this
+  const subregionGroup = document.getElementById("subregionGroup"); // ✅ Add this
 
   if (!globeContainer) {
     console.error("❌ ERROR: Globe container #globeViz NOT found in the DOM!");
@@ -264,10 +266,13 @@ let currentZoomLevel = 2.0;  // Default globe altitude (higher value = farther a
 
 // **Stop Rotation and Apply Smooth Zoom**
 function stopAndZoom(lat, lng, zoomFactor) {
+  console.log(`📌 Applying Zoom - Lat: ${lat}, Lng: ${lng}, Zoom: ${zoomFactor}`);
   stopAutoRotate();
   currentZoomLevel = zoomFactor;  // Store new zoom level
+
   myGlobe.pointOfView({ lat, lng, altitude: zoomFactor }, 1500);
 }
+
 
 // **Country Selection - Zoom In More**
 countryFilter.addEventListener("change", () => {
@@ -296,12 +301,36 @@ countryFilter.addEventListener("change", () => {
 
 // **Region Selection - Zoom Even Closer**
 regionFilter.addEventListener("change", () => {
+  const selectedCountry = countryFilter.value;
   const selectedRegion = regionFilter.value;
-  console.log("🔍 Zooming to Region:", selectedRegion);
+  console.log(`🔍 Zooming to Region: ${selectedRegion}`);
 
-  const regionData = allLabels.find(d => d.name === selectedRegion);
+  // Reset & disable subregion dropdown initially
+  subregionFilter.innerHTML = '<option value="">Select a Subregion</option>';
+  subregionFilter.disabled = true;
+  subregionGroup.style.display = "none"; // Hide initially
+
+  // Find the correct region object in wineRegions
+  const regionData = wineRegions[selectedCountry]?.regions[selectedRegion];
+
   if (regionData) {
     stopAndZoom(regionData.lat, regionData.lng, Math.max(0.3, currentZoomLevel * 0.5));
+
+    // If subregions exist, populate the dropdown
+    if (regionData.subregions && regionData.subregions.length > 0) {
+      console.log(`🟢 Found ${regionData.subregions.length} subregions for ${selectedRegion}`);
+      subregionFilter.disabled = false;
+      subregionGroup.style.display = "block"; // Show the subregion filter
+
+      regionData.subregions.forEach(subregion => {
+        const option = document.createElement("option");
+        option.value = subregion.name;
+        option.textContent = subregion.name;
+        subregionFilter.appendChild(option);
+      });
+    }
+  } else {
+    console.warn(`⚠️ Region Data Not Found: ${selectedRegion}`);
   }
 });
 
