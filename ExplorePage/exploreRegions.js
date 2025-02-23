@@ -100,12 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Mosel", country: "Germany", lat: 49.744, lng: 6.627 }
   ];
 
-  // Initialize MapBox GL JS globe
+  // Initialize MapBox GL JS globe with closer zoom and centered position
   const map = new mapboxgl.Map({
     container: "globeViz",
     style: "mapbox://styles/mapbox/satellite-streets-v12", // High-resolution, clear style
-    center: [0, 20], // Global view
-    zoom: 1, // Start at global zoom
+    center: [0, 0], // Centered on the equator for a balanced, front-and-center view
+    zoom: 2, // Start at a closer zoom (more detailed global view)
     projection: "globe", // 3D globe projection
     maxZoom: 22, // Allow high zoom for subregions
     minZoom: 0 // Allow global view
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
   globeContainer.addEventListener("touchstart", stopAutoRotate);
 
   // Track and manage zoom level
-  let currentZoomLevel = 1.0;
+  let currentZoomLevel = 2.0; // Updated to match initial zoom
 
   function stopAndZoom(lat, lng, zoom) {
     console.log(`📌 Zooming to Lat: ${lat}, Lng: ${lng}, Zoom: ${zoom}`);
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     map.easeTo({
       center: [lng, lat],
       zoom: zoom,
-      duration: 3000, // Increased from 1500 to slow down the animation
+      duration: 3000, // Slow animation for user tracking
       pitch: 0 // Flat view for consistency
     });
   }
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (subregion) {
       const subregionData = wineRegions[country].regions[region].subregions.find(s => s.name === subregion);
-      stopAndZoom(subregionData.lat, subregionData.lng, 11); // Reduced from 14 to 11 for more context
+      stopAndZoom(subregionData.lat, subregionData.lng, 11); // Maintains context at subregion level
     }
   });
 
@@ -335,5 +335,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  console.log("✅ MapBox Globe Initialized with Adjusted Zoom and Slower Animation!");
+  console.log("✅ MapBox Globe Initialized with Front-and-Center View and Closer Initial Zoom!");
 });
