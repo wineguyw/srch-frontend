@@ -1,295 +1,289 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(180deg, #f5f5f5, #ffffff);
-    color: #1a1a5e; /* Navy blue text */
-    line-height: 1.8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-  }
-  
-  /* Header */
-  .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(13, 17, 55, 0.95); /* Semi-transparent Navy */
-    color: #faf3e0; /* Cream */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    backdrop-filter: blur(8px); /* Glass effect */
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-  }
-  
-  .site-title-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .site-title {
-    font-size: 36px;
-    font-family: 'Shrikhand', sans-serif;
-    color: #faf3e0;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  .nav {
-    position: relative; /* Allows manual positioning */
-    left: 70px; /* Adjust this value to shift the nav links horizontally */
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin-left: -12rem; /* Push the nav links to the left */
-  }
-  
-  .nav-links a {
-    font-size: 18px;
-    font-family: 'Shrikhand', sans-serif;
-    font-weight: 600;
-    color: #faf3e0;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    color: #b9bb44;
-    text-shadow: 0 0 5px #b9bb44;
-  }
-  
-  .auth-buttons {
-    display: flex;
-    gap: 20px;
-  }
-
-  .auth-section {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust spacing between buttons */
-}
-
-  .login-btn {
-    background: transparent;
-    border: 2px solid #faf3e0;
-    color: #faf3e0;
-    border-radius: 25px;
-    font-size: 16px;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  .login-btn:hover {
-    background: #faf3e0;
-    color: #311212;
-  }
-  
-  .get-started-btn {
-    background: #b9bb44;
-    border: none;
-    color: #ffffff;
-    box-shadow: 0 6px 12px rgba(185, 187, 68, 0.4);
-    border-radius: 25px;
-    font-size: 16px;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease;
-  }
-  
-  .get-started-btn:hover {
-    background: #051816;
-    transform: scale(1.05);
-  }
-
-  .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; /* Hidden by default */
-}
-  
-/* Footer Styles */
-#main-footer {
-  background: #1a1a1a;
-  color: #ffffff;
-  padding: 50px 20px;
-  font-size: 0.9rem;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-links {
-  display: flex;
-  gap: 40px;
-}
-
-.footer-column h4 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-}
-
-.footer-column ul {
-  list-style: none;
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-
-.footer-column ul li a {
-  color: #f8f8f8;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-column ul li a:hover {
-  color: #b9bb44;
-}
-
-/* Newsletter */
-.footer-newsletter {
-  max-width: 400px;
-  text-align: center;
-}
-
-.footer-newsletter p {
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-}
-
-.footer-newsletter form {
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #f5f5f5, #ffffff);
+  color: #1a1a5e; /* Navy blue text */
+  line-height: 1.8;
+  min-height: 100vh;
   display: flex;
-  gap: 8px;
+  flex-direction: column;
 }
 
-.footer-newsletter input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-.footer-newsletter button {
-  background: #b9bb44;
-  color: #1a1a1a;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.footer-newsletter button:hover {
-  background: #ffffff;
-  color: #1a1a1a;
-}
-
-/* Social Icons */
-.footer-social {
-  text-align: center;
-}
-
-.footer-social h4 {
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-.social-icons img {
-  width: 24px;
-  transition: transform 0.3s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-/* Footer Social Icons */
-.footer-social .social-icons a {
-  color: #ffffff; /* Change icon color to white */
-  font-size: 24px; /* Increase icon size */
-  margin: 0 10px; /* Add spacing between icons */
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-/* Hover effect */
-.footer-social .social-icons a:hover {
-  color: #b9bb44; /* Slight highlight on hover (matching theme) */
-  transform: scale(1.1); /* Slight increase in size on hover */
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 15px;
-  font-size: 0.8rem;
-}
-
-.footer-bottom a {
-  color: #b9bb44;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-bottom a:hover {
-  color: #ffffff;
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(13, 17, 55, 0.95); /* Semi-transparent Navy */
+  color: #faf3e0; /* Cream */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  backdrop-filter: blur(8px); /* Glass effect */
+  transition: all 0.3s ease-in-out;
 }
 
 .header-container {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
+  max-width: 1200px; /* Adjust based on your design */
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  justify-content: space-between; /* Distributes content evenly: logo left, nav center, auth right */
+  align-items: center; /* Vertically center content */
+  padding: 20px 50px; /* Maintain padding to preserve exact positions */
+}
+
+.site-title-link {
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0; /* Prevent logo from shrinking or shifting */
+}
+
+.site-title {
+  font-size: 36px;
+  font-family: 'Shrikhand', sans-serif;
+  color: #faf3e0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+  flex: 1; /* Allow nav to take up available space between logo and auth, centering links */
+  text-align: center; /* Center text within nav */
+  margin: 0; /* Remove any margins that could shift the nav */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center the links horizontally within nav */
+  align-items: center; /* Center vertically within nav */
+  gap: 30px; /* Maintain spacing between links */
+  padding: 0;
+  margin: 0 auto; /* Center the nav links within the available space, preserving logo and auth positions */
+  width: fit-content; /* Ensures links only take the space they need, centering them precisely */
+}
+
+.nav-links a {
+  font-size: 18px;
+  font-family: 'Shrikhand', sans-serif;
+  font-weight: 600;
+  color: #faf3e0;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #b9bb44;
+  text-shadow: 0 0 5px #b9bb44;
 }
 
 .auth-section {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: center; /* Vertically center auth elements */
+  gap: 10px; /* Adjust spacing between buttons/profile icon */
+  flex-shrink: 0; /* Prevent auth section from shrinking or shifting */
+  position: relative; /* Ensure auth section stays fixed on the right */
 }
 
 #auth-buttons {
   display: flex;
-  gap: 10px;
+  gap: 10px; /* Maintain spacing between buttons */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 20px;
 }
 
 .login-btn, .get-started-btn {
   white-space: nowrap;
+  background: transparent;
+  border: 2px solid #faf3e0;
+  color: #faf3e0;
+  border-radius: 25px;
+  font-size: 16px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+  background: #faf3e0;
+  color: #311212;
+}
+
+.get-started-btn {
+  background: #b9bb44;
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(185, 187, 68, 0.4);
+  border-radius: 25px;
+  font-size: 16px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
+}
+
+.get-started-btn:hover {
+  background: #051816;
+  transform: scale(1.05);
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+}
+
+/* Footer Styles */
+#main-footer {
+background: #1a1a1a;
+color: #ffffff;
+padding: 50px 20px;
+font-size: 0.9rem;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer-links {
+display: flex;
+gap: 40px;
+}
+
+.footer-column h4 {
+font-size: 1.1rem;
+margin-bottom: 12px;
+}
+
+.footer-column ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-column ul li {
+margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+color: #f8f8f8;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+color: #b9bb44;
+}
+
+/* Newsletter */
+.footer-newsletter {
+max-width: 400px;
+text-align: center;
+}
+
+.footer-newsletter p {
+font-size: 0.9rem;
+margin-bottom: 15px;
+}
+
+.footer-newsletter form {
+display: flex;
+gap: 8px;
+}
+
+.footer-newsletter input {
+flex: 1;
+padding: 10px;
+border: none;
+border-radius: 5px;
+font-size: 0.9rem;
+}
+
+.footer-newsletter button {
+background: #b9bb44;
+color: #1a1a1a;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+border-radius: 5px;
+transition: background 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+background: #ffffff;
+color: #1a1a1a;
+}
+
+/* Social Icons */
+.footer-social {
+text-align: center;
+}
+
+.footer-social h4 {
+margin-bottom: 10px;
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+justify-content: center;
+}
+
+.social-icons img {
+width: 24px;
+transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+transform: scale(1.1);
+}
+
+/* Footer Social Icons */
+.footer-social .social-icons a {
+color: #ffffff; /* Change icon color to white */
+font-size: 24px; /* Increase icon size */
+margin: 0 10px; /* Add spacing between icons */
+transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.footer-social .social-icons a:hover {
+color: #b9bb44; /* Slight highlight on hover (matching theme) */
+transform: scale(1.1); /* Slight increase in size on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+text-align: center;
+margin-top: 40px;
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+padding-top: 15px;
+font-size: 0.8rem;
+}
+
+.footer-bottom a {
+color: #b9bb44;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+color: #ffffff;
 }
