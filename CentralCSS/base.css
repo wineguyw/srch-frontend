@@ -38,7 +38,7 @@ html, body {
   max-width: 1200px; /* Adjust based on your design */
   margin: 0 auto; /* Center the container horizontally */
   display: flex;
-  justify-content: space-between; /* Distributes content evenly, but we’ll refine this */
+  justify-content: space-between; /* Distributes content evenly between logo, nav, and auth */
   align-items: center; /* Vertically center content */
   padding: 20px 50px; /* Maintain padding */
 }
@@ -56,14 +56,14 @@ html, body {
 }
 
 .nav {
-  flex: 1; /* Allow nav to take up available space and center links */
+  flex: 0 1 auto; /* Allow nav to flex but not grow beyond content, centering links */
   text-align: center; /* Center text within nav */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center; /* Center the links horizontally */
+  justify-content: center; /* Center the links horizontally within nav */
   align-items: center; /* Center vertically within nav */
   gap: 30px; /* Maintain spacing between links */
   padding: 0;
