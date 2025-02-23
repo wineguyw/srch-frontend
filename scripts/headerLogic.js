@@ -7,22 +7,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const profileDropdown = document.getElementById("profile-dropdown");
     const loginButton = document.querySelector(".login-btn");
     const getStartedButton = document.querySelector(".get-started-btn");
+    const authSection = document.querySelector(".auth-section");
+    const nav = document.querySelector(".nav"); // Add reference to nav element
 
     console.log("🔍 Checking Elements:");
     console.log("Profile Icon:", profileIcon);
     console.log("Login Button:", loginButton);
     console.log("Get Started Button:", getStartedButton);
 
-    // Check if user is logged in
-    if (!localStorage.getItem("token")) {
-        if (profileIcon) profileIcon.style.display = "none"; // Hide profile icon
-        if (loginButton) loginButton.style.display = "block"; // Show login
-        if (getStartedButton) getStartedButton.style.display = "block"; // Show Get Started
-    } else {
-        if (profileIcon) profileIcon.style.display = "block"; // Show profile icon
-        if (loginButton) loginButton.style.display = "none"; // Hide login
-        if (getStartedButton) getStartedButton.style.display = "none"; // Hide Get Started
+    // Check if user is logged in and update nav and auth section classes
+    function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem("token") !== null;
+
+        if (isLoggedIn) {
+            if (profileIcon) profileIcon.style.display = "block"; // Show profile icon
+            if (loginButton) loginButton.style.display = "none"; // Hide login
+            if (getStartedButton) getStartedButton.style.display = "none"; // Hide Get Started
+            if (authSection) {
+                authSection.classList.remove("logged-out");
+                authSection.classList.add("logged-in");
+            }
+            if (nav) {
+                nav.classList.remove("nav-logged-out");
+                nav.classList.add("nav-logged-in");
+            }
+        } else {
+            if (profileIcon) profileIcon.style.display = "none"; // Hide profile icon
+            if (loginButton) loginButton.style.display = "block"; // Show login
+            if (getStartedButton) getStartedButton.style.display = "block"; // Show Get Started
+            if (authSection) {
+                authSection.classList.remove("logged-in");
+                authSection.classList.add("logged-out");
+            }
+            if (nav) {
+                nav.classList.remove("nav-logged-in");
+                nav.classList.add("nav-logged-out");
+            }
+        }
     }
+
+    // Initial check on page load
+    checkLoginStatus();
 
     // Show dropdown on hover (only if elements exist)
     if (profileIcon && profileDropdown) {
@@ -53,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function logoutUser() {
         alert("You've been logged out due to inactivity.");
         localStorage.removeItem("token");
+        checkLoginStatus(); // Update UI after logout
         window.location.href = "./index.html";
     }
 
