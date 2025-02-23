@@ -9,12 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Global Styles (Updated Paths) -->
-<link rel="stylesheet" href="/CentralCSS/base.css">
-<link rel="stylesheet" href="/ExplorePage/styles.css">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/CentralCSS/base.css">
+  <link rel="stylesheet" href="/ExplorePage/styles.css">
 
-  <!-- Globe.gl Script -->
-  <script src="https://unpkg.com/globe.gl"></script>
+  <!-- MapBox GL JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 </head>
 <body>
   <!-- Header -->
@@ -26,31 +27,24 @@
       <nav class="nav">
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/ExplorePage/">Explore</a></li>          
+          <li><a href="/ExplorePage/">Explore</a></li>
           <li><a href="#">Regions</a></li>
           <li><a href="#">Stories</a></li>
         </ul>
       </nav>
       <div class="auth-section">
-        <img
-            id="profile-icon"
-            src="/images/Icons/default-profile.png"
-            alt="Profile"
-            class="profile-img hidden"
-            onclick="window.location.href='/ProfilePage/index.html'"
-        />
+        <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" onclick="window.location.href='/ProfilePage/index.html'" />
         <div id="auth-buttons">
-            <button id="login-button" class="login-btn">Login</button>
-            <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          <button id="login-button" class="login-btn">Login</button>
+          <button id="get-started-btn" class="get-started-btn">Get Started</button>
         </div>
-      </div> <!-- ✅ MOVE THIS HERE to properly close .auth-section -->
-      
+      </div>
+    </div>
   </header>
 
- <!-- 🔹 Compact Filter Panel (Above & Left of Globe) -->
+  <!-- Filter Panel -->
   <div class="filter-panel">
     <h2>Wine Region Selector</h2>
-
     <div class="filter-group">
       <label for="countryFilter">Country:</label>
       <select id="countryFilter">
@@ -67,15 +61,12 @@
         <option value="Chile">Chile</option>
       </select>
     </div>
-
     <div class="filter-group">
       <label for="regionFilter">Wine Region:</label>
       <select id="regionFilter" disabled>
         <option value="">Select a Region</option>
       </select>
     </div>
-
-    <!-- ✅ NEW: Subregion Filter (Initially Hidden) -->
     <div class="filter-group" id="subregionGroup" style="display: none;">
       <label for="subregionFilter">Subregion:</label>
       <select id="subregionFilter" disabled>
@@ -84,24 +75,24 @@
     </div>
   </div>
 
-  <!-- 🌍 Main Explore Section -->
+  <!-- Main Explore Section -->
   <section class="explore-main">
     <div class="explore-title">
       <h1>Explore the World's Wine Regions</h1>
       <p>Click on a region to learn more about its wines, varietals, and unique culture.</p>
     </div>
     <div class="explore-map-container">
-      <div id="globeViz"></div>
+      <div id="globeViz" style="width: 100%; height: 100vh;"></div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. <a href="#">Contact Us</a></p>
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate. <a href="#">Contact Us</a></p>
   </footer>
 
   <!-- Custom JavaScript -->
   <script src="/ExplorePage/exploreRegions.js" defer></script>
-  <script src="/scripts/headerLogic.js" defer></script>  
+  <script src="/scripts/headerLogic.js" defer></script>
 </body>
 </html>
