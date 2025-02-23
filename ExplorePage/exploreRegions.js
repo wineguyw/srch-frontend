@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✅ Initializing MapBox Globe...");
 
-  // Wine region data (matching your original, adjusted zooms for clarity)
+  // Wine region data (adjusted subregion zoom for more context)
   const wineRegions = {
     USA: { lat: 39.8283, lng: -98.5795, zoom: 2, regions: {
       "Napa Valley": { lat: 38.2975, lng: -122.2869, zoom: 10, subregions: [
@@ -122,19 +122,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adjust atmosphere for minimal glow and reduced stars
   map.on("style.load", () => {
     map.setFog({
-      color: "rgba(0, 0, 0, 0.1)", // Minimal glow, nearly transparent
-      "high-color": "#1a1a1a", // Darker, less prominent high-color
-      "horizon-blend": 0.01, // Reduced blend for less glow
-      "star-intensity": 0.1 // Significantly reduced stars
+      color: "rgba(0, 0, 0, 0.1)", // Minimal glow
+      "high-color": "#1a1a1a", // Darker, less prominent
+      "horizon-blend": 0.01, // Reduced blend
+      "star-intensity": 0.1 // Minimal stars
     });
   });
 
   // Generate rings for wine regions, scaled for clarity
   const generateRings = (location) => {
     const rings = [];
-    const numRings = 3; // Reduced for less screen coverage
-    const baseSize = 0.05; // Smaller base size to prevent screen-filling
-    const spacing = 0.02; // Tighter spacing for controlled expansion
+    const numRings = 3; // Reduced for clarity
+    const baseSize = 0.05; // Smaller base size
+    const spacing = 0.02; // Tighter spacing
 
     for (let i = 0; i < numRings; i++) {
       rings.push({
@@ -144,10 +144,10 @@ document.addEventListener("DOMContentLoaded", () => {
           coordinates: [location.lng, location.lat]
         },
         properties: {
-          radius: baseSize + i * spacing, // Smaller, controlled radius
-          speed: 0.02 + i * 0.005, // Slower propagation for subtlety
-          period: 3000 + i * 400, // Faster cycle to minimize expansion
-          color: `rgba(255, 69, 0, ${0.6 - i * 0.1})` // Adjusted opacity for visibility without overpowering
+          radius: baseSize + i * spacing, // Controlled radius
+          speed: 0.02 + i * 0.005, // Slower propagation
+          period: 3000 + i * 400, // Faster cycle
+          color: `rgba(255, 69, 0, ${0.6 - i * 0.1})` // Adjusted opacity
         }
       });
     }
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
           22, ["*", ["get", "radius"], 5] // Scale up slightly at high zooms, but cap
         ],
         "circle-color": ["get", "color"],
-        "circle-opacity": 0.6 // Reduced opacity for less dominance
+        "circle-opacity": 0.6 // Reduced opacity
       }
     });
 
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     map.easeTo({
       center: [lng, lat],
       zoom: zoom,
-      duration: 1500,
+      duration: 3000, // Increased from 1500 to slow down the animation
       pitch: 0 // Flat view for consistency
     });
   }
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Subregion Selection
+  // Subregion Selection (adjusted zoom for more context)
   subregionFilter.addEventListener("change", () => {
     const country = countryFilter.value;
     const region = regionFilter.value;
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (subregion) {
       const subregionData = wineRegions[country].regions[region].subregions.find(s => s.name === subregion);
-      stopAndZoom(subregionData.lat, subregionData.lng, 14); // Clear zoom for subregions
+      stopAndZoom(subregionData.lat, subregionData.lng, 11); // Reduced from 14 to 11 for more context
     }
   });
 
@@ -335,5 +335,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  console.log("✅ MapBox Globe Initialized with Auto-Rotation, Clear Zoom, and Refined Visuals!");
+  console.log("✅ MapBox Globe Initialized with Adjusted Zoom and Slower Animation!");
 });
