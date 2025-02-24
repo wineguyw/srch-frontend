@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Regions Overview | SRCH</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/CentralCSS/base.css">
+  <link rel="stylesheet" href="/RegionsPage/styles.css"> <!-- Enhanced CSS for region-specific styling -->
+
+  <!-- Chart.js Library (optional for interactive chart) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom JavaScript for regions and chart -->
+  <script src="/RegionsPage/regions.js" defer></script>
+</head>
+<body>
+  <!-- Header (using your existing header) -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/ExplorePage/">Explore</a></li>
+          <li><a href="/Regions/">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+        <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" onclick="window.location.href='/ProfilePage/index.html'" />
+        <div id="auth-buttons">
+          <button id="login-button" class="login-btn">Login</button>
+          <button id="get-started-btn" class="get-started-btn">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content for Regions Overview -->
+  <main class="regions-main">
+    <!-- Hero Section with Vineyard Backdrop -->
+    <section class="regions-hero">
+      <div class="hero-content">
+        <h1>Unveil the World’s Finest Wine Regions</h1>
+        <p>Embark on a journey through the iconic vineyards and rich heritage of global wine production—discover, explore, and savor.</p>
+        <a href="#regions" class="hero-button">Dive into Regions</a>
+      </div>
+    </section>
+
+    <!-- Wine Production Visualization -->
+    <section class="regions-visualization">
+      <h2>Wine Production Highlights (2023–2024)</h2>
+      <div class="visualization-chart">
+        <canvas id="wineProductionChart"></canvas>
+      </div>
+      <p class="visualization-note">Explore the latest trends in wine production across top countries, measured in million hectoliters (mhl).</p>
+    </section>
+
+    <!-- Region Grid with Enhanced Cards -->
+    <section class="regions-grid" id="regions">
+      <h2>Explore Iconic Wine-Producing Countries</h2>
+      <div class="region-cards">
+        <div class="region-card">
+          <img src="/images/regions/usa-vineyard.jpg" alt="USA Vineyards" class="card-image">
+          <h3>USA</h3>
+          <p>Home to Napa Valley, Sonoma, and more—famous for bold wines and iconic landscapes.</p>
+          <a href="/ExplorePage/?country=USA" class="region-link">Explore USA Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/france-vineyard.jpg" alt="French Vineyards" class="card-image">
+          <h3>France</h3>
+          <p>Known for Bordeaux, Burgundy, and Champagne—where tradition meets the art of blending.</p>
+          <a href="/ExplorePage/?country=France" class="region-link">Explore France Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/italy-vineyard.jpg" alt="Italian Vineyards" class="card-image">
+          <h3>Italy</h3>
+          <p>Features Tuscany, Piedmont, and Sicily—Italy’s Chianti region blends tradition and innovation.</p>
+          <a href="/ExplorePage/?country=Italy" class="region-link">Explore Italy Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/spain-vineyard.jpg" alt="Spanish Vineyards" class="card-image">
+          <h3>Spain</h3>
+          <p>Rioja, Catalonia, and Galicia—renowned for rich reds and unique varietals.</p>
+          <a href="/ExplorePage/?country=Spain" class="region-link">Explore Spain Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/portugal-vineyard.jpg" alt="Portuguese Vineyards" class="card-image">
+          <h3>Portugal</h3>
+          <p>Highlights Douro Valley, Alentejo, and Vinho Verde—famous for fortified wines and freshness.</p>
+          <a href="/ExplorePage/?country=Portugal" class="region-link">Explore Portugal Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/australia-vineyard.jpg" alt="Australian Vineyards" class="card-image">
+          <h3>Australia</h3>
+          <p>Barossa Valley, McLaren Vale, and Yarra Valley—known for bold Shiraz and vibrant regions.</p>
+          <a href="/ExplorePage/?country=Australia" class="region-link">Explore Australia Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/new-zealand-vineyard.jpg" alt="New Zealand Vineyards" class="card-image">
+          <h3>New Zealand</h3>
+          <p>Marlborough, Central Otago, and Hawke’s Bay—famous for Sauvignon Blanc and Pinot Noir.</p>
+          <a href="/ExplorePage/?country=New Zealand" class="region-link">Explore New Zealand Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/south-africa-vineyard.jpg" alt="South African Vineyards" class="card-image">
+          <h3>South Africa</h3>
+          <p>Stellenbosch, Paarl, and Swartland—known for Chenin Blanc and Pinotage.</p>
+          <a href="/ExplorePage/?country=South Africa" class="region-link">Explore South Africa Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/argentina-vineyard.jpg" alt="Argentinian Vineyards" class="card-image">
+          <h3>Argentina</h3>
+          <p>Mendoza, Salta, and Patagonia—world-class Malbecs from high-altitude vineyards.</p>
+          <a href="/ExplorePage/?country=Argentina" class="region-link">Explore Argentina Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/chile-vineyard.jpg" alt="Chilean Vineyards" class="card-image">
+          <h3>Chile</h3>
+          <p>Maipo Valley, Colchagua, and Aconcagua—famous for Cabernet Sauvignon and Carmenère.</p>
+          <a href="/ExplorePage/?country=Chile" class="region-link">Explore Chile Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/germany-vineyard.jpg" alt="German Vineyards" class="card-image">
+          <h3>Germany</h3>
+          <p>Mosel, Rheingau, and Pfalz—renowned for Riesling and crisp whites.</p>
+          <a href="/ExplorePage/?country=Germany" class="region-link">Explore Germany Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/austria-vineyard.jpg" alt="Austrian Vineyards" class="card-image">
+          <h3>Austria</h3>
+          <p>Wachau, Burgenland, and Styria—known for Grüner Veltliner and elegant whites.</p>
+          <a href="/ExplorePage/?country=Austria" class="region-link">Explore Austria Regions</a>
+        </div>
+        <div class="region-card">
+          <img src="/images/regions/greece-vineyard.jpg" alt="Greek Vineyards" class="card-image">
+          <h3>Greece</h3>
+          <p>Peloponnese, Macedonia, and Crete—famous for Assyrtiko and unique indigenous grapes.</p>
+          <a href="/ExplorePage/?country=Greece" class="region-link">Explore Greece Regions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <div class="footer-container">
+      <!-- Left Section: Quick Links -->
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>About SRCH</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Wine Resources</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/ExplorePage/">Wine Regions</a></li>
+            <li><a href="#">Wine Styles</a></li>
+            <li><a href="#">Top Deals</a></li>
+            <li><a href="#">Stories & Insights</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Center Section: Newsletter Signup -->
+      <div class="footer-newsletter">
+        <h4>Get the Best Wine Deals & Insights Weekly</h4>
+        <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+  
+      <!-- Right Section: Social Media -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <!-- Add FontAwesome for social icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      
+      </div>
+    </div>
+  
+    <!-- Bottom Section: Copyright & Terms -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+    <script src="/scripts/headerLogic.js"></script>
