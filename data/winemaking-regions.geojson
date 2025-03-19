@@ -1,0 +1,81 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Napa Valley",
+          "country": "USA"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-122.5, 38.2],
+              [-122.2, 38.2],
+              [-122.2, 38.5],
+              [-122.5, 38.5],
+              [-122.5, 38.2]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bordeaux",
+          "country": "France"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-0.5, 44.8],
+              [0.0, 44.8],
+              [0.0, 45.0],
+              [-0.5, 45.0],
+              [-0.5, 44.8]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Tuscany",
+          "country": "Italy"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [10.5, 43.0],
+              [11.5, 43.0],
+              [11.5, 44.0],
+              [10.5, 44.0],
+              [10.5, 43.0]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Barossa Valley",
+          "country": "Australia"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [138.8, -34.5],
+              [139.2, -34.5],
+              [139.2, -34.0],
+              [138.8, -34.0],
+              [138.8, -34.5]
+            ]
+          ]
+        }
+      }
+    ]
+  }
