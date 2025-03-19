@@ -1,0 +1,13 @@
+{
+  "headers": {
+    "/SettingsPage/*.js": {
+      "Content-Type": "application/javascript"
+    },
+    "/RegionsPage/Regions.js": {
+      "Content-Type": "application/javascript"
+    },
+    "Regions.js": {
+      "Content-Type": "application/javascript"
+    }
+  }
+}
