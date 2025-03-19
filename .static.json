@@ -1,5 +1,8 @@
 {
   "headers": {
+    "*.js": {
+      "Content-Type": "application/javascript"
+    },
     "/SettingsPage/*.js": {
       "Content-Type": "application/javascript"
     },
