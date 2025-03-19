@@ -30,74 +30,154 @@
             <li><a href="#">Stories</a></li>
         </ul>
       </nav>
-            <div class="auth-section">
-                <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
-                     onclick="window.location.href='/ProfilePage/index.html'"/>
-                <div id="auth-buttons">
-                    <button id="login-button" class="login-btn">Login</button>
-                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
-                </div>
-            </div>    
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Napa Valley</h1>
+              <p>A cornerstone of winemaking innovation and rich heritage.</p>
+          </div>
+      </section>
+
+      <!-- Content Panels -->
+      <div class="content-container">
+          <div class="content-container-inner">
+              <!-- Left Panel: Historical Insights -->
+              <div class="panel left-panel">
+                  <div class="panel-header">
+                      <h2>Historical Insights</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post" id="early-napa-post">
+                          <div class="post-header">
+                              <span class="post-author">Early Napa Vineyards</span>
+                              <span class="post-time">1850s</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Pioneering Winemaking</h3>
+                              <p>Settlers like George Yount introduced Cabernet Sauvignon to Napa’s volcanic soils, laying the foundation for its winemaking legacy.</p>
+                              <a href="#" class="post-link expand-link" data-target="early-napa-expanded">Learn More</a>
+                              <!-- Expanded Content (Hidden by Default) -->
+                              <div class="expanded-content" id="early-napa-expanded">
+                                  <h4>How Did Napa’s Early Winemaking Begin?</h4>
+                                  <p>In the 1850s, Napa Valley was a rugged frontier, but its fertile soils and mild climate caught the attention of settlers. George Yount, a key figure, planted the first commercial vineyard in 1836, introducing Cabernet Sauvignon. By the 1860s, winemakers like Charles Krug established Napa’s first commercial winery, leveraging the region’s volcanic soils to produce bold, flavorful wines. These early efforts set the stage for Napa’s global reputation, overcoming challenges like phylloxera in the late 19th century through resilient innovation.</p>
+                                  <a href="#" class="post-link collapse-link" data-target="early-napa-expanded">Collapse</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">Judgment of Paris</span>
+                              <span class="post-time">1976</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Global Recognition</h3>
+                              <p>Stag’s Leap Cabernet outperformed French wines, showcasing Napa’s innovative techniques.</p>
+                              <a href="/RegionsPage/NapaValley/History1976.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">Sustainable Excellence</span>
+                              <span class="post-time">Today</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Sustainable Practices</h3>
+                              <p>Napa’s 400+ wineries lead with organic methods and water conservation.</p>
+                              <a href="/RegionsPage/NapaValley/HistoryToday.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Middle Panel: Winemaking Journey -->
+              <div class="panel middle-panel">
+                  <div class="panel-header">
+                      <h2>Winemaking Journey</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post featured-post">
+                          <div class="post-header">
+                              <span class="post-author">Napa Vineyards</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>The Art of Napa Winemaking</h3>
+                              <img src="/images/Regions/napa-vineyards.jpg" alt="Napa Vineyards" class="post-image">
+                              <p>Discover how Napa’s terroir and techniques create world-class wines.</p>
+                              <div class="post-actions">
+                                  <span class="post-action">🌱</span>
+                                  <span class="post-action">3 replies</span>
+                                  <span class="post-action">· Liked by others</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <img src="/images/Regions/napa-icon.png" alt="Napa Icon" class="post-icon">
+                              <span class="post-author">Jerome Bell</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Hello Napa Enthusiasts! 🌟</h3>
+                              <p>Excited to explore Napa’s winemaking heritage with you!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+<!-- Right Panel: Explore More -->
+<div class="panel right-panel">
+    <div class="panel-header">
+        <h2>Explore More</h2>
+        <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="panel-body">
+        <div class="suggestion">
+            <img src="/images/icons/winery/opus-one.png" alt="Opus One Icon" class="suggestion-icon">
+            <span class="suggestion-name">Opus One</span>
+            <a href="#" class="suggestion-action">Follow</a>
         </div>
-    </header>
-
-    <!-- Large Banner Section -->
-    <section class="region-banner">
-        <div class="region-banner-overlay">
-            <h1 class="region-title">Napa Valley</h1>
-            <p>Where world-class wine meets stunning landscapes and rich history.</p>
+        <div class="suggestion">
+            <img src="/images/icons/winery/stags-leap.png" alt="Stag’s Leap Icon" class="suggestion-icon">
+            <span class="suggestion-name">Stag’s Leap</span>
+            <a href="#" class="suggestion-action">Follow</a>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="region-content">
-
-        <!-- Historical Overview -->
-        <section class="history-section">
-            <h2>A Legacy in Every Sip</h2>
-            <div class="history-grid">
-                <div class="history-card">
-                    <h3>1850s - The Beginning</h3>
-                    <p>Settlers began planting grapevines, shaping the future of Napa Valley.</p>
-                </div>
-                <div class="history-card">
-                    <h3>1976 - The Judgment of Paris</h3>
-                    <p>Napa wines stunned the world by outperforming French wines in a blind taste test.</p>
-                </div>
-                <div class="history-card">
-                    <h3>Today - A Global Wine Icon</h3>
-                    <p>Home to over 400 wineries, Napa continues to redefine excellence.</p>
-                </div>
+        <div class="suggestion">
+            <img src="/images/icons/winery/beringer.png" alt="Beringer Icon" class="suggestion-icon">
+            <span class="suggestion-name">Beringer</span>
+            <a href="#" class="suggestion-action">Follow</a>
+        </div>
+        <div class="suggestion-group">
+            <span class="suggestion-group-title">@NapaWineries</span>
+            <a href="#" class="view-all">View All</a>
+            <div class="suggestion">
+                <img src="/images/icons/winery/caymus.png" alt="Winery Icon" class="suggestion-icon">
+                <span class="suggestion-name">Caymus</span>
+                <a href="#" class="suggestion-action">Follow</a>
             </div>
-        </section>
+        </div>
+    </div>
+</div>
+  </main>
 
-        <!-- Modern Napa Valley -->
-        <section class="modern-napa">
-            <h2>The Napa Valley of Today</h2>
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <h3>Popular Grapes</h3>
-                    <p>Cabernet Sauvignon, Chardonnay, Merlot, Sauvignon Blanc, Pinot Noir</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Acres Under Vine</h3>
-                    <p>Over 45,000 acres of vineyards, producing world-class wines.</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Famous Wineries</h3>
-                    <p>Opus One, Stag's Leap Wine Cellars, Beringer, Caymus, Robert Mondavi</p>
-                </div>
-            </div>
-        </section>
+  <!-- Footer -->
+  <footer id="main-footer">
+      <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+  </footer>
 
-    </main>
-
-    <!-- Footer -->
-    <footer id="main-footer">
-        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="/scripts/headerLogic.js" defer></script>
+  <!-- JavaScript -->
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/RegionsPage/expandContent.js" defer></script>
 </body>
 </html>

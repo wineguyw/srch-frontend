@@ -3,24 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wine Regions Overview | SRCH</title>
-
+  <title>SRCH - Wine Regions Hub</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <!-- Global Styles -->
   <link rel="stylesheet" href="/CentralCSS/base.css">
-  <link rel="stylesheet" href="/RegionsPage/styles.css"> <!-- Enhanced CSS for region-specific styling -->
-
-  <!-- Chart.js Library (optional for interactive chart) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Custom JavaScript for regions and chart -->
-  <script src="/RegionsPage/regions.js" defer></script>
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="/RegionsPage/styles.css">
 </head>
 <body>
-  <!-- Header (using your existing header) -->
+  <!-- Header -->
   <header class="header">
     <div class="header-container">
       <a href="/index.html" class="site-title-link">
@@ -30,181 +23,915 @@
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/ExplorePage/">Explore</a></li>
-          <li><a href="/Regions/">Regions</a></li>
+          <li><a href="/RegionsPage/">Regions</a></li>
           <li><a href="#">Stories</a></li>
         </ul>
       </nav>
       <div class="auth-section">
-        <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" onclick="window.location.href='/ProfilePage/index.html'" />
+        <img
+          id="profile-icon"
+          src="/images/Icons/default-profile.png"
+          alt="Profile"
+          class="profile-img hidden"
+          onclick="window.location.href='/ProfilePage/'"
+        />    
         <div id="auth-buttons">
           <button id="login-button" class="login-btn">Login</button>
           <button id="get-started-btn" class="get-started-btn">Get Started</button>
         </div>
-      </div>
+      </div>    
     </div>
   </header>
 
-  <!-- Main Content for Regions Overview -->
-  <main class="regions-main">
-    <!-- Hero Section with Vineyard Backdrop -->
-    <section class="regions-hero">
-      <div class="hero-content">
-        <h1>Unveil the World’s Finest Wine Regions</h1>
-        <p>Embark on a journey through the iconic vineyards and rich heritage of global wine production—discover, explore, and savor.</p>
-        <a href="#regions" class="hero-button">Dive into Regions</a>
-      </div>
+  <!-- Main Content: Wine Regions Hub -->
+  <main class="regions-hub">
+    <section class="hero-section">
+      <h1>Discover the World’s Wine Regions</h1>
+      <p>Your gateway to exploring the finest wine regions—click to dive deeper into their stories, wines, and landscapes.</p>
     </section>
 
-    <!-- Wine Production Visualization -->
-    <section class="regions-visualization">
-      <h2>Wine Production Highlights (2023–2024)</h2>
-      <div class="visualization-chart">
-        <canvas id="wineProductionChart"></canvas>
+    <section class="region-grid">
+      <!-- Default Featured Region (Visible Initially) – Napa Valley from Americas -->
+      <div class="region-card" data-link="/RegionsPage/NapaValley/index.html" data-continent="americas" data-country="usa" data-state="california">
+        <img src="/images/regions/napa-valley.jpg" alt="Napa Valley" loading="lazy">
+        <h3>Napa Valley</h3>
+        <p>Bold Cabernet Sauvignons and iconic California landscapes.</p>
       </div>
-      <p class="visualization-note">Explore the latest trends in wine production across top countries, measured in million hectoliters (mhl).</p>
-    </section>
+    
+      <!-- Hidden European Countries and Regions (Initially Display: None) -->
+      <div class="region-card country-card" data-continent="europe" data-country="france" style="display: none;">
+        <img src="/images/regions/countries/france/france.jpg" alt="France" loading="lazy">
+        <h3>France</h3>
+        <p>Renowned for its diverse wine regions and rich viticultural heritage.</p>
+      </div>
+      <div class="region-card country-card" data-continent="europe" data-country="italy" style="display: none;">
+        <img src="/images/regions/countries/italy/italy.jpg" alt="Italy" loading="lazy">
+        <h3>Italy</h3>
+        <p>Famous for Chianti, Barolo, and a variety of regional wines.</p>
+      </div>
+      <div class="region-card country-card" data-continent="europe" data-country="spain" style="display: none;">
+        <img src="/images/regions/countries/spain/spain.jpg" alt="Spain" loading="lazy">
+        <h3>Spain</h3>
+        <p>Known for Rioja, Sherry, and vibrant wine traditions.</p>
+      </div>
+      <!-- France Regions (5, Unchanged) -->
+      <div class="region-card" data-continent="europe" data-country="france" data-link="/RegionsPage/Bordeaux/index.html" style="display: none;">
+        <img src="/images/regions/bordeaux-banner.jpg" alt="Bordeaux" loading="lazy">
+        <h3>Bordeaux</h3>
+        <p>France’s legendary region for masterful red blends and rich history.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="france" data-link="/RegionsPage/Burgundy/index.html" style="display: none;">
+        <img src="/images/regions/countries/France/burgundy.jpg" alt="Burgundy" loading="lazy">
+        <h3>Burgundy</h3>
+        <p>Renowned for Pinot Noir and Chardonnay, with a complex terroir.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="france" data-link="/RegionsPage/LoireValley/index.html" style="display: none;">
+        <img src="/images/regions/countries/France/loire.jpg" alt="Loire Valley" loading="lazy">
+        <h3>Loire Valley</h3>
+        <p>Famous for Sauvignon Blanc, Chenin Blanc, and sparkling wines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="france" data-link="/RegionsPage/Champagne/index.html" style="display: none;">
+        <img src="/images/regions/countries/France/champagne.jpg" alt="Champagne" loading="lazy">
+        <h3>Champagne</h3>
+        <p>The sparkling wine region known for its méthode champenoise.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="france" data-link="/RegionsPage/Alsace/index.html" style="display: none;">
+        <img src="/images/regions/countries/France/alsace.jpg" alt="Alsace" loading="lazy">
+        <h3>Alsace</h3>
+        <p>Renowned for aromatic whites like Riesling, Gewürztraminer, and Pinot Gris.</p>
+      </div>
+      <!-- Italy Regions (5, Unchanged) -->
+      <div class="region-card" data-continent="europe" data-country="italy" data-link="/RegionsPage/Tuscany/index.html" style="display: none;">
+        <img src="/images/regions/tuscany.jpg" alt="Tuscany" loading="lazy">
+        <h3>Tuscany</h3>
+        <p>Italy’s Chianti region, blending tradition and innovation.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="italy" data-link="/RegionsPage/Piedmont/index.html" style="display: none;">
+        <img src="/images/regions/countries/italy/piedmont.jpg" alt="Piedmont" loading="lazy">
+        <h3>Piedmont</h3>
+        <p>Home to Barolo and Barbaresco, famous for Nebbiolo wines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="italy" data-link="/RegionsPage/Veneto/index.html" style="display: none;">
+        <img src="/images/regions/countries/italy/veneto.jpg" alt="Veneto" loading="lazy">
+        <h3>Veneto</h3>
+        <p>Known for Prosecco, Soave, and Valpolicella wines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="italy" data-link="/RegionsPage/Sicily/index.html" style="display: none;">
+        <img src="/images/regions/countries/italy/sicily.jpg" alt="Sicily" loading="lazy">
+        <h3>Sicily</h3>
+        <p>Famous for Nero d’Avola, Etna Rosso, and sweet Marsala wines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="italy" data-link="/RegionsPage/EmiliaRomagna/index.html" style="display: none;">
+        <img src="/images/regions/countries/italy/emilia-romagna.jpg" alt="Emilia-Romagna" loading="lazy">
+        <h3>Emilia-Romagna</h3>
+        <p>Home to Lambrusco, Sangiovese, and Albana wines.</p>
+      </div>
+      <!-- Spain Regions (5, Unchanged) -->
+      <div class="region-card" data-continent="europe" data-country="spain" data-link="/RegionsPage/Rioja/index.html" style="display: none;">
+        <img src="/images/regions/countries/spain/rioja.jpg" alt="Rioja" loading="lazy">
+        <h3>Rioja</h3>
+        <p>Spain’s premier region for Tempranillo and aged red wines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="spain" data-link="/RegionsPage/Priorat/index.html" style="display: none;">
+        <img src="/images/regions/countries/spain/priorat.jpg" alt="Priorat" loading="lazy">
+        <h3>Priorat</h3>
+        <p>Renowned for intense, concentrated reds from old vines.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="spain" data-link="/RegionsPage/RiasBaixas/index.html" style="display: none;">
+        <img src="/images/regions/countries/spain/rias.jpg" alt="Rías Baixas" loading="lazy">
+        <h3>Rías Baixas</h3>
+        <p>Famous for Albariño, a crisp and aromatic white wine.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="spain" data-link="/RegionsPage/Jerez/index.html" style="display: none;">
+        <img src="/images/regions/countries/spain/jerez.jpg" alt="Jerez" loading="lazy">
+        <h3>Jerez</h3>
+        <p>Known for Sherry, a fortified wine with rich, nutty flavors.</p>
+      </div>
+      <div class="region-card" data-continent="europe" data-country="spain" data-link="/RegionsPage/Catalunya/index.html" style="display: none;">
+        <img src="/images/regions/countries/spain/catalunya.jpg" alt="Catalunya" loading="lazy">
+        <h3>Catalunya</h3>
+        <p>Home to Cava, Penedès, and robust reds like Garnacha.</p>
+      </div>
+    
+      <!-- Hidden American Countries, States, and Regions (Initially Display: None) -->
+      <div class="region-card country-card" data-continent="americas" data-country="usa" style="display: none;">
+        <img src="/images/regions/countries/usa/home.jpg" alt="USA" loading="lazy">
+        <h3>USA</h3>
+        <p>America’s premier wine-producing nation, known for diverse regions.</p>
+      </div>
+      <div class="region-card country-card" data-continent="americas" data-country="argentina" style="display: none;">
+        <img src="/images/regions/mendoza-banner-1.jpg" alt="Argentina" loading="lazy">
+        <h3>Argentina</h3>
+        <p>Renowned for Malbecs from high-altitude vineyards in Mendoza.</p>
+      </div>
+      <div class="region-card country-card" data-continent="americas" data-country="canada" style="display: none;">
+        <img src="/images/regions/countries/canada/canada.jpg" alt="Canada" loading="lazy">
+        <h3>Canada</h3>
+        <p>Known for cool-climate wines like Icewine and Pinot Noir in regions like Okanagan.</p>
+      </div>
+      <div class="region-card country-card" data-continent="americas" data-country="mexico" style="display: none;">
+        <img src="/images/regions/countries/mexico/mexico.jpg" alt="Mexico" loading="lazy">
+        <h3>Mexico</h3>
+        <p>Emerging region for wines like Cabernet Sauvignon and Nebbiolo in Baja California.</p>
+      </div>
+      <div class="region-card country-card" data-continent="americas" data-country="chile" style="display: none;">
+        <img src="/images/regions/countries/chile/chile.jpg" alt="Chile" loading="lazy">
+        <h3>Chile</h3>
+        <p>Famous for Carmenère, Cabernet Sauvignon, and Sauvignon Blanc in regions like Maipo.</p>
+      </div>
 
-    <!-- Region Grid with Enhanced Cards -->
-    <section class="regions-grid" id="regions">
-      <h2>Explore Iconic Wine-Producing Countries</h2>
-      <div class="region-cards">
-        <div class="region-card">
-          <img src="/images/regions/usa-vineyard.jpg" alt="USA Vineyards" class="card-image">
-          <h3>USA</h3>
-          <p>Home to Napa Valley, Sonoma, and more—famous for bold wines and iconic landscapes.</p>
-          <a href="/ExplorePage/?country=USA" class="region-link">Explore USA Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/france-vineyard.jpg" alt="French Vineyards" class="card-image">
-          <h3>France</h3>
-          <p>Known for Bordeaux, Burgundy, and Champagne—where tradition meets the art of blending.</p>
-          <a href="/ExplorePage/?country=France" class="region-link">Explore France Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/italy-vineyard.jpg" alt="Italian Vineyards" class="card-image">
-          <h3>Italy</h3>
-          <p>Features Tuscany, Piedmont, and Sicily—Italy’s Chianti region blends tradition and innovation.</p>
-          <a href="/ExplorePage/?country=Italy" class="region-link">Explore Italy Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/spain-vineyard.jpg" alt="Spanish Vineyards" class="card-image">
-          <h3>Spain</h3>
-          <p>Rioja, Catalonia, and Galicia—renowned for rich reds and unique varietals.</p>
-          <a href="/ExplorePage/?country=Spain" class="region-link">Explore Spain Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/portugal-vineyard.jpg" alt="Portuguese Vineyards" class="card-image">
-          <h3>Portugal</h3>
-          <p>Highlights Douro Valley, Alentejo, and Vinho Verde—famous for fortified wines and freshness.</p>
-          <a href="/ExplorePage/?country=Portugal" class="region-link">Explore Portugal Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/australia-vineyard.jpg" alt="Australian Vineyards" class="card-image">
-          <h3>Australia</h3>
-          <p>Barossa Valley, McLaren Vale, and Yarra Valley—known for bold Shiraz and vibrant regions.</p>
-          <a href="/ExplorePage/?country=Australia" class="region-link">Explore Australia Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/new-zealand-vineyard.jpg" alt="New Zealand Vineyards" class="card-image">
-          <h3>New Zealand</h3>
-          <p>Marlborough, Central Otago, and Hawke’s Bay—famous for Sauvignon Blanc and Pinot Noir.</p>
-          <a href="/ExplorePage/?country=New Zealand" class="region-link">Explore New Zealand Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/south-africa-vineyard.jpg" alt="South African Vineyards" class="card-image">
-          <h3>South Africa</h3>
-          <p>Stellenbosch, Paarl, and Swartland—known for Chenin Blanc and Pinotage.</p>
-          <a href="/ExplorePage/?country=South Africa" class="region-link">Explore South Africa Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/argentina-vineyard.jpg" alt="Argentinian Vineyards" class="card-image">
-          <h3>Argentina</h3>
-          <p>Mendoza, Salta, and Patagonia—world-class Malbecs from high-altitude vineyards.</p>
-          <a href="/ExplorePage/?country=Argentina" class="region-link">Explore Argentina Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/chile-vineyard.jpg" alt="Chilean Vineyards" class="card-image">
-          <h3>Chile</h3>
-          <p>Maipo Valley, Colchagua, and Aconcagua—famous for Cabernet Sauvignon and Carmenère.</p>
-          <a href="/ExplorePage/?country=Chile" class="region-link">Explore Chile Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/germany-vineyard.jpg" alt="German Vineyards" class="card-image">
-          <h3>Germany</h3>
-          <p>Mosel, Rheingau, and Pfalz—renowned for Riesling and crisp whites.</p>
-          <a href="/ExplorePage/?country=Germany" class="region-link">Explore Germany Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/austria-vineyard.jpg" alt="Austrian Vineyards" class="card-image">
-          <h3>Austria</h3>
-          <p>Wachau, Burgenland, and Styria—known for Grüner Veltliner and elegant whites.</p>
-          <a href="/ExplorePage/?country=Austria" class="region-link">Explore Austria Regions</a>
-        </div>
-        <div class="region-card">
-          <img src="/images/regions/greece-vineyard.jpg" alt="Greek Vineyards" class="card-image">
-          <h3>Greece</h3>
-          <p>Peloponnese, Macedonia, and Crete—famous for Assyrtiko and unique indigenous grapes.</p>
-          <a href="/ExplorePage/?country=Greece" class="region-link">Explore Greece Regions</a>
-        </div>
+      <!-- USA States (Intermediate Level, Initially Hidden) -->
+      <div class="region-card state-card" data-continent="americas" data-country="usa" data-state="california" style="display: none;">
+        <img src="/images/states/california.jpg" alt="California" loading="lazy">
+        <h3>California</h3>
+        <p>California’s premier wine state, known for Napa, Sonoma, and more.</p>
+      </div>
+      <div class="region-card state-card" data-continent="americas" data-country="usa" data-state="oregon" style="display: none;">
+        <img src="/images/states/oregon.jpg" alt="Oregon" loading="lazy">
+        <h3>Oregon</h3>
+        <p>Renowned for Pinot Noir in the Willamette Valley and beyond.</p>
+      </div>
+      <div class="region-card state-card" data-continent="americas" data-country="usa" data-state="washington" style="display: none;">
+        <img src="/images/states/washington.jpg" alt="Washington" loading="lazy">
+        <h3>Washington</h3>
+        <p>Known for Cabernet Sauvignon, Merlot, and Riesling in regions like Walla Walla.</p>
+      </div>
+      <div class="region-card state-card" data-continent="americas" data-country="usa" data-state="newyork" style="display: none;">
+        <img src="/images/states/new-york.jpg" alt="New York" loading="lazy">
+        <h3>New York</h3>
+        <p>Famous for Finger Lakes Riesling and Long Island Merlots.</p>
+      </div>
+      <div class="region-card state-card" data-continent="americas" data-country="usa" data-state="texas" style="display: none;">
+        <img src="/images/states/texas.jpg" alt="Texas" loading="lazy">
+        <h3>Texas</h3>
+        <p>Emerging for wines like Tempranillo and Cabernet in the Texas Hill Country.</p>
+      </div>
+
+      <!-- USA Subregions (5 Per State, Initially Hidden) -->
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="california" data-link="/RegionsPage/Sonoma/index.html" style="display: none;">
+        <img src="/images/regions/sonoma.jpg" alt="Sonoma" loading="lazy">
+        <h3>Sonoma</h3>
+        <p>Known for Pinot Noir, Zinfandel, and Chardonnay.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="california" data-link="/RegionsPage/CentralCoast/index.html" style="display: none;">
+        <img src="/images/regions/central-coast.jpg" alt="Central Coast" loading="lazy">
+        <h3>Central Coast</h3>
+        <p>Renowned for Pinot Noir, Syrah, and Sauvignon Blanc in Santa Barbara and beyond.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="california" data-link="/RegionsPage/Mendocino/index.html" style="display: none;">
+        <img src="/images/regions/mendocino.jpg" alt="Mendocino" loading="lazy">
+        <h3>Mendocino</h3>
+        <p>Famous for Zinfandel, Pinot Noir, and organic wines.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="california" data-link="/RegionsPage/SierraFoothills/index.html" style="display: none;">
+        <img src="/images/regions/sierra-foothills.jpg" alt="Sierra Foothills" loading="lazy">
+        <h3>Sierra Foothills</h3>
+        <p>Known for Zinfandel, Barbera, and Rhône varietals.</p>
+      </div>
+
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="oregon" data-link="/RegionsPage/WillametteValley/index.html" style="display: none;">
+        <img src="/images/regions/willamette-valley.jpg" alt="Willamette Valley" loading="lazy">
+        <h3>Willamette Valley</h3>
+        <p>Oregon’s premier region for Pinot Noir and Chardonnay.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="oregon" data-link="/RegionsPage/RogueValley/index.html" style="display: none;">
+        <img src="/images/regions/rogue-valley.jpg" alt="Rogue Valley" loading="lazy">
+        <h3>Rogue Valley</h3>
+        <p>Known for Cabernet, Merlot, and Syrah in Southern Oregon.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="oregon" data-link="/RegionsPage/UmpquaValley/index.html" style="display: none;">
+        <img src="/images/regions/umpqua-valley.jpg" alt="Umpqua Valley" loading="lazy">
+        <h3>Umpqua Valley</h3>
+        <p>Renowned for Pinot Noir, Sauvignon Blanc, and Tempranillo.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="oregon" data-link="/RegionsPage/ColumbiaGorge/index.html" style="display: none;">
+        <img src="/images/regions/columbia-gorge.jpg" alt="Columbia Gorge" loading="lazy">
+        <h3>Columbia Gorge</h3>
+        <p>Famous for Pinot Noir, Chardonnay, and Riesling on the Oregon-Washington border.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="oregon" data-link="/RegionsPage/SouthernOregon/index.html" style="display: none;">
+        <img src="/images/regions/southern-oregon.jpg" alt="Southern Oregon" loading="lazy">
+        <h3>Southern Oregon</h3>
+        <p>Known for Syrah, Cabernet, and cool-climate varietals.</p>
+      </div>
+
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="washington" data-link="/RegionsPage/WallaWalla/index.html" style="display: none;">
+        <img src="/images/regions/walla-walla.jpg" alt="Walla Walla" loading="lazy">
+        <h3>Walla Walla</h3>
+        <p>Washington’s premier region for Cabernet, Merlot, and Syrah.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="washington" data-link="/RegionsPage/YakimaValley/index.html" style="display: none;">
+        <img src="/images/regions/yakima-valley.jpg" alt="Yakima Valley" loading="lazy">
+        <h3>Yakima Valley</h3>
+        <p>Known for Riesling, Chardonnay, and Cabernet Sauvignon.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="washington" data-link="/RegionsPage/ColumbiaValley/index.html" style="display: none;">
+        <img src="/images/regions/columbia-valley.jpg" alt="Columbia Valley" loading="lazy">
+        <h3>Columbia Valley</h3>
+        <p>Renowned for Merlot, Syrah, and Sauvignon Blanc across Washington.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="washington" data-link="/RegionsPage/RedMountain/index.html" style="display: none;">
+        <img src="/images/regions/red-mountain.jpg" alt="Red Mountain" loading="lazy">
+        <h3>Red Mountain</h3>
+        <p>Famous for bold Cabernet Sauvignon and Syrah.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="washington" data-link="/RegionsPage/PugetSound/index.html" style="display: none;">
+        <img src="/images/regions/puget-sound.jpg" alt="Puget Sound" loading="lazy">
+        <h3>Puget Sound</h3>
+        <p>Known for cool-climate wines like Pinot Noir and Riesling.</p>
+      </div>
+
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="newyork" data-link="/RegionsPage/FingerLakes/index.html" style="display: none;">
+        <img src="/images/regions/finger-lakes.jpg" alt="Finger Lakes" loading="lazy">
+        <h3>Finger Lakes</h3>
+        <p>New York’s premier region for Riesling, Gewürztraminer, and Cabernet Franc.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="newyork" data-link="/RegionsPage/LongIsland/index.html" style="display: none;">
+        <img src="/images/regions/long-island.jpg" alt="Long Island" loading="lazy">
+        <h3>Long Island</h3>
+        <p>Known for Merlot, Cabernet Franc, and Chardonnay on the East End.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="newyork" data-link="/RegionsPage/HudsonValley/index.html" style="display: none;">
+        <img src="/images/regions/hudson-valley.jpg" alt="Hudson Valley" loading="lazy">
+        <h3>Hudson Valley</h3>
+        <p>Renowned for cool-climate wines like Riesling and Pinot Noir.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="newyork" data-link="/RegionsPage/NiagaraEscarpment/index.html" style="display: none;">
+        <img src="/images/regions/niagara-escarpment.jpg" alt="Niagara Escarpment" loading="lazy">
+        <h3>Niagara Escarpment</h3>
+        <p>Famous for Icewine, Riesling, and Cabernet Franc near Lake Ontario.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="newyork" data-link="/RegionsPage/CayugaLake/index.html" style="display: none;">
+        <img src="/images/regions/cayuga-lake.jpg" alt="Cayuga Lake" loading="lazy">
+        <h3>Cayuga Lake</h3>
+        <p>Known for Riesling, Gewürztraminer, and cool-climate varietals.</p>
+      </div>
+
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="texas" data-link="/RegionsPage/TexasHillCountry/index.html" style="display: none;">
+        <img src="/images/regions/texas-hill-country.jpg" alt="Texas Hill Country" loading="lazy">
+        <h3>Texas Hill Country</h3>
+        <p>Texas’s premier region for Tempranillo, Cabernet, and Viognier.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="texas" data-link="/RegionsPage/HighPlains/index.html" style="display: none;">
+        <img src="/images/regions/high-plains.jpg" alt="High Plains" loading="lazy">
+        <h3>High Plains</h3>
+        <p>Known for Cabernet Sauvignon, Merlot, and Sauvignon Blanc in West Texas.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="texas" data-link="/RegionsPage/Panhandle/index.html" style="display: none;">
+        <img src="/images/regions/panhandle.jpg" alt="Panhandle" loading="lazy">
+        <h3>Panhandle</h3>
+        <p>Renowned for Cabernet, Merlot, and Chardonnay in North Texas.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="texas" data-link="/RegionsPage/MasonCounty/index.html" style="display: none;">
+        <img src="/images/regions/mason-county.jpg" alt="Mason County" loading="lazy">
+        <h3>Mason County</h3>
+        <p>Famous for Tempranillo, Syrah, and Sauvignon Blanc in Central Texas.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="usa" data-state="texas" data-link="/RegionsPage/Fredericksburg/index.html" style="display: none;">
+        <img src="/images/regions/fredericksburg.jpg" alt="Fredericksburg" loading="lazy">
+        <h3>Fredericksburg</h3>
+        <p>Known for Cabernet, Merlot, and cool-climate varietals in Texas Hill Country.</p>
+      </div>
+
+      <!-- Argentina Subregions (5, Initially Hidden) -->
+      <div class="region-card" data-continent="americas" data-country="argentina" data-link="/RegionsPage/Mendoza/index.html" style="display: none;">
+        <img src="/images/regions/mendoza.jpg" alt="Mendoza" loading="lazy">
+        <h3>Mendoza</h3>
+        <p>Argentina’s premier region for Malbec and Cabernet Sauvignon.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="argentina" data-link="/RegionsPage/Salta/index.html" style="display: none;">
+        <img src="/images/regions/salta.jpg" alt="Salta" loading="lazy">
+        <h3>Salta</h3>
+        <p>Known for high-altitude Torrontés and Malbec in Cafayate.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="argentina" data-link="/RegionsPage/Patagonia/index.html" style="display: none;">
+        <img src="/images/regions/patagonia.jpg" alt="Patagonia" loading="lazy">
+        <h3>Patagonia</h3>
+        <p>Renowned for Pinot Noir, Merlot, and cool-climate wines.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="argentina" data-link="/RegionsPage/SanJuan/index.html" style="display: none;">
+        <img src="/images/regions/san-juan.jpg" alt="San Juan" loading="lazy">
+        <h3>San Juan</h3>
+        <p>Famous for Syrah, Bonarda, and Cabernet Sauvignon.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="argentina" data-link="/RegionsPage/LaRioja/index.html" style="display: none;">
+        <img src="/images/regions/la-rioja.jpg" alt="La Rioja" loading="lazy">
+        <h3>La Rioja</h3>
+        <p>Known for Malbec, Cabernet, and high-altitude wines in Argentina.</p>
+      </div>
+
+      <!-- Canada Subregions (5, Initially Hidden) -->
+      <div class="region-card" data-continent="americas" data-country="canada" data-link="/RegionsPage/OkanaganValley/index.html" style="display: none;">
+        <img src="/images/regions/okanagan-valley.jpg" alt="Okanagan Valley" loading="lazy">
+        <h3>Okanagan Valley</h3>
+        <p>Canada’s premier region for Pinot Noir, Merlot, and Icewine.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="canada" data-link="/RegionsPage/NiagaraPeninsula/index.html" style="display: none;">
+        <img src="/images/regions/niagara-peninsula.jpg" alt="Niagara Peninsula" loading="lazy">
+        <h3>Niagara Peninsula</h3>
+        <p>Known for Riesling, Cabernet Franc, and Icewine in Ontario.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="canada" data-link="/RegionsPage/SimilkameenValley/index.html" style="display: none;">
+        <img src="/images/regions/similkameen-valley.jpg" alt="Similkameen Valley" loading="lazy">
+        <h3>Similkameen Valley</h3>
+        <p>Renowned for Syrah, Merlot, and Chardonnay in British Columbia.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="canada" data-link="/RegionsPage/PeleeIsland/index.html" style="display: none;">
+        <img src="/images/regions/pelee-island.jpg" alt="Pelee Island" loading="lazy">
+        <h3>Pelee Island</h3>
+        <p>Famous for Cabernet Franc, Riesling, and cool-climate wines in Ontario.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="canada" data-link="/RegionsPage/PrinceEdwardCounty/index.html" style="display: none;">
+        <img src="/images/regions/prince-edward-county.jpg" alt="Prince Edward County" loading="lazy">
+        <h3>Prince Edward County</h3>
+        <p>Known for Pinot Noir, Chardonnay, and cool-climate varietals in Ontario.</p>
+      </div>
+
+      <!-- Mexico Subregions (5, Initially Hidden) -->
+      <div class="region-card" data-continent="americas" data-country="mexico" data-link="/RegionsPage/BajaCalifornia/index.html" style="display: none;">
+        <img src="/images/regions/baja-california.jpg" alt="Baja California" loading="lazy">
+        <h3>Baja California</h3>
+        <p>Mexico’s premier region for Cabernet, Nebbiolo, and Sauvignon Blanc.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="mexico" data-link="/RegionsPage/Sonora/index.html" style="display: none;">
+        <img src="/images/regions/sonora.jpg" alt="Sonora" loading="lazy">
+        <h3>Sonora</h3>
+        <p>Known for Cabernet Sauvignon and Merlot in Northern Mexico.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="mexico" data-link="/RegionsPage/Aguascalientes/index.html" style="display: none;">
+        <img src="/images/regions/aguascalientes.jpg" alt="Aguascalientes" loading="lazy">
+        <h3>Aguascalientes</h3>
+        <p>Renowned for Tempranillo, Cabernet, and Sauvignon Blanc.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="mexico" data-link="/RegionsPage/Queretaro/index.html" style="display: none;">
+        <img src="/images/regions/queretaro.jpg" alt="Querétaro" loading="lazy">
+        <h3>Querétaro</h3>
+        <p>Famous for Sauvignon Blanc, Chenin Blanc, and Cabernet Sauvignon.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="mexico" data-link="/RegionsPage/Guadalajara/index.html" style="display: none;">
+        <img src="/images/regions/guadalajara.jpg" alt="Guadalajara" loading="lazy">
+        <h3>Guadalajara</h3>
+        <p>Known for emerging wines like Cabernet, Merlot, and Syrah in Jalisco.</p>
+      </div>
+
+      <!-- Chile Subregions (5, Initially Hidden) -->
+      <div class="region-card" data-continent="americas" data-country="chile" data-link="/RegionsPage/MaipoValley/index.html" style="display: none;">
+        <img src="/images/regions/maipo-valley.jpg" alt="Maipo Valley" loading="lazy">
+        <h3>Maipo Valley</h3>
+        <p>Chile’s premier region for Cabernet Sauvignon and Carmenère.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="chile" data-link="/RegionsPage/ColchaguaValley/index.html" style="display: none;">
+        <img src="/images/regions/colchagua-valley.jpg" alt="Colchagua Valley" loading="lazy">
+        <h3>Colchagua Valley</h3>
+        <p>Known for Carmenère, Cabernet, and Syrah in Central Chile.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="chile" data-link="/RegionsPage/CasablancaValley/index.html" style="display: none;">
+        <img src="/images/regions/casablanca-valley.jpg" alt="Casablanca Valley" loading="lazy">
+        <h3>Casablanca Valley</h3>
+        <p>Renowned for Sauvignon Blanc, Chardonnay, and Pinot Noir.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="chile" data-link="/RegionsPage/AconcaguaValley/index.html" style="display: none;">
+        <img src="/images/regions/aconcagua-valley.jpg" alt="Aconcagua Valley" loading="lazy">
+        <h3>Aconcagua Valley</h3>
+        <p>Famous for Cabernet Sauvignon, Syrah, and Sauvignon Blanc.</p>
+      </div>
+      <div class="region-card" data-continent="americas" data-country="chile" data-link="/RegionsPage/BioBioValley/index.html" style="display: none;">
+        <img src="/images/regions/biobio-valley.jpg" alt="Bío Bío Valley" loading="lazy">
+        <h3>Bío Bío Valley</h3>
+        <p>Known for cool-climate Pinot Noir, Chardonnay, and Riesling in Southern Chile.</p>
+      </div>
+
+      <!-- Hidden Australian Countries and Regions (Initially Display: None) -->
+      <div class="region-card country-card" data-continent="australia" data-country="australia" style="display: none;">
+        <img src="/images/regions/countries/australia/Aus.jpg" alt="Australia" loading="lazy">
+        <h3>Australia</h3>
+        <p>Known for Shiraz, Cabernet Sauvignon, and diverse wine regions.</p>
+      </div>
+      <div class="region-card country-card" data-continent="australia" data-country="newzealand" style="display: none;">
+        <img src="/images/regions/countries/new zealand/NZ1.jpg" alt="New Zealand" loading="lazy">
+        <h3>New Zealand</h3>
+        <p>Renowned for Sauvignon Blanc, Pinot Noir, and cool-climate wines.</p>
+      </div>
+      <!-- Australia Regions (5, Added) -->
+      <div class="region-card" data-continent="australia" data-country="australia" data-link="/RegionsPage/BarossaValley/index.html" style="display: none;">
+        <img src="/images/regions/barossa-valley.jpg" alt="Barossa Valley" loading="lazy">
+        <h3>Barossa Valley</h3>
+        <p>Australia’s premier region for Shiraz and Cabernet Sauvignon.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="australia" data-link="/RegionsPage/McLarenVale/index.html" style="display: none;">
+        <img src="/images/regions/mclaren-vale.jpg" alt="McLaren Vale" loading="lazy">
+        <h3>McLaren Vale</h3>
+        <p>Known for Shiraz, Cabernet, and Grenache in South Australia.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="australia" data-link="/RegionsPage/MargaretRiver/index.html" style="display: none;">
+        <img src="/images/regions/margaret-river.jpg" alt="Margaret River" loading="lazy">
+        <h3>Margaret River</h3>
+        <p>Renowned for Cabernet, Sauvignon Blanc, and Chardonnay in Western Australia.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="australia" data-link="/RegionsPage/HunterValley/index.html" style="display: none;">
+        <img src="/images/regions/hunter-valley.jpg" alt="Hunter Valley" loading="lazy">
+        <h3>Hunter Valley</h3>
+        <p>Famous for Semillon, Shiraz, and Chardonnay in New South Wales.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="australia" data-link="/RegionsPage/YarraValley/index.html" style="display: none;">
+        <img src="/images/regions/yarra-valley.jpg" alt="Yarra Valley" loading="lazy">
+        <h3>Yarra Valley</h3>
+        <p>Known for Pinot Noir, Chardonnay, and cool-climate wines in Victoria.</p>
+      </div>
+      <!-- New Zealand Regions (5, Added) -->
+      <div class="region-card" data-continent="australia" data-country="newzealand" data-link="/RegionsPage/Marlborough/index.html" style="display: none;">
+        <img src="/images/regions/marlborough.jpg" alt="Marlborough" loading="lazy">
+        <h3>Marlborough</h3>
+        <p>New Zealand’s premier region for Sauvignon Blanc and Pinot Noir.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="newzealand" data-link="/RegionsPage/CentralOtago/index.html" style="display: none;">
+        <img src="/images/regions/central-otago.jpg" alt="Central Otago" loading="lazy">
+        <h3>Central Otago</h3>
+        <p>Renowned for Pinot Noir in South Island’s cool-climate region.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="newzealand" data-link="/RegionsPage/HawkesBay/index.html" style="display: none;">
+        <img src="/images/regions/hawkes-bay.jpg" alt="Hawke’s Bay" loading="lazy">
+        <h3>Hawke’s Bay</h3>
+        <p>Known for Cabernet, Merlot, and Chardonnay in North Island.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="newzealand" data-link="/RegionsPage/Martinborough/index.html" style="display: none;">
+        <img src="/images/regions/martinborough.jpg" alt="Martinborough" loading="lazy">
+        <h3>Martinborough</h3>
+        <p>Famous for Pinot Noir and Sauvignon Blanc in North Island.</p>
+      </div>
+      <div class="region-card" data-continent="australia" data-country="newzealand" data-link="/RegionsPage/WaihekeIsland/index.html" style="display: none;">
+        <img src="/images/regions/waiheke-island.jpg" alt="Waiheke Island" loading="lazy">
+        <h3>Waiheke Island</h3>
+        <p>Emerging region for Syrah, Cabernet, and Merlot near Auckland.</p>
+      </div>
+    
+ <!-- Hidden African Countries and Regions (Initially Display: None) -->
+<div class="region-card country-card" data-continent="africa" data-country="southafrica" style="display: none;">
+  <img src="/images/regions/countries/south africa/cape.jpg" alt="South Africa" loading="lazy">
+  <h3>South Africa</h3>
+  <p>Renowned for Pinotage, Sauvignon Blanc, and Cape wines.</p>
+</div>
+<!-- South Africa Regions (5, Unchanged) -->
+<div class="region-card" data-continent="africa" data-country="southafrica" data-link="/RegionsPage/Stellenbosch/index.html" style="display: none;">
+  <img src="/images/regions/stellenbosch.jpg" alt="Stellenbosch" loading="lazy">
+  <h3>Stellenbosch</h3>
+  <p>South Africa’s premier region for Cabernet, Merlot, and Pinotage.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="southafrica" data-link="/RegionsPage/Paarl/index.html" style="display: none;">
+  <img src="/images/regions/paarl.jpg" alt="Paarl" loading="lazy">
+  <h3>Paarl</h3>
+  <p>Known for Chenin Blanc, Cabernet, and Shiraz in Western Cape.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="southafrica" data-link="/RegionsPage/Franschhoek/index.html" style="display: none;">
+  <img src="/images/regions/franschhoek.jpg" alt="Franschhoek" loading="lazy">
+  <h3>Franschhoek</h3>
+  <p>Renowned for Sauvignon Blanc, Chardonnay, and Pinot Noir in Western Cape.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="southafrica" data-link="/RegionsPage/Constantia/index.html" style="display: none;">
+  <img src="/images/regions/constantia.jpg" alt="Constantia" loading="lazy">
+  <h3>Constantia</h3>
+  <p>Famous for Sauvignon Blanc, Merlot, and dessert wines in Cape Town.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="southafrica" data-link="/RegionsPage/WalkerBay/index.html" style="display: none;">
+  <img src="/images/regions/walker-bay.jpg" alt="Walker Bay" loading="lazy">
+  <h3>Walker Bay</h3>
+  <p>Known for Pinot Noir, Chardonnay, and cool-climate wines in Western Cape.</p>
+</div>
+
+<!-- Ethiopia Country Card (New) -->
+<div class="region-card country-card" data-continent="africa" data-country="ethiopia" style="display: none;">
+  <img src="/images/regions/countries/ethiopia/ethiopia.jpg" alt="Ethiopia" loading="lazy">
+  <h3>Ethiopia</h3>
+  <p>Emerging wine region known for traditional Tej and modern varietals.</p>
+</div>
+<!-- Ethiopia Regions (5, New) -->
+<div class="region-card" data-continent="africa" data-country="ethiopia" data-link="/RegionsPage/AwashValley/index.html" style="display: none;">
+  <img src="/images/regions/awash-valley.jpg" alt="Awash Valley" loading="lazy">
+  <h3>Awash Valley</h3>
+  <p>Ethiopia’s primary wine region for Cabernet Sauvignon and Chardonnay.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="ethiopia" data-link="/RegionsPage/RiftValley/index.html" style="display: none;">
+  <img src="/images/regions/rift-valley.jpg" alt="Rift Valley" loading="lazy">
+  <h3>Rift Valley</h3>
+  <p>Known for Syrah and Chenin Blanc in high-altitude vineyards.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="ethiopia" data-link="/RegionsPage/Ziway/index.html" style="display: none;">
+  <img src="/images/regions/ziway.jpg" alt="Ziway" loading="lazy">
+  <h3>Ziway</h3>
+  <p>Famous for Sauvignon Blanc and Merlot near Lake Ziway.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="ethiopia" data-link="/RegionsPage/AddisAbaba/index.html" style="display: none;">
+  <img src="/images/regions/addis-ababa.jpg" alt="Addis Ababa" loading="lazy">
+  <h3>Addis Ababa</h3>
+  <p>Emerging region for Cabernet and experimental varietals near the capital.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="ethiopia" data-link="/RegionsPage/Meki/index.html" style="display: none;">
+  <img src="/images/regions/meki.jpg" alt="Meki" loading="lazy">
+  <h3>Meki</h3>
+  <p>Known for Riesling and Pinot Noir in Ethiopia’s central region.</p>
+</div>
+
+<!-- Madagascar Country Card (New) -->
+<div class="region-card country-card" data-continent="africa" data-country="madagascar" style="display: none;">
+  <img src="/images/regions/countries/madagascar/mad.jpg" alt="Madagascar" loading="lazy">
+  <h3>Madagascar</h3>
+  <p>Emerging region for unique wines with tropical influences.</p>
+</div>
+<!-- Madagascar Regions (5, New) -->
+<div class="region-card" data-continent="africa" data-country="madagascar" data-link="/RegionsPage/Fianarantsoa/index.html" style="display: none;">
+  <img src="/images/regions/fianarantsoa.jpg" alt="Fianarantsoa" loading="lazy">
+  <h3>Fianarantsoa</h3>
+  <p>Madagascar’s main wine region for Chenin Blanc and Merlot.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="madagascar" data-link="/RegionsPage/Ambalavao/index.html" style="display: none;">
+  <img src="/images/regions/ambalavao.jpg" alt="Ambalavao" loading="lazy">
+  <h3>Ambalavao</h3>
+  <p>Known for Cabernet Sauvignon and Syrah in the highlands.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="madagascar" data-link="/RegionsPage/Isandra/index.html" style="display: none;">
+  <img src="/images/regions/isandra.jpg" alt="Isandra" loading="lazy">
+  <h3>Isandra</h3>
+  <p>Famous for Sauvignon Blanc and experimental varietals.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="madagascar" data-link="/RegionsPage/Antsirabe/index.html" style="display: none;">
+  <img src="/images/regions/antsirabe.jpg" alt="Antsirabe" loading="lazy">
+  <h3>Antsirabe</h3>
+  <p>Emerging region for Pinot Noir and Chardonnay in central Madagascar.</p>
+</div>
+<div class="region-card" data-continent="africa" data-country="madagascar" data-link="/RegionsPage/Betafo/index.html" style="display: none;">
+  <img src="/images/regions/betafo.jpg" alt="Betafo" loading="lazy">
+  <h3>Betafo</h3>
+  <p>Known for Merlot and tropical-influenced wines in the highlands.</p>
+</div>
+
+<!-- Hidden Asian Countries and Regions (Initially Display: None) -->
+<div class="region-card country-card" data-continent="asia" data-country="china" style="display: none;">
+  <img src="/images/regions/countries/china/china.jpg" alt="China" loading="lazy">
+  <h3>China</h3>
+  <p>Emerging region for Cabernet Sauvignon and international varietals.</p>
+</div>
+<!-- China Regions (5, Unchanged) -->
+<div class="region-card" data-continent="asia" data-country="china" data-link="/RegionsPage/Shandong/index.html" style="display: none;">
+  <img src="/images/regions/shandong.jpg" alt="Shandong" loading="lazy">
+  <h3>Shandong</h3>
+  <p>China’s major region for Cabernet, Merlot, and Chardonnay.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="china" data-link="/RegionsPage/Ningxia/index.html" style="display: none;">
+  <img src="/images/regions/ningxia.jpg" alt="Ningxia" loading="lazy">
+  <h3>Ningxia</h3>
+  <p>Emerging region for Cabernet Sauvignon and Merlot in Northern China.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="china" data-link="/RegionsPage/Hebei/index.html" style="display: none;">
+  <img src="/images/regions/hebei.jpg" alt="Hebei" loading="lazy">
+  <h3>Hebei</h3>
+  <p>Known for Cabernet, Chardonnay, and international varietals near Beijing.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="china" data-link="/RegionsPage/Xinjiang/index.html" style="display: none;">
+  <img src="/images/regions/xinjiang.jpg" alt="Xinjiang" loading="lazy">
+  <h3>Xinjiang</h3>
+  <p>Renowned for Cabernet, Merlot, and Syrah in Western China.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="china" data-link="/RegionsPage/Yunnan/index.html" style="display: none;">
+  <img src="/images/regions/yunnan.jpg" alt="Yunnan" loading="lazy">
+  <h3>Yunnan</h3>
+  <p>Emerging region for Cabernet, Merlot, and cool-climate wines in Southwest China.</p>
+</div>
+
+<!-- India Country Card (New) -->
+<div class="region-card country-card" data-continent="asia" data-country="india" style="display: none;">
+  <img src="/images/regions/countries/india/india.jpg" alt="India" loading="lazy">
+  <h3>India</h3>
+  <p>Growing wine region known for Shiraz and Sauvignon Blanc.</p>
+</div>
+<!-- India Regions (5, New) -->
+<div class="region-card" data-continent="asia" data-country="india" data-link="/RegionsPage/Nashik/index.html" style="display: none;">
+  <img src="/images/regions/nashik.jpg" alt="Nashik" loading="lazy">
+  <h3>Nashik</h3>
+  <p>India’s premier wine region for Shiraz, Cabernet, and Sauvignon Blanc.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="india" data-link="/RegionsPage/Bangalore/index.html" style="display: none;">
+  <img src="/images/regions/bangalore.jpg" alt="Bangalore" loading="lazy">
+  <h3>Bangalore</h3>
+  <p>Known for Chenin Blanc, Sauvignon Blanc, and Syrah in Karnataka.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="india" data-link="/RegionsPage/NandiHills/index.html" style="display: none;">
+  <img src="/images/regions/nandi-hills.jpg" alt="Nandi Hills" loading="lazy">
+  <h3>Nandi Hills</h3>
+  <p>Famous for Cabernet Sauvignon and Chardonnay near Bangalore.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="india" data-link="/RegionsPage/Maharashtra/index.html" style="display: none;">
+  <img src="/images/regions/maharashtra.jpg" alt="Maharashtra" loading="lazy">
+  <h3>Maharashtra</h3>
+  <p>Renowned for Shiraz, Merlot, and Sauvignon Blanc in Western India.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="india" data-link="/RegionsPage/KrishnaValley/index.html" style="display: none;">
+  <img src="/images/regions/krishna-valley.jpg" alt="Krishna Valley" loading="lazy">
+  <h3>Krishna Valley</h3>
+  <p>Emerging region for Cabernet, Syrah, and Chenin Blanc in Maharashtra.</p>
+</div>
+
+<!-- Japan Country Card (New) -->
+<div class="region-card country-card" data-continent="asia" data-country="japan" style="display: none;">
+  <img src="/images/regions/countries/japan/japan.jpg" alt="Japan" loading="lazy">
+  <h3>Japan</h3>
+  <p>Known for Koshu and Muscat Bailey A in its unique wine regions.</p>
+</div>
+<!-- Japan Regions (5, New) -->
+<div class="region-card" data-continent="asia" data-country="japan" data-link="/RegionsPage/Yamanashi/index.html" style="display: none;">
+  <img src="/images/regions/yamanashi.jpg" alt="Yamanashi" loading="lazy">
+  <h3>Yamanashi</h3>
+  <p>Japan’s premier region for Koshu and Cabernet Sauvignon.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="japan" data-link="/RegionsPage/Nagano/index.html" style="display: none;">
+  <img src="/images/regions/nagano.jpg" alt="Nagano" loading="lazy">
+  <h3>Nagano</h3>
+  <p>Known for Merlot, Chardonnay, and Muscat Bailey A in central Japan.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="japan" data-link="/RegionsPage/Hokkaido/index.html" style="display: none;">
+  <img src="/images/regions/hokkaido.jpg" alt="Hokkaido" loading="lazy">
+  <h3>Hokkaido</h3>
+  <p>Famous for Pinot Noir, Chardonnay, and cool-climate wines in Northern Japan.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="japan" data-link="/RegionsPage/Yamagata/index.html" style="display: none;">
+  <img src="/images/regions/yamagata.jpg" alt="Yamagata" loading="lazy">
+  <h3>Yamagata</h3>
+  <p>Emerging region for Koshu, Merlot, and Sauvignon Blanc in Tohoku.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="japan" data-link="/RegionsPage/Okayama/index.html" style="display: none;">
+  <img src="/images/regions/okayama.jpg" alt="Okayama" loading="lazy">
+  <h3>Okayama</h3>
+  <p>Known for Muscat Bailey A and experimental varietals in Western Japan.</p>
+</div>
+
+<!-- Thailand Country Card (New) -->
+<div class="region-card country-card" data-continent="asia" data-country="thailand" style="display: none;">
+  <img src="/images/regions/countries/thailand/thai.jpg" alt="Thailand" loading="lazy">
+  <h3>Thailand</h3>
+  <p>Emerging tropical wine region for Shiraz and Chenin Blanc.</p>
+</div>
+<!-- Thailand Regions (5, New) -->
+<div class="region-card" data-continent="asia" data-country="thailand" data-link="/RegionsPage/KhaoYai/index.html" style="display: none;">
+  <img src="/images/regions/khao-yai.jpg" alt="Khao Yai" loading="lazy">
+  <h3>Khao Yai</h3>
+  <p>Thailand’s leading region for Shiraz, Chenin Blanc, and Cabernet.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="thailand" data-link="/RegionsPage/HuaHin/index.html" style="display: none;">
+  <img src="/images/regions/hua-hin.jpg" alt="Hua Hin" loading="lazy">
+  <h3>Hua Hin</h3>
+  <p>Known for Syrah, Colombard, and tropical wines near the coast.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="thailand" data-link="/RegionsPage/PakChong/index.html" style="display: none;">
+  <img src="/images/regions/pak-chong.jpg" alt="Pak Chong" loading="lazy">
+  <h3>Pak Chong</h3>
+  <p>Famous for Shiraz and Sauvignon Blanc in Nakhon Ratchasima.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="thailand" data-link="/RegionsPage/ChiangMai/index.html" style="display: none;">
+  <img src="/images/regions/chiang-mai.jpg" alt="Chiang Mai" loading="lazy">
+  <h3>Chiang Mai</h3>
+  <p>Emerging region for Chenin Blanc and Syrah in Northern Thailand.</p>
+</div>
+<div class="region-card" data-continent="asia" data-country="thailand" data-link="/RegionsPage/Phuket/index.html" style="display: none;">
+  <img src="/images/regions/phuket.jpg" alt="Phuket" loading="lazy">
+  <h3>Phuket</h3>
+  <p>Known for experimental tropical wines like Colombard and Shiraz.</p>
+</div>
+    </section>
+    
+    <section class="region-nav">
+      <h2>Explore by Continent</h2>
+      <div class="continent-tabs">
+        <button class="tab-button active" data-continent="europe">Europe</button>
+        <button class="tab-button" data-continent="americas">Americas</button>
+        <button class="tab-button" data-continent="australia">Australia & New Zealand</button>
+        <button class="tab-button" data-continent="africa">Africa</button>
+        <button class="tab-button" data-continent="asia">Asia</button>
       </div>
     </section>
   </main>
 
-<!-- Footer -->
-<footer id="main-footer">
-    <div class="footer-container">
-      <!-- Left Section: Quick Links -->
-      <div class="footer-links">
-        <div class="footer-column">
-          <h4>About SRCH</h4>
-          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">How It Works</a></li>
-            <li><a href="#">Wine Resources</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="/ExplorePage/">Wine Regions</a></li>
-            <li><a href="#">Wine Styles</a></li>
-            <li><a href="#">Top Deals</a></li>
-            <li><a href="#">Stories & Insights</a></li>
-          </ul>
-        </div>
-      </div>
-  
-      <!-- Center Section: Newsletter Signup -->
-      <div class="footer-newsletter">
-        <h4>Get the Best Wine Deals & Insights Weekly</h4>
-        <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
-        <form id="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-  
-      <!-- Right Section: Social Media -->
-      <div class="footer-social">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-      
-      <!-- Add FontAwesome for social icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-      
-      </div>
+  <!-- Sign Up Modal - Step 1 (Email Entry) -->
+  <div id="signup-modal-step1" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal-btn">×</span>
+      <h2>Join SRCH</h2>
+      <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+      <form id="signup-form-step1">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Continue</button>
+      </form>
+      <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
     </div>
-  
-    <!-- Bottom Section: Copyright & Terms -->
-    <div class="footer-bottom">
-      <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
-    </div>
-  </footer>
+  </div>
 
-    <script src="/scripts/headerLogic.js"></script>
+  <!-- Sign Up Modal - Step 2 (User Info) -->
+  <div id="signup-modal-step2" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="back-to-email">← Back</span>
+      <h2>Create Your Account</h2>
+      <form id="signup-form-step2">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="date" name="dob" placeholder="Date of Birth" required />
+        <input type="password" name="password" placeholder="Set a Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="close-login-btn">×</span>
+      <h2>Log in to SRCH</h2>
+      <form id="login-form">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <input type="password" name="password" placeholder="Enter your password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer id="main-footer">
+  <div class="footer-container">
+    <!-- Left Section: Quick Links -->
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>About SRCH</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Wine Resources</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/ExplorePage/">Wine Regions</a></li>
+          <li><a href="#">Wine Styles</a></li>
+          <li><a href="#">Top Deals</a></li>
+          <li><a href="#">Stories & Insights</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center Section: Newsletter Signup -->
+    <div class="footer-newsletter">
+      <h4>Get the Best Wine Deals & Insights Weekly</h4>
+      <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Right Section: Social Media -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    
+    <!-- Add FontAwesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    </div>
+  </div>
+
+  <!-- Bottom Section: Copyright & Terms -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+  <!-- FontAwesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- JavaScript -->
+  <script src="/scripts/authLogic.js" defer></script>
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/RegionsPage/Regions.js" defer></script>
+
+  <!-- Inline Script for Enhanced Logging (Optional) -->
+  <script>
+    // Enhanced logging for debugging on Regions page
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("🔍 Regions Page Loaded - Starting Auth Debug");
+
+      const getStartedBtn = document.getElementById("get-started-btn");
+      const loginBtn = document.getElementById("login-button");
+      const signupModalStep1 = document.getElementById("signup-modal-step1");
+      const loginModal = document.getElementById("login-modal");
+
+      if (getStartedBtn && signupModalStep1) {
+        console.log("✅ Get Started button and signup modal Step 1 found");
+        getStartedBtn.addEventListener("click", () => {
+          console.log("🚀 Get Started clicked - Checking modal state");
+          console.log("Modal State Before:", {
+            id: signupModalStep1.id,
+            classes: signupModalStep1.classList,
+            display: window.getComputedStyle(signupModalStep1).display,
+            zIndex: window.getComputedStyle(signupModalStep1).zIndex,
+            position: window.getComputedStyle(signupModalStep1).position,
+            visibility: window.getComputedStyle(signupModalStep1).visibility,
+            opacity: window.getComputedStyle(signupModalStep1).opacity,
+            parentNode: signupModalStep1.parentNode ? signupModalStep1.parentNode.tagName : "No parent"
+          });
+          if (signupModalStep1) {
+            console.log("Attempting to show modal, current classList:", signupModalStep1.classList);
+            signupModalStep1.classList.remove("hidden");
+            console.log("Modal shown, new classList:", signupModalStep1.classList);
+            console.log("Modal State After:", {
+              id: signupModalStep1.id,
+              classes: signupModalStep1.classList,
+              display: window.getComputedStyle(signupModalStep1).display,
+              zIndex: window.getComputedStyle(signupModalStep1).zIndex,
+              position: window.getComputedStyle(signupModalStep1).position,
+              visibility: window.getComputedStyle(signupModalStep1).visibility,
+              opacity: window.getComputedStyle(signupModalStep1).opacity
+            });
+          }
+        });
+      } else {
+        console.log("⚠️ Get Started button or signup modal Step 1 not found");
+      }
+
+      if (loginBtn && loginModal) {
+        console.log("✅ Login button and login modal found");
+        loginBtn.addEventListener("click", () => {
+          console.log("🚀 Login clicked - Checking modal state");
+          console.log("Modal State Before:", {
+            id: loginModal.id,
+            classes: loginModal.classList,
+            display: window.getComputedStyle(loginModal).display,
+            zIndex: window.getComputedStyle(loginModal).zIndex,
+            position: window.getComputedStyle(loginModal).position,
+            visibility: window.getComputedStyle(loginModal).visibility,
+            opacity: window.getComputedStyle(loginModal).opacity,
+            parentNode: loginModal.parentNode ? loginModal.parentNode.tagName : "No parent"
+          });
+          if (loginModal) {
+            console.log("Attempting to show modal, current classList:", loginModal.classList);
+            loginModal.classList.remove("hidden");
+            console.log("Modal shown, new classList:", loginModal.classList);
+            console.log("Modal State After:", {
+              id: loginModal.id,
+              classes: loginModal.classList,
+              display: window.getComputedStyle(loginModal).display,
+              zIndex: window.getComputedStyle(loginModal).zIndex,
+              position: window.getComputedStyle(loginModal).position,
+              visibility: window.getComputedStyle(loginModal).visibility,
+              opacity: window.getComputedStyle(loginModal).opacity
+            });
+          }
+        });
+      } else {
+        console.log("⚠️ Login button or login modal not found");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,298 +1,327 @@
-/* /Regions/styles.css */
+/* regions.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f1e9;
+  color: #333;
+}
 
-/* Regions Main Styling */
-.regions-main {
-    padding-top: 100px; /* Space for fixed header */
-    background-color: #ffffff;
-    min-height: calc(100vh - 100px); /* Ensure full viewport height minus header */
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+.regions-hub {
+  min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+  padding: 40px 20px;
+  margin-bottom: 200px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 90px;
+}
+
+.hero-section h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 2.5rem;
+  color: #6b2d5c;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.region-card, .country-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 350px; /* Fixed height for all cards to ensure uniformity */
+  display: flex;
+  flex-direction: column;
+}
+
+.region-card:hover, .country-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.region-card img, .country-card img {
+  width: 100%;
+  height: 250px; /* Standardized height for all images */
+  object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+  object-position: center; /* Centers the image to avoid cropping key features */
+  border-bottom: 2px solid #6b2d5c; /* Purple border to separate image from text */
+}
+
+/* Remove the specific height override for South Africa */
+.country-card[data-country="southafrica"] img {
+  height: 250px; /* Revert to standardized height */
+  object-fit: cover;
+  object-position: center;
+}
+
+.region-card h3, .country-card h3 {
+  font-size: 1.5rem;
+  color: #6b2d5c;
+  margin: 15px 0 10px;
+  padding: 0 15px;
+  flex-grow: 0; /* Prevent text from stretching the card */
+}
+
+.region-card p, .country-card p {
+  font-size: 1rem;
+  color: #666;
+  padding: 0 15px 15px;
+  line-height: 1.5;
+  flex-grow: 1; /* Allow text to fill remaining space */
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  -ms-line-clamp: 3; /* Vendor prefix for Edge */
+  -o-line-clamp: 3; /* Vendor prefix for Opera */
+  line-clamp: 3; /* Standard property */
+  box-orient: vertical; /* Standard property */
+}
+
+.region-nav {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.region-nav h2 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 2rem;
+  color: #6b2d5c;
+  margin-bottom: 20px;
+}
+
+.continent-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background-color: #e6d8c9;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #6b2d5c;
+  color: white;
+}
+
+.tab-button:hover:not(.active) {
+  background-color: #d9b99b;
+  transform: scale(1.05);
+}
+
+/* Modal Styles (Reintroduced for Regions Page Only) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; /* High z-index to appear above region grid and tabs */
+  overflow: auto; /* Allow scrolling if modal content overflows */
+  backdrop-filter: blur(5px); /* Adds a blur effect */
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #faf3e0; /* Cream background to match the landing page */
+  padding: 50px; /* Spacious padding */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  width: 80%; /* Make the modal responsive */
+  max-width: 600px; /* Keep it from being too wide */
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+  font-family: 'Montserrat', sans-serif;
+  color: #1a1a5e; /* Navy blue text */
+  position: relative;
+  animation: slideIn 0.5s ease-out; /* Smooth entry animation */
+}
+
+.modal-content.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #6a1b1a; /* Burgundy for consistency */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #311212; /* Darker burgundy on hover */
+  transform: scale(1.1); /* Slight scale for interactivity */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap for better spacing */
+}
+
+.modal-content input,
+.modal-content button {
+  display: block;
+  width: 100%; /* Full width for uniformity */
+  padding: 15px; /* Spacious padding for accessibility */
+  margin: 10px 0;
+  border: 2px solid #ccc; /* Clean, soft border */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  font-size: 1rem; /* Readable font size */
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content button:focus {
+  outline: none; /* Remove default outline */
+  border-color: #6a1b1a; /* Burgundy on focus */
+  box-shadow: 0 0 8px rgba(106, 27, 26, 0.5); /* Glow effect */
+}
+
+.modal-content button {
+  background: #6a1b1a; /* Burgundy background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 15px 30px; /* Larger button for accessibility */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  font-size: 1.2rem; /* Larger font size */
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+  background: #311212; /* Darker burgundy on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+.modal-content button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
-  /* Regions Hero Styling */
-  .regions-hero {
-    position: relative;
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/vineyard-hero.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #faf3e0; /* Cream text for contrast */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero-content {
-    padding: 20px;
-    max-width: 800px;
+}
+
+/* Responsive Design for Modals */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10% auto; /* Adjust margin for smaller screens */
+    width: 85%; /* Slightly wider on mobile for usability */
+    max-width: 350px; /* Smaller max-width on mobile */
+    padding: 20px; /* Reduced padding for smaller screens */
   }
-  
-  .regions-hero h1 {
-    font-size: 3.5rem;
-    font-family: 'Shrikhand', sans-serif;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    animation: fadeInUp 1.5s ease-out;
+
+  .close-btn {
+    font-size: 24px; /* Slightly smaller close button on mobile */
+    right: 10px;
+    top: 10px;
   }
-  
-  .regions-hero p {
+
+  .modal-content input,
+  .modal-content button {
+    padding: 10px; /* Reduced padding on mobile */
+    font-size: 14px; /* Slightly smaller text on mobile */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .region-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .region-card, .country-card {
+    height: 350px; /* Reduced height for tablets */
+  }
+
+  .region-card img, .country-card img {
+    height: 200px; /* Reduced image height for tablets */
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .region-card h3, .country-card h3 {
     font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
-    color: #faf3e0;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
-    animation: fadeInUp 2s ease-out;
   }
-  
-  .hero-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #b9bb44; /* Golden accent */
-    color: #1a1a5e; /* Navy text */
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s, transform 0.2s;
-    animation: fadeInUp 2.5s ease-out;
+
+  .region-card p, .country-card p {
+    font-size: 0.9rem;
   }
-  
-  .hero-button:hover {
-    background-color: #051816; /* Darker gold */
-    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
   }
-  
-  /* Wine Production Visualization */
-  .regions-visualization {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-top: -50px; /* Overlap with hero for visual continuity */
-    z-index: 10;
-    position: relative;
+
+  .region-nav h2 {
+    font-size: 1.5rem;
   }
-  
-  .regions-visualization h2 {
-    font-size: 2rem;
-    font-family: 'Shrikhand', sans-serif;
-    color: #1a1a5e;
-    margin-bottom: 30px;
-    animation: fadeIn 1.5s ease-out;
+
+  .tab-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
-  
-  .visualization-chart {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+
+  .region-card, .country-card {
+    height: 300px; /* Further reduced height for very small screens */
   }
-  
-  #wineProductionChart {
-    max-width: 100%;
-    height: 400px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .region-card img, .country-card img {
+    height: 150px; /* Further reduced image height for very small screens */
   }
-  
-  .visualization-note {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
-    animation: fadeIn 2s ease-out;
-  }
-  
-  /* Region Grid with Enhanced Cards */
-  .regions-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 80px 20px 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    flex-grow: 1; /* Allow grid to grow and push footer to bottom */
-  }
-  
-  .regions-grid h2 {
-    font-size: 2.5rem;
-    font-family: 'Shrikhand', sans-serif;
-    color: #1a1a5e;
-    margin-bottom: 50px;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1.5s ease-out;
-  }
-  
-  .region-cards {
-    display: grid;
-    grid-template-columns: inherit;
-    gap: 40px;
-  }
-  
-  .region-card {
-    background: linear-gradient(135deg, #ffffff 70%, #f8f9fa 100%);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s, box-shadow 0.4s;
-    overflow: hidden;
-    position: relative;
-    animation: slideUp 1.5s ease-out;
-  }
-  
-  .region-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-  }
-  
-  .card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 20px;
-    filter: brightness(90%);
-    transition: filter 0.3s;
-  }
-  
-  .region-card:hover .card-image {
-    filter: brightness(100%);
-  }
-  
-  .region-card h3 {
-    font-size: 2rem;
-    font-family: 'Shrikhand', sans-serif;
-    color: #1a1a5e;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .region-card p {
-    font-size: 1.1rem;
-    font-family: 'Montserrat', sans-serif;
-    color: #666;
-    margin-bottom: 25px;
-    line-height: 1.6;
-  }
-  
-  .region-link {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #b9bb44;
-    color: #1a1a5e;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .region-link:hover {
-    background-color: #051816;
-    transform: scale(1.05);
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Ensure chart is responsive but maintains stability */
-  @media (max-width: 1200px) {
-    .regions-grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      padding: 60px 10px 30px;
-    }
-  
-    .region-card {
-      padding: 20px;
-    }
-  
-    .card-image {
-      height: 180px;
-    }
-  
-    .regions-visualization {
-      padding: 40px 10px;
-    }
-  
-    #wineProductionChart {
-      height: 350px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .regions-hero {
-      height: 50vh;
-    }
-  
-    .regions-hero h1 {
-      font-size: 2.5rem;
-    }
-  
-    .regions-hero p {
-      font-size: 1rem;
-    }
-  
-    .regions-visualization {
-      margin-top: -30px;
-      padding: 30px 10px;
-    }
-  
-    #wineProductionChart {
-      height: 250px;
-    }
-  
-    .regions-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      padding: 40px 10px 20px;
-    }
-  
-    .region-card {
-      padding: 15px;
-    }
-  
-    .card-image {
-      height: 150px;
-    }
-  
-    .region-card h3 {
-      font-size: 1.5rem;
-    }
-  
-    .region-card p {
-      font-size: 0.9rem;
-    }
-  
-    .region-link {
-      padding: 8px 20px;
-    }
-  }
-  
-  /* Ensure body and main flex layout */
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  main {
-    flex: 1 0 auto; /* Allow main to grow and push footer to bottom */
-  }
+}

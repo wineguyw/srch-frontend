@@ -1,153 +1,217 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(180deg, #f5f5f5, #ffffff);
-    color: #1a1a5e; /* Navy blue text */
-    line-height: 1.8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-  }
-  
-  /* Header */
-  .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(13, 17, 55, 0.95); /* Semi-transparent Navy */
-    color: #faf3e0; /* Cream */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    backdrop-filter: blur(8px); /* Glass effect */
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-  }
-  
-  .site-title-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .site-title {
-    font-size: 36px;
-    font-family: 'Shrikhand', sans-serif;
-    color: #faf3e0;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  
-  .nav {
-    position: relative; /* Allows manual positioning */
-    text-align: center; /* Center text within nav */
-  }
-
-  .nav-logged-out {
-    left: 50px; /* Default position for logged-out state (adjust this value as needed) */
-  }
-
-  .nav-logged-in {
-    left: -35px; /* Position for logged-in state (adjust this value as needed) */
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center; /* Center the links horizontally within nav */
-    align-items: center; /* Center vertically within nav */
-    gap: 70px; /* Maintain spacing between links */
-    padding: 0;
-    margin: 0; /* Remove any margins that could offset the links */
-  }
-  
-  .nav-links a {
-    font-size: 18px;
-    font-family: 'Shrikhand', sans-serif;
-    font-weight: 600;
-    color: #faf3e0;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    color: #b9bb44;
-    text-shadow: 0 0 5px #b9bb44;
-  }
-  
-  .auth-buttons {
-    display: flex;
-    gap: 20px;
-  }
-
-  .auth-section {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust spacing between buttons */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-  .login-btn {
-    background: transparent;
-    border: 2px solid #faf3e0;
-    color: #faf3e0;
-    border-radius: 25px;
-    font-size: 16px;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  .login-btn:hover {
-    background: #faf3e0;
-    color: #311212;
-  }
-  
-  .get-started-btn {
-    background: #b9bb44;
-    border: none;
-    color: #ffffff;
-    box-shadow: 0 6px 12px rgba(185, 187, 68, 0.4);
-    border-radius: 25px;
-    font-size: 16px;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease;
-  }
-  
-  .get-started-btn:hover {
-    background: #051816;
-    transform: scale(1.05);
-  }
-
-  .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; /* Hidden by default */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #f5f5f5, #ffffff);
+  color: #1a1a5e; /* Navy blue text */
+  line-height: 1.6; /* Slightly reduced for cleaner spacing */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling for modals */
 }
-  
+
+/* Ensure no horizontal scrolling */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Full screen width, edge-to-edge */
+  background: rgba(255, 255, 255, 0.89); /* Translucent white background */
+  color: #000000; /* Black text, matching requirement */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for clean look */
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Blurred background effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  transition: all 0.3s ease-in-out;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Keeps logo on left, nav centered, auth on right */
+  align-items: center;
+  padding: 20px 50px; /* Reverts to original padding for wider spacing */
+  width: 100%; /* Ensures the container spans the full width of the screen */
+  max-width: none; /* Removes max-width constraint to match full screen width */
+}
+
+/* Site Title */
+.site-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-title {
+  font-size: 36px; /* Reverts to original size for consistency */
+  font-family: 'Shrikhand', sans-serif;
+  color: #000000; /* Black, matching requirement */
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0); /* Removed shadow for clean, flat look */
+  transition: color 0.3s ease;
+}
+
+.site-title:hover {
+  color: #333333; /* Subtle dark gray highlight for hover */
+}
+
+/* Navigation */
+.nav {
+  position: relative;
+}
+
+.nav-logged-out {
+  left: 50px; /* Default position for logged-out state, maintained from previous setup */
+}
+
+.nav-logged-in {
+  left: -35px; /* Position for logged-in state, maintained from previous setup */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center the links horizontally within nav, as before */
+  align-items: center; /* Center vertically within nav, as before */
+  gap: 70px; /* Reverts to original gap for wider spacing */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  font-size: 18px; /* Reverts to original size for consistency */
+  font-family: 'Shrikhand', sans-serif;
+  font-weight: 600; /* Reverts to original weight for bold appearance */
+  color: #000000; /* Black, matching requirement */
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000000; /* Black underline, matching text color */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #333333; /* Dark gray hover, subtle and modern */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Clean underline effect on hover */
+}
+
+/* Authentication Section - Enhanced for Consistency */
+.auth-section {
+  display: flex !important; /* Forces flex layout, overriding any overrides */
+  align-items: center;
+  gap: 10px; /* Default gap for desktop, ensuring side-by-side buttons */
+  position: relative; /* Ensures proper positioning relative to other header elements */
+  margin: 0; /* Removes any default margins */
+  padding: 0; /* Removes any default padding */
+}
+
+.auth-section.logged-out { /* Specifically for logged-out state */
+  display: flex !important; /* Reinforces flex layout for logged-out state */
+  flex-direction: row !important; /* Ensures side-by-side on desktop for logged-out users */
+}
+
+#auth-buttons { /* Corrected to target the ID, not class, for consistency */
+  display: flex !important; /* Reinforces side-by-side layout for buttons, overriding any overrides */
+  gap: 10px; /* Default gap for desktop, ensuring side-by-side buttons */
+  margin: 0; /* Removes any default margins */
+  padding: 0; /* Removes any default padding */
+}
+
+.auth-section.logged-out #auth-buttons { /* Specifically for logged-out state */
+  flex-direction: row !important; /* Ensures side-by-side on desktop for logged-out users */
+}
+
+/* Profile Image and Auth Buttons */
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  margin: 0; /* Removes any margins that might affect layout */
+  padding: 0; /* Removes any padding that might affect layout */
+}
+
+.profile-img.hidden {
+  display: none; /* Ensures consistency with JavaScript */
+}
+
+#profile-icon {
+  display: none; /* Default hidden state, controlled by JavaScript */
+  margin: 0; /* Removes any margins */
+  padding: 0; /* Removes any padding */
+}
+
+.login-btn, .get-started-btn {
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s ease, box-shadow 0.3s;
+  margin: 0; /* Removes any margins that might add space */
+  padding: 0 0 0 5px; /* Adjusts internal padding to maintain button size but remove external gaps */
+}
+
+.login-btn {
+  background: transparent;
+  border: 2px solid #000000; /* Black border, matching text color */
+  color: #000000; /* Black text, matching requirement */
+  border-radius: 4px; /* Sharper, less rounded corners as requested */
+  font-size: 16px; /* Reverts to original size for consistency */
+  padding: 10px 25px; /* Reverts to original padding for wider buttons */
+}
+
+.login-btn:hover {
+  background: #000000; /* Black background on hover */
+  color: #ffffff; /* White text on hover for contrast */
+  transform: scale(1.05); /* Subtle scale for interactivity */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for modern effect */
+}
+
+.get-started-btn {
+  background: #000000; /* Black background, matching text color */
+  border: none;
+  color: #ffffff; /* White text for contrast */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for modern effect */
+  border-radius: 4px; /* Sharper, less rounded corners as requested */
+  font-size: 16px; /* Reverts to original size for consistency */
+  padding: 10px 25px; /* Reverts to original padding for wider buttons */
+  font-weight: 600; /* Bold for emphasis */
+}
+
+.get-started-btn:hover {
+  background: #333333; /* Darker black on hover */
+  transform: scale(1.05); /* Subtle scale for interactivity */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
 /* Footer Styles */
 #main-footer {
   background: #1a1a1a;
   color: #ffffff;
-  padding: 50px 20px;
+  padding: 40px 20px; /* Reduced padding for minimalism */
   font-size: 0.9rem;
 }
 
@@ -157,16 +221,19 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 20px; /* Added gap for responsiveness */
 }
 
 .footer-links {
   display: flex;
-  gap: 40px;
+  gap: 30px; /* Reduced gap for clean spacing */
 }
 
 .footer-column h4 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 1rem; /* Smaller for minimalism */
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 .footer-column ul {
@@ -181,11 +248,13 @@
 .footer-column ul li a {
   color: #f8f8f8;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-  color: #b9bb44;
+  color: #000000; /* Black for consistency with header */
+  text-decoration: underline; /* Clean underline for interactivity */
 }
 
 /* Newsletter */
@@ -196,7 +265,8 @@
 
 .footer-newsletter p {
   font-size: 0.9rem;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .footer-newsletter form {
@@ -207,24 +277,27 @@
 .footer-newsletter input {
   flex: 1;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #ffffff; /* Subtle border for modern look */
+  border-radius: 4px; /* Smaller radius for clean design */
   font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .footer-newsletter button {
-  background: #b9bb44;
-  color: #1a1a1a;
+  background: #000000; /* Black button, matching header design */
+  color: #ffffff;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 18px; /* Adjusted for consistency */
   cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  border-radius: 4px; /* Sharper for consistency */
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .footer-newsletter button:hover {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: #333333; /* Darker black on hover */
+  transform: scale(1.05); /* Subtle scale for interactivity */
 }
 
 /* Social Icons */
@@ -234,6 +307,9 @@
 
 .footer-social h4 {
   margin-bottom: 10px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 .social-icons {
@@ -242,66 +318,96 @@
   justify-content: center;
 }
 
-.social-icons img {
-  width: 24px;
-  transition: transform 0.3s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-/* Footer Social Icons */
-.footer-social .social-icons a {
-  color: #ffffff; /* Change icon color to white */
-  font-size: 24px; /* Increase icon size */
-  margin: 0 10px; /* Add spacing between icons */
+.social-icons a {
+  color: #ffffff;
+  font-size: 20px; /* Slightly smaller for minimalism */
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect */
-.footer-social .social-icons a:hover {
-  color: #b9bb44; /* Slight highlight on hover (matching theme) */
-  transform: scale(1.1); /* Slight increase in size on hover */
+.social-icons a:hover {
+  color: #000000; /* Black for consistency with header */
+  transform: scale(1.1); /* Subtle scale for interactivity */
 }
 
 /* Footer Bottom */
 .footer-bottom {
   text-align: center;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lighter border for subtlety */
   padding-top: 15px;
   font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .footer-bottom a {
-  color: #b9bb44;
+  color: #000000; /* Black for consistency with header */
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .footer-bottom a:hover {
-  color: #ffffff;
+  color: #333333;
+  text-decoration: underline; /* Clean underline for clarity */
 }
 
-.header-container {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Header */
+  .header-container {
+    flex-direction: column;
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .auth-section {
+    width: 100%;
+    justify-content: center;
+    gap: 5px; /* Reduced gap on mobile for tighter spacing */
+    flex-direction: column; /* Stack auth section vertically on mobile */
+  }
+
+  .auth-section.logged-out { /* Ensure logged-out mobile stacking */
+    flex-direction: column !important; /* Reinforces stacking on mobile for logged-out users */
+  }
+
+  #auth-buttons {
+    flex-direction: column !important; /* Stack buttons vertically on mobile */
+    width: 100%;
+    gap: 5px; /* Reduced gap on mobile for tighter spacing */
+  }
+
+  .login-btn, .get-started-btn {
+    width: 100%;
+    margin: 0;
+    padding: 10px 25px; /* Maintain button padding but allow full width on mobile */
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-newsletter {
+    margin-top: 20px;
+  }
+
+  .social-icons {
+    margin-top: 15px;
+  }
 }
 
-.auth-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#auth-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.login-btn, .get-started-btn {
-  white-space: nowrap;
+/* Smooth Transitions for All Interactive Elements */
+a, button {
+  transition: all 0.3s ease;
 }

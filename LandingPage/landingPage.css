@@ -2,9 +2,9 @@
 #hero-section {
   position: relative;
   text-align: center;
-  padding: 100px 20px 40px;
+  padding: 173px 20px 40px;
   margin-top: 80px;
-  background: url('../images/LandingPage/wine-hero.jpg') no-repeat center center;
+  background: url('../images/LandingPage/a-collection-of-wine-bottles-stored-on-wooden-racks-within-a-well-constructed-wine-cellar-photo.jpg') no-repeat center center;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   border-bottom: 6px solid #311212;
@@ -66,173 +66,55 @@
   color: #311212;
   transform: translateY(-5px);
 }
-  
-  
-  /* Keyframes for Fade-In Animation */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Wine Regions Section */
-  #featured-regions {
-    padding: 50px 20px;
-    background: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
-  }
-  
-  #featured-regions h2 {
-    font-size: 2.5rem;
-    font-family: 'Shrikhand', sans-serif;
-    text-align: center;
-    margin-bottom:40px;
-    color: #311212;
-  }
-  
-  .regions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .region-item {
-    padding: 25px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background: linear-gradient(145deg, #ffffff, #f7f7f7);
-    text-align: center;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-  }
-  
-  .region-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  }
 
-  /* Global Styles */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(180deg, #faf3e0, #f5f1ed); /* Cream gradient */
-  color: #1a1a5e; /* Navy blue */
-}
-
-/* Modal Styles */
-.modal.hidden {
-  display: none;
-}
-
-/* Modal Background */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px); /* Adds a blur effect */
-}
-
-/* Modal Content */
-.modal-content {
-  background: #faf3e0; /* Cream background to match the landing page */
-  padding: 50px; /* Spacious padding */
-  border-radius: 20px; /* Softer, modern rounded corners */
-  width: 80%; /* Make the modal responsive */
-  max-width: 600px; /* Keep it from being too wide */
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
-  font-family: 'Montserrat', sans-serif;
-  color: #1a1a5e; /* Navy blue text */
-  position: relative;
-  animation: slideIn 0.5s ease-out; /* Smooth entry animation */
-}
-
-/* Modal Heading */
-.modal-content h2 {
-  font-size: 2.5rem; /* Larger heading */
-  color: #311212; /* Burgundy for emphasis */
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-/* Form Inputs */
-.modal-content input {
-  display: block;
-  width: 100%; /* Full width for uniformity */
-  padding: 15px; /* Spacious padding for accessibility */
-  margin: 10px 0;
-  border: 2px solid #ccc; /* Clean, soft border */
-  border-radius: 10px;
-  font-size: 1rem; /* Readable font size */
-  font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-.modal-content input:focus {
-  border-color: #6a1b1a; /* Burgundy on focus */
-  box-shadow: 0 0 8px rgba(106, 27, 26, 0.5); /* Glow effect */
-  outline: none; /* Remove default outline */
-}
-
-/* Submit Button */
-.modal-content button {
-  background: #6a1b1a; /* Burgundy background */
-  color: #ffffff; /* White text */
-  border: none;
-  padding: 15px 30px; /* Larger button for accessibility */
-  border-radius: 10px; /* Softer corners */
-  font-size: 1.2rem; /* Larger font size */
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.modal-content button:hover {
-  background: #311212; /* Darker burgundy on hover */
-  transform: scale(1.05); /* Slight scale effect */
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1.5rem;
-  color: #6a1b1a; /* Burgundy for consistency */
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: #311212; /* Darker burgundy on hover */
-}
-
-/* Slide-In Animation */
-@keyframes slideIn {
-  from {
+/* Keyframes for Fade-In Animation */
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Wine Regions Section */
+#featured-regions {
+  padding: 50px 20px;
+  background: #f9f9f5;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
+#featured-regions h2 {
+  font-size: 2.5rem;
+  font-family: 'Shrikhand', sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #311212;
+}
+
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.region-item {
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.region-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Wine Stories Section */
@@ -348,4 +230,142 @@ body {
 .cta-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Styles (Reintroduced for Landing Page Only) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Adds a blur effect */
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #faf3e0; /* Cream background to match the landing page */
+  padding: 50px; /* Spacious padding */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  width: 80%; /* Make the modal responsive */
+  max-width: 600px; /* Keep it from being too wide */
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+  font-family: 'Montserrat', sans-serif;
+  color: #1a1a5e; /* Navy blue text */
+  position: relative;
+  animation: slideIn 0.5s ease-out; /* Smooth entry animation */
+}
+
+.modal-content.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #6a1b1a; /* Burgundy for consistency */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #311212; /* Darker burgundy on hover */
+  transform: scale(1.1); /* Slight scale for interactivity */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap for better spacing */
+}
+
+.modal-content input,
+.modal-content button {
+  display: block;
+  width: 100%; /* Full width for uniformity */
+  padding: 15px; /* Spacious padding for accessibility */
+  margin: 10px 0;
+  border: 2px solid #ccc; /* Clean, soft border */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  font-size: 1rem; /* Readable font size */
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content button:focus {
+  outline: none; /* Remove default outline */
+  border-color: #6a1b1a; /* Burgundy on focus */
+  box-shadow: 0 0 8px rgba(106, 27, 26, 0.5); /* Glow effect */
+}
+
+.modal-content button {
+  background: #6a1b1a; /* Burgundy background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 15px 30px; /* Larger button for accessibility */
+  border-radius: 4px; /* Straighter, more sleek edges (sharper corners) */
+  font-size: 1.2rem; /* Larger font size */
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+  background: #311212; /* Darker burgundy on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+.modal-content button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design for Modals */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10% auto; /* Adjust margin for smaller screens */
+    width: 85%; /* Slightly wider on mobile for usability */
+    max-width: 350px; /* Smaller max-width on mobile */
+    padding: 20px; /* Reduced padding for smaller screens */
+  }
+
+  .close-btn {
+    font-size: 24px; /* Slightly smaller close button on mobile */
+    right: 10px;
+    top: 10px;
+  }
+
+  .modal-content input,
+  .modal-content button {
+    padding: 10px; /* Reduced padding on mobile */
+    font-size: 14px; /* Slightly smaller text on mobile */
+  }
 }
