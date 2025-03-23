@@ -327,85 +327,109 @@ const wineRegions = {
   }
 };
 
-const allLabels = [
-  // USA (expanded)
+// Main countries (using coordinates from wineRegions)
+const mainCountries = [
+  { name: "USA", lat: 39.8283, lng: -98.5795 },
+  { name: "France", lat: 46.6034, lng: 1.8883 },
+  { name: "Italy", lat: 41.8719, lng: 12.5674 },
+  { name: "Spain", lat: 40.4637, lng: -3.7492 },
+  { name: "Portugal", lat: 39.3999, lng: -8.2245 },
+  { name: "Australia", lat: -25.2744, lng: 133.7751 },
+  { name: "New Zealand", lat: -40.9006, lng: 174.8860 },
+  { name: "South Africa", lat: -30.5595, lng: 22.9375 },
+  { name: "Argentina", lat: -38.4161, lng: -63.6167 },
+  { name: "Chile", lat: -35.6751, lng: -71.5430 },
+  { name: "Germany", lat: 51.1657, lng: 10.4515 },
+  { name: "Austria", lat: 47.5162, lng: 14.5501 },
+  { name: "Greece", lat: 39.0742, lng: 21.8243 }
+];
+
+// Specific wine regions (filtered to exclude broader regions)
+const specificWineRegions = [
+  // USA
   { name: "Napa Valley", country: "USA", lat: 38.2975, lng: -122.2869 },
   { name: "Sonoma County", country: "USA", lat: 38.433, lng: -122.515 },
   { name: "Willamette Valley", country: "USA", lat: 45.211, lng: -123.062 },
   { name: "Columbia Valley", country: "USA", lat: 46.200, lng: -119.500 },
 
-  // France (expanded)
+  // France
   { name: "Bordeaux", country: "France", lat: 44.8378, lng: -0.5792 },
   { name: "Burgundy", country: "France", lat: 47.0311, lng: 4.8254 },
   { name: "Champagne", country: "France", lat: 49.256, lng: 4.033 },
   { name: "Rhône Valley", country: "France", lat: 44.777, lng: 4.871 },
 
-  // Italy (expanded)
+  // Italy
   { name: "Tuscany", country: "Italy", lat: 43.7711, lng: 11.2486 },
   { name: "Piedmont", country: "Italy", lat: 44.693, lng: 7.678 },
   { name: "Veneto", country: "Italy", lat: 45.500, lng: 11.550 },
   { name: "Sicily", country: "Italy", lat: 37.599, lng: 14.015 },
 
-  // Spain (expanded)
+  // Spain (excluding broader regions like Catalonia, Galicia, Andalusia)
   { name: "Rioja", country: "Spain", lat: 42.303, lng: -2.427 },
-  { name: "Catalonia", country: "Spain", lat: 41.3851, lng: 2.1734 },
-  { name: "Galicia", country: "Spain", lat: 42.433, lng: -8.647 },
-  { name: "Andalusia", country: "Spain", lat: 37.3925, lng: -5.9940 },
+  { name: "Priorat", country: "Spain", lat: 41.200, lng: 0.766 }, // Specific region within Catalonia
+  { name: "Penedès", country: "Spain", lat: 41.347, lng: 1.698 }, // Specific region within Catalonia
+  { name: "Rías Baixas", country: "Spain", lat: 42.250, lng: -8.700 }, // Specific region within Galicia
+  { name: "Ribeira Sacra", country: "Spain", lat: 42.400, lng: -7.500 }, // Specific region within Galicia
+  { name: "Jerez", country: "Spain", lat: 36.683, lng: -6.133 }, // Specific region within Andalusia
 
-  // Portugal (expanded)
+  // Portugal
   { name: "Douro Valley", country: "Portugal", lat: 41.160, lng: -7.720 },
   { name: "Alentejo", country: "Portugal", lat: 38.641, lng: -7.999 },
   { name: "Vinho Verde", country: "Portugal", lat: 41.736, lng: -8.293 },
   { name: "Dão", country: "Portugal", lat: 40.530, lng: -7.905 },
 
-  // Australia (expanded)
+  // Australia
   { name: "Barossa Valley", country: "Australia", lat: -34.554, lng: 138.958 },
   { name: "McLaren Vale", country: "Australia", lat: -35.219, lng: 138.546 },
   { name: "Yarra Valley", country: "Australia", lat: -37.750, lng: 145.583 },
   { name: "Hunter Valley", country: "Australia", lat: -32.750, lng: 151.167 },
 
-  // New Zealand (expanded)
+  // New Zealand
   { name: "Marlborough", country: "New Zealand", lat: -41.5134, lng: 173.9612 },
   { name: "Central Otago", country: "New Zealand", lat: -45.033, lng: 169.217 },
   { name: "Hawke’s Bay", country: "New Zealand", lat: -39.633, lng: 176.850 },
   { name: "Martinborough", country: "New Zealand", lat: -41.217, lng: 175.450 },
 
-  // South Africa (expanded)
+  // South Africa
   { name: "Stellenbosch", country: "South Africa", lat: -33.934, lng: 18.860 },
   { name: "Paarl", country: "South Africa", lat: -33.730, lng: 18.967 },
   { name: "Constantia", country: "South Africa", lat: -34.050, lng: 18.433 },
   { name: "Swartland", country: "South Africa", lat: -33.350, lng: 18.750 },
 
-  // Argentina (expanded)
+  // Argentina (excluding broader regions like Patagonia, Salta, San Juan)
   { name: "Mendoza", country: "Argentina", lat: -32.889, lng: -68.845 },
-  { name: "Salta", country: "Argentina", lat: -24.783, lng: -65.417 },
-  { name: "San Juan", country: "Argentina", lat: -31.537, lng: -68.536 },
-  { name: "Patagonia", country: "Argentina", lat: -39.033, lng: -67.583 },
+  { name: "Cafayate", country: "Argentina", lat: -26.067, lng: -65.967 }, // Specific region within Salta
+  { name: "Tulum Valley", country: "Argentina", lat: -31.600, lng: -68.500 }, // Specific region within San Juan
+  { name: "Neuquén", country: "Argentina", lat: -38.950, lng: -68.067 }, // Specific region within Patagonia
+  { name: "Río Negro", country: "Argentina", lat: -39.033, lng: -67.583 }, // Specific region within Patagonia
 
-  // Chile (expanded)
+  // Chile
   { name: "Maipo Valley", country: "Chile", lat: -33.772, lng: -70.675 },
   { name: "Colchagua Valley", country: "Chile", lat: -34.650, lng: -71.200 },
   { name: "Aconcagua Valley", country: "Chile", lat: -32.830, lng: -70.706 },
   { name: "Itata Valley", country: "Chile", lat: -36.675, lng: -72.792 },
 
-  // Germany (expanded)
+  // Germany
   { name: "Mosel", country: "Germany", lat: 49.744, lng: 6.627 },
   { name: "Rheingau", country: "Germany", lat: 50.023, lng: 8.075 },
   { name: "Pfalz", country: "Germany", lat: 49.432, lng: 8.215 },
   { name: "Rheinhessen", country: "Germany", lat: 49.850, lng: 8.250 },
 
-  // New Additions: Austria
+  // Austria
   { name: "Wachau", country: "Austria", lat: 48.300, lng: 15.400 },
   { name: "Burgenland", country: "Austria", lat: 47.750, lng: 16.500 },
   { name: "Styria", country: "Austria", lat: 47.050, lng: 15.400 },
   { name: "Kremstal", country: "Austria", lat: 48.383, lng: 15.617 },
 
-  // New Additions: Greece
+  // Greece
   { name: "Peloponnese", country: "Greece", lat: 37.500, lng: 22.500 },
   { name: "Macedonia", country: "Greece", lat: 40.750, lng: 22.500 },
   { name: "Crete", country: "Greece", lat: 35.500, lng: 24.500 },
   { name: "Aegean Islands", country: "Greece", lat: 37.000, lng: 25.500 }
 ];
+
+// Combine main countries and specific wine regions
+const allLabels = [...mainCountries, ...specificWineRegions];
 
   // Initialize MapBox GL JS globe with closer zoom and centered position
   const map = new mapboxgl.Map({
