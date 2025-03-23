@@ -450,44 +450,85 @@ const allLabels = [...mainCountries, ...specificWineRegions];
   globeContainer.addEventListener("mousedown", () => map.scrollZoom.enable());
   globeContainer.addEventListener("touchstart", () => map.scrollZoom.enable());
 
-  // Adjust atmosphere for minimal glow and reduced stars
-  map.on("style.load", () => {
-    map.setFog({
-      color: "rgba(0, 0, 0, 0.1)", // Minimal glow
-      "high-color": "#1a1a1a", // Darker, less prominent
-      "horizon-blend": 0.01, // Reduced blend
-      "star-intensity": 0.1 // Minimal stars
-    });
+  // Adjust atmosphere for minimal glow and reduced stars, and customize labels
+map.on("style.load", () => {
+  map.setFog({
+    color: "rgba(0, 0, 0, 0.1)", // Minimal glow
+    "high-color": "#1a1a1a", // Darker, less prominent
+    "horizon-blend": 0.01, // Reduced blend
+    "star-intensity": 0.1 // Minimal stars
   });
 
-  // Generate rings for wine regions, scaled for clarity
-  const generateRings = (location) => {
-    const rings = [];
-    const numRings = 3; // Reduced for clarity
-    const baseSize = 0.05; // Smaller base size
-    const spacing = 0.02; // Tighter spacing
+  // Get all layers in the style
+  const style = map.getStyle();
+  const layers = style.layers;
 
-    for (let i = 0; i < numRings; i++) {
-      rings.push({
-        type: "circle",
-        geometry: {
-          type: "Point",
-          coordinates: [location.lng, location.lat]
-        },
-        properties: {
-          radius: baseSize + i * spacing, // Controlled radius
-          speed: 0.02 + i * 0.005, // Slower propagation
-          period: 3000 + i * 400, // Faster cycle
-          color: `rgba(255, 69, 0, ${0.6 - i * 0.1})` // Adjusted opacity
-        }
-      });
+  // List of main wine-producing countries
+  const wineCountries = [
+    "USA", "France", "Italy", "Spain", "Portugal", "Australia", "New Zealand",
+    "South Africa", "Argentina", "Chile", "Germany", "Austria", "Greece"
+  ];
+
+  // Iterate through all layers and modify label visibility
+  layers.forEach(layer => {
+    const layerId = layer.id;
+
+    // Handle country labels: show only wine-producing countries
+    if (layerId === "country-label") {
+      map.setFilter(layerId, [
+        "in",
+        ["get", "name_en"],
+        ["literal", wineCountries]
+      ]);
     }
-    return rings;
-  };
+    // Disable all other label layers
+    else if (
+      layerId.includes("label") || // Matches layers like "state-label", "settlement-label", etc.
+      layerId.includes("place") || // Matches layers like "place-city"
+      layerId.includes("poi") ||   // Matches points of interest
+      layerId.includes("water")    // Matches water labels like "South Atlantic Ocean"
+    ) {
+      map.setLayoutProperty(layerId, "visibility", "none");
+    }
+  });
+
+  // Add the custom labels source
+  map.addSource("labels", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: allLabels.map(label => ({
+        type: "Feature",
+        geometry: { type: "Point", coordinates: [label.lng, label.lat] },
+        properties: { name: label.name, country: label.country }
+      }))
+    }
+  });
+
+  // Add the custom labels layer on top
+  map.addLayer({
+    id: "labels-layer",
+    type: "symbol",
+    source: "labels",
+    layout: {
+      "text-field": ["get", "name"],
+      "text-size": 14, // Increased for better readability
+      "text-offset": [0, 1.5],
+      "text-anchor": "top",
+      "visibility": "visible"
+    },
+    paint: {
+      "text-color": "#ffffff",
+      "text-halo-color": "#000000",
+      "text-halo-width": 2 // Increased for better contrast
+    },
+    minzoom: 2, // Show at country level
+    maxzoom: 12 // Hide at subregional zooms for clarity
+  });
+});
 
   const ringsData = allLabels.flatMap(generateRings);
 
-  // Add rings as a GeoJSON source and layer
   map.on("load", () => {
     map.addSource("rings", {
       type: "geojson",
@@ -496,7 +537,7 @@ const allLabels = [...mainCountries, ...specificWineRegions];
         features: ringsData
       }
     });
-
+  
     map.addLayer({
       id: "rings-layer",
       type: "circle",
@@ -513,7 +554,7 @@ const allLabels = [...mainCountries, ...specificWineRegions];
         "circle-opacity": 0.6 // Reduced opacity
       }
     });
-
+  
     // Animate rings with controlled expansion
     function animateRings(timestamp) {
       ringsData.forEach((ring, index) => {
