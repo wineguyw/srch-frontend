@@ -431,16 +431,42 @@ const specificWineRegions = [
 // Combine main countries and specific wine regions
 const allLabels = [...mainCountries, ...specificWineRegions];
 
-  // Initialize MapBox GL JS globe with closer zoom and centered position
-  const map = new mapboxgl.Map({
-    container: "globeViz",
-    style: "mapbox://styles/mapbox/satellite-streets-v12", // High-resolution, clear style
-    center: [0, 0], // Centered on the equator for a balanced, front-and-center view
-    zoom: 2, // Start at a closer zoom (more detailed global view)
-    projection: "globe", // 3D globe projection
-    maxZoom: 22, // Allow high zoom for subregions
-    minZoom: 0 // Allow global view
-  });
+// Add this: Define generateRings function here
+const generateRings = (location) => {
+  const rings = [];
+  const numRings = 3; // Reduced for clarity
+  const baseSize = 0.05; // Smaller base size
+  const spacing = 0.02; // Tighter spacing
+
+  for (let i = 0; i < numRings; i++) {
+    rings.push({
+      type: "circle",
+      geometry: {
+        type: "Point",
+        coordinates: [location.lng, location.lat]
+      },
+      properties: {
+        radius: baseSize + i * spacing, // Controlled radius
+        speed: 0.02 + i * 0.005, // Slower propagation
+        period: 3000 + i * 400, // Faster cycle
+        color: `rgba(255, 69, 0, ${0.6 - i * 0.1})` // Adjusted opacity
+      }
+    });
+  }
+  return rings;
+};
+
+// Initialize MapBox GL JS globe with closer zoom and centered position
+const map = new mapboxgl.Map({
+  container: "globeViz",
+  style: "mapbox://styles/mapbox/satellite-streets-v12",
+  center: [-98.5795, 39.8283], // Center on the USA (lng, lat)
+  zoom: 2,
+  pitch: 0, // Ensure a flat view for horizontal rotation
+  projection: "globe",
+  maxZoom: 22,
+  minZoom: 0
+});
 
   // Add navigation controls
   map.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -547,11 +573,11 @@ map.on("style.load", () => {
           "interpolate",
           ["linear"],
           ["zoom"],
-          0, ["get", "radius"], // Small at low zooms
-          22, ["*", ["get", "radius"], 5] // Scale up slightly at high zooms, but cap
+          0, ["get", "radius"],
+          22, ["*", ["get", "radius"], 5]
         ],
         "circle-color": ["get", "color"],
-        "circle-opacity": 0.6 // Reduced opacity
+        "circle-opacity": 0.6
       }
     });
   
@@ -561,7 +587,7 @@ map.on("style.load", () => {
         const properties = ring.properties;
         const progress = (timestamp % properties.period) / properties.period;
         const radius = properties.radius * (1 + Math.sin(progress * Math.PI * 2) * properties.speed);
-        ring.properties.radius = Math.min(radius, 0.5); // Cap radius to prevent screen-filling
+        ring.properties.radius = Math.min(radius, 0.5);
       });
       map.getSource("rings").setData({
         type: "FeatureCollection",
@@ -570,6 +596,9 @@ map.on("style.load", () => {
       requestAnimationFrame(animateRings);
     }
     requestAnimationFrame(animateRings);
+  
+    // Start rotation
+    rotateGlobe(); // Start the rotation after the map loads
   });
 
   // Auto-rotation
@@ -583,8 +612,6 @@ map.on("style.load", () => {
       requestAnimationFrame(rotateGlobe);
     }
   }
-
-  rotateGlobe();
 
   // Stop auto-rotation on interaction
   function stopAutoRotate() {
