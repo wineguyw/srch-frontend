@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   console.log("✅ Initializing MapBox Globe...");
-// Wine region data (updated with expanded subregions and Wanaka in Central Otago)
+// Wine region data (updated with United Kingdom, Switzerland, Hungary, Canada, Mexico)
 const wineRegions = {
   USA: { 
     lat: 39.8283, lng: -98.5795, zoom: 4,
@@ -624,6 +624,123 @@ const wineRegions = {
         { name: "Tyrnavos", lat: 39.733, lng: 22.283 }
       ]}
     }
+  },
+
+  // New European Countries
+  "United Kingdom": { 
+    lat: 54.0000, lng: -2.0000, zoom: 5,
+    regions: {
+      "South East England": { lat: 51.200, lng: 0.500, zoom: 10, subregions: [
+        { name: "Sussex", lat: 50.900, lng: -0.400 },
+        { name: "Kent", lat: 51.200, lng: 0.800 },
+        { name: "Surrey", lat: 51.250, lng: -0.400 }
+      ]},
+      "South West England": { lat: 50.900, lng: -3.500, zoom: 10, subregions: [
+        { name: "Devon", lat: 50.700, lng: -3.800 },
+        { name: "Cornwall", lat: 50.400, lng: -4.800 }
+      ]},
+      "East of England": { lat: 52.200, lng: 0.500, zoom: 10, subregions: [
+        { name: "Essex", lat: 51.800, lng: 0.600 },
+        { name: "Norfolk", lat: 52.600, lng: 1.300 }
+      ]}
+    }
+  },
+
+  "Switzerland": { 
+    lat: 46.8182, lng: 8.2275, zoom: 5,
+    regions: {
+      "Valais": { lat: 46.200, lng: 7.350, zoom: 10, subregions: [
+        { name: "Sion", lat: 46.233, lng: 7.367 },
+        { name: "Fully", lat: 46.133, lng: 7.117 },
+        { name: "Visperterminen", lat: 46.267, lng: 7.900 }
+      ]},
+      "Vaud": { lat: 46.500, lng: 6.600, zoom: 10, subregions: [
+        { name: "La Côte", lat: 46.467, lng: 6.400 },
+        { name: "Lavaux", lat: 46.500, lng: 6.750 },
+        { name: "Chablais", lat: 46.400, lng: 6.950 }
+      ]},
+      "Ticino": { lat: 46.200, lng: 9.000, zoom: 10, subregions: [
+        { name: "Mendrisio", lat: 45.867, lng: 8.983 },
+        { name: "Lugano", lat: 46.000, lng: 8.950 }
+      ]},
+      "Geneva": { lat: 46.200, lng: 6.150, zoom: 10, subregions: [
+        { name: "Satigny", lat: 46.217, lng: 6.033 },
+        { name: "Dardagny", lat: 46.200, lng: 5.983 }
+      ]}
+    }
+  },
+
+  "Hungary": { 
+    lat: 47.1625, lng: 19.5033, zoom: 5,
+    regions: {
+      "Tokaj": { lat: 48.117, lng: 21.417, zoom: 10, subregions: [
+        { name: "Tokaj", lat: 48.117, lng: 21.417 },
+        { name: "Mád", lat: 48.183, lng: 21.283 },
+        { name: "Tarcal", lat: 48.133, lng: 21.350 }
+      ]},
+      "Eger": { lat: 47.900, lng: 20.383, zoom: 10, subregions: [
+        { name: "Eger", lat: 47.900, lng: 20.383 },
+        { name: "Noszvaj", lat: 47.933, lng: 20.483 },
+        { name: "Sirok", lat: 47.933, lng: 20.200 }
+      ]},
+      "Villány": { lat: 45.867, lng: 18.450, zoom: 10, subregions: [
+        { name: "Villány", lat: 45.867, lng: 18.450 },
+        { name: "Siklós", lat: 45.850, lng: 18.300 }
+      ]},
+      "Balaton": { lat: 46.833, lng: 17.733, zoom: 10, subregions: [
+        { name: "Badacsony", lat: 46.800, lng: 17.500 },
+        { name: "Balatonfüred-Csopak", lat: 46.950, lng: 17.850 }
+      ]}
+    }
+  },
+
+  // New North American Countries
+  "Canada": { 
+    lat: 56.1304, lng: -106.3468, zoom: 4,
+    regions: {
+      "Okanagan Valley": { lat: 49.500, lng: -119.500, zoom: 10, subregions: [
+        { name: "Kelowna", lat: 49.883, lng: -119.483 },
+        { name: "Naramata", lat: 49.600, lng: -119.600 },
+        { name: "Oliver", lat: 49.183, lng: -119.550 },
+        { name: "Osoyoos", lat: 49.033, lng: -119.467 }
+      ]},
+      "Niagara Peninsula": { lat: 43.167, lng: -79.250, zoom: 10, subregions: [
+        { name: "Niagara-on-the-Lake", lat: 43.250, lng: -79.067 },
+        { name: "St. Catharines", lat: 43.167, lng: -79.250 },
+        { name: "Beamsville", lat: 43.200, lng: -79.483 }
+      ]},
+      "Prince Edward County": { lat: 44.000, lng: -77.250, zoom: 10, subregions: [
+        { name: "Picton", lat: 44.000, lng: -77.133 },
+        { name: "Wellington", lat: 43.950, lng: -77.350 }
+      ]},
+      "Nova Scotia": { lat: 45.000, lng: -64.000, zoom: 10, subregions: [
+        { name: "Annapolis Valley", lat: 45.067, lng: -64.500 },
+        { name: "Wolfville", lat: 45.083, lng: -64.367 }
+      ]}
+    }
+  },
+
+  "Mexico": { 
+    lat: 23.6345, lng: -102.5528, zoom: 4,
+    regions: {
+      "Baja California": { lat: 30.500, lng: -115.500, zoom: 10, subregions: [
+        { name: "Valle de Guadalupe", lat: 32.100, lng: -116.567 },
+        { name: "Valle de San Antonio de las Minas", lat: 32.050, lng: -116.600 },
+        { name: "Valle de Santo Tomás", lat: 31.550, lng: -116.417 }
+      ]},
+      "Querétaro": { lat: 20.600, lng: -100.383, zoom: 10, subregions: [
+        { name: "Tequisquiapan", lat: 20.517, lng: -99.883 },
+        { name: "Ezequiel Montes", lat: 20.667, lng: -99.900 }
+      ]},
+      "Coahuila": { lat: 27.500, lng: -103.000, zoom: 10, subregions: [
+        { name: "Parras Valley", lat: 25.433, lng: -102.183 },
+        { name: "Saltillo", lat: 25.433, lng: -100.983 }
+      ]},
+      "Guanajuato": { lat: 21.000, lng: -101.250, zoom: 10, subregions: [
+        { name: "San Miguel de Allende", lat: 20.917, lng: -100.750 },
+        { name: "Dolores Hidalgo", lat: 21.150, lng: -100.933 }
+      ]}
+    }
   }
 };
 
@@ -647,57 +764,166 @@ const wineRegions = {
   globeContainer.addEventListener("mousedown", () => map.scrollZoom.enable());
   globeContainer.addEventListener("touchstart", () => map.scrollZoom.enable());
 
-  // Adjust atmosphere for minimal glow and reduced stars, and customize labels
-  map.on("style.load", () => {
-    map.setFog({
-      color: "rgba(0, 0, 0, 0.1)", // Minimal glow
-      "high-color": "#1a1a1a", // Darker, less prominent
-      "horizon-blend": 0.01, // Reduced blend
-      "star-intensity": 0.1 // Minimal stars
-    });
-
-    // Get all layers in the style
-    const style = map.getStyle();
-    const layers = style.layers;
-
-    // List of main wine-producing countries
-    const wineCountries = [
-      "USA", "France", "Italy", "Spain", "Portugal", "Australia", "New Zealand",
-      "South Africa", "Argentina", "Chile", "Germany", "Austria", "Greece"
-    ];
-
-    // Iterate through all layers and modify label visibility
-    layers.forEach(layer => {
-      const layerId = layer.id;
-
-      // Handle country labels: show only wine-producing countries
-      if (layerId === "country-label") {
-        map.setFilter(layerId, [
-          "in",
-          ["get", "name_en"],
-          ["literal", wineCountries]
-        ]);
-        // Ensure country labels are visible at all zoom levels
-        map.setLayoutProperty(layerId, "text-size", [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          0, 12,
-          5, 16,
-          10, 20
-        ]);
-      }
-      // Disable other label layers except country labels
-      else if (
-        layerId.includes("label") && layerId !== "country-label" || // Keep country-label, hide others
-        layerId.includes("place") || // Matches layers like "place-city"
-        layerId.includes("poi") ||   // Matches points of interest
-        layerId.includes("water")    // Matches water labels like "South Atlantic Ocean"
-      ) {
-        map.setLayoutProperty(layerId, "visibility", "none");
-      }
-    });
+ // Adjust atmosphere for minimal glow and reduced stars, and customize labels
+map.on("style.load", () => {
+  map.setFog({
+    color: "rgba(0, 0, 0, 0.1)", // Minimal glow
+    "high-color": "#1a1a1a", // Darker, less prominent
+    "horizon-blend": 0.01, // Reduced blend
+    "star-intensity": 0.1 // Minimal stars
   });
+
+  // Get all layers in the style
+  const style = map.getStyle();
+  const layers = style.layers;
+
+  // Hide all default label layers
+  layers.forEach(layer => {
+    if (
+      layer.id.includes("label") || // Hide all label layers, including country-label
+      layer.id.includes("place") || // Matches layers like "place-city"
+      layer.id.includes("poi") ||   // Matches points of interest
+      layer.id.includes("water")    // Matches water labels like "South Atlantic Ocean"
+    ) {
+      map.setLayoutProperty(layer.id, "visibility", "none");
+    }
+  });
+});
+
+// Add a custom source and layer for country labels after the map loads
+map.on("load", () => {
+  // Define major wine-producing countries (based on global production data)
+  const majorWineCountries = [
+    "Italy", "France", "Spain", "USA", "Argentina", "Chile",
+    "Australia", "South Africa", "Germany", "Portugal"
+  ];
+
+  // Dynamically generate the list of all wine-producing countries from wineRegions
+  const allWineCountries = Object.keys(wineRegions);
+
+  // Define approximate centroids for each country (you can refine these with more precise data)
+  const countryCentroids = {
+    "USA": { lat: 39.8283, lng: -98.5795 },
+    "France": { lat: 46.6034, lng: 1.8883 },
+    "Italy": { lat: 41.8719, lng: 12.5674 },
+    "Spain": { lat: 40.4637, lng: -3.7492 },
+    "Portugal": { lat: 39.3999, lng: -8.2245 },
+    "Australia": { lat: -25.2744, lng: 133.7751 },
+    "New Zealand": { lat: -40.9006, lng: 174.8860 },
+    "South Africa": { lat: -30.5595, lng: 22.9375 },
+    "Argentina": { lat: -38.4161, lng: -63.6167 },
+    "Chile": { lat: -35.6751, lng: -71.5430 },
+    "Germany": { lat: 51.1657, lng: 10.4515 },
+    "Austria": { lat: 47.5162, lng: 14.5501 },
+    "Greece": { lat: 39.0742, lng: 21.8243 },
+    "United Kingdom": { lat: 54.0000, lng: -2.0000 },
+    "Switzerland": { lat: 46.8182, lng: 8.2275 },
+    "Hungary": { lat: 47.1625, lng: 19.5033 },
+    "Canada": { lat: 56.1304, lng: -106.3468 },
+    "Mexico": { lat: 23.6345, lng: -102.5528 }
+  };
+
+  // Create GeoJSON features for country labels
+  const countryFeatures = allWineCountries.map(country => {
+    const isMajor = majorWineCountries.includes(country);
+    return {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [countryCentroids[country].lng, countryCentroids[country].lat]
+      },
+      properties: {
+        name: country,
+        isMajor: isMajor // Flag to determine visibility at different zoom levels
+      }
+    };
+  });
+
+  // Add a GeoJSON source for country labels
+  map.addSource("country-labels", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: countryFeatures
+    }
+  });
+
+  // Add a custom layer for country labels
+  map.addLayer({
+    id: "custom-country-labels",
+    type: "symbol",
+    source: "country-labels",
+    layout: {
+      "text-field": ["get", "name"],
+      "text-size": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0, 12,
+        5, 16,
+        10, 20
+      ],
+      "text-offset": [0, 0.5],
+      "text-anchor": "top",
+      "text-allow-overlap": [
+        "step",
+        ["zoom"],
+        false, // No overlap at low zoom levels
+        4, true // Allow overlap at zoom 4 and above
+      ],
+      "text-ignore-placement": [
+        "step",
+        ["zoom"],
+        false, // Respect placement rules at low zoom levels
+        4, true // Ignore placement at zoom 4 and above
+      ]
+    },
+    paint: {
+      "text-color": "#ffffff",
+      "text-halo-color": "#000000",
+      "text-halo-width": 2,
+      "text-halo-blur": 1
+    },
+    filter: [
+      "any",
+      ["==", ["get", "isMajor"], true], // Always show major countries
+      [">=", ["zoom"], 4] // Show all countries at zoom 4 and above
+    ]
+  });
+
+  // Add a source for subregion labels (already in your code, keeping it here for context)
+  map.addSource("subregion-labels", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: []
+    }
+  });
+
+  map.addLayer({
+    id: "subregion-labels-layer",
+    type: "symbol",
+    source: "subregion-labels",
+    layout: {
+      "text-field": ["get", "name"],
+      "text-size": 14,
+      "text-offset": [0, 1.5],
+      "text-anchor": "top",
+      "visibility": "visible"
+    },
+    paint: {
+      "text-color": "#ffffff",
+      "text-halo-color": "#000000",
+      "text-halo-width": 2,
+      "text-halo-blur": 1
+    },
+    minzoom: 4,
+    maxzoom: 15
+  });
+
+  // Start rotation (already in your code)
+  rotateGlobe();
+});
 
   // Add a source for subregion labels (initially empty)
   map.on("load", () => {

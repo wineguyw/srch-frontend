@@ -4,7 +4,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, rgba(100, 100, 100, 0.1) 0%, rgba(30, 30, 30, 0.7) 100%); /* Darker background gradient */
+    background: linear-gradient(135deg, rgba(252, 232, 206, 0.1) 0%, rgba(250, 252, 240, 0.7) 100%); /* Darker background gradient */
     color: #e6e6e6;
     position: relative;
     overflow-x: hidden;
@@ -97,7 +97,7 @@ body {
 
 /* Individual Panels */
 .panel {
-    background: linear-gradient(135deg, rgba(150, 150, 150, 0.1), rgba(30, 30, 30, 0.9)); /* Darker panel gradient */
+    background: linear-gradient(135deg, rgba(151, 107, 107, 0.793), rgba(30, 30, 30, 0.9)); /* Darker panel gradient */
     border: 1px solid rgba(255, 255, 255, 0.1); /* Faint white border */
     border-radius: 15px;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4); /* Softer, diffused shadow */
