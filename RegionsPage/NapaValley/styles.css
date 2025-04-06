@@ -38,7 +38,7 @@ body {
     width: 100%;
     min-height: 45vh;
     max-height: 50vh;
-    background-image: url('/images/Regions/napa-valley-banner.jpg');
+    background-image: url('/images/Regions/napa-valley-banner.jpg'); /* Updated for Bordeaux */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

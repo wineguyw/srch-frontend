@@ -3,6 +3,29 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, rgba(252, 232, 206, 0.1) 0%, rgba(250, 252, 240, 0.7) 100%); /* Darker background gradient */
+    color: #e6e6e6;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    backdrop-filter: blur(5px); /* Subtle background blur */
+}
+
+/* Ambient Background Elements */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/ambient-chair.png') no-repeat 10% 70%, /* Chair on left */
+                url('/images/ambient-plant.png') no-repeat 90% 60%, /* Plant on right */
+                url('/images/ambient-lamp.png') no-repeat 5% 20%; /* Lamp on left */
+    background-size: 200px, 150px, 100px;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 /* Make Sure Content Starts Below Header */
@@ -13,58 +36,342 @@ body {
 /* Large Banner Section */
 .region-banner {
     width: 100%;
-    min-height: 45vh; /* Ensures it actually takes 45% of the viewport */
-    max-height: 50vh; /* Ensures it doesn't shrink */
-    background-image: url('/images/Regions/Mendoza-banner-1.jpg');
+    min-height: 45vh;
+    max-height: 50vh;
+    background-image: url('/images/Regions/mendoza-banner-1.jpg'); /* Updated for Mendoza */
     background-size: cover;
-    background-position: center top 32%; /* Adjust the percentage as needed */
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     color: white;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Banner Overlay */
 .region-banner-overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6); /* Solid overlay, no blur */
     padding: 40px;
     text-align: center;
     border-radius: 8px;
-    width: 100%;
+    width: 80%;
     position: absolute;
-    bottom: 10%; /* Moves text overlay slightly up */
+    bottom: 10%;
 }
 
-/* Section Layout */
-.history-section, .modern-napa {
-    text-align: center;
-    padding: 60px 0;
+.region-title {
+    font-family: 'Shrikhand', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Grid Layout for Cards */
-.history-grid, .modern-grid {
+/* Content Container */
+.content-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%; /* Stretch to full viewport width */
+    max-width: 1400px; /* Limit content width */
+    margin: 20px auto; /* Center the container */
+    padding: 0 20px; /* Add padding to match banner's edge */
+    position: relative;
+    z-index: 1;
+    gap: 0; /* Remove any default gap between panels */
+    box-sizing: border-box;
 }
 
-/* Cards for Content */
-.history-card, .modern-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.content-container.expanded {
+    justify-content: flex-start; /* Align left and right panels without space */
+}
+
+/* Inner wrapper to control panel widths */
+.content-container-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px; /* Match max-width of content-container */
+}
+
+/* Individual Panels */
+.panel {
+    background: linear-gradient(135deg, rgba(151, 107, 107, 0.793), rgba(30, 30, 30, 0.9)); /* Darker panel gradient */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Faint white border */
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4); /* Softer, diffused shadow */
+    padding: 15px;
+    transition: width 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(10px); /* Stronger blur for frosted glass effect */
+}
+
+.left-panel {
+    width: 35%;
+}
+
+.left-panel.expanded {
+    width: 65%; /* Expand to take over middle panel's space */
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+.middle-panel {
     width: 30%;
-    min-width: 280px;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Hover Effect for Cards */
-.history-card:hover, .modern-card:hover {
-    transform: scale(1.05);
+.middle-panel.hidden {
+    opacity: 0;
+    visibility: hidden;
+    width: 0; /* Collapse width to remove space */
+    padding: 0; /* Remove padding to eliminate any residual space */
+    margin: 0; /* Remove margin to ensure no gaps */
+}
+
+.right-panel {
+    width: 25%;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.panel-header h2 {
+    font-size: 1.2rem;
+    color: #e6e6e6;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.view-all {
+    font-size: 0.9rem;
+    color: #1da1f2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.panel-body {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Post Styling */
+.post {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+}
+
+.post:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.post-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #666;
+    object-fit: cover;
+}
+
+.post-author {
+    font-weight: 600;
+    color: #e6e6e6;
+    font-size: 0.9rem;
+}
+
+.post-time {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* Adjust post-content margin based on presence of icon */
+.post-content {
+    margin-left: 0; /* Default for no icon */
+}
+
+/* Apply margin only when icon is present */
+.post-header:has(.post-icon) + .post-content {
+    margin-left: 40px; /* Offset for icon */
+}
+
+.post-content h3 {
+    font-size: 1.1rem;
+    color: #d3c9b6;
+    margin: 5px 0;
+}
+
+.post-content h4 {
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin: 10px 0 5px;
+}
+
+.post-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.post-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.post-link {
+    color: #1da1f2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/* Expanded Content Styling */
+.expanded-content {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expanded-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.featured-post {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+}
+
+/* Right Panel Suggestions */
+.suggestion {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.suggestion:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.suggestion-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #666;
+    object-fit: cover;
+}
+
+.suggestion-name {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #e6e6e6;
+}
+
+.suggestion-action {
+    color: #1da1f2;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.suggestion-action:hover {
+    text-decoration: underline;
+}
+
+.suggestion-group {
+    margin-top: 10px;
+}
+
+.suggestion-group-title {
+    font-size: 0.9rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px; /* Adjust padding for mobile */
+    }
+    .content-container-inner {
+        width: 100%;
+    }
+    .panel {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .left-panel, .middle-panel, .right-panel {
+        width: 90%;
+    }
+    .left-panel.expanded {
+        width: 90%; /* Full width on mobile */
+    }
+    .middle-panel.hidden {
+        display: none; /* Ensure complete removal on mobile */
+    }
+    .content-container.expanded {
+        justify-content: center; /* Center align on mobile */
+    }
 }
 
 /* Footer */
@@ -73,4 +380,6 @@ footer {
     padding: 20px;
     background: #5a2d2f;
     color: white;
+    position: relative;
+    z-index: 2;
 }

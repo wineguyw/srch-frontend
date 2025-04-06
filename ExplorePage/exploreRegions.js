@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   console.log("✅ Initializing MapBox Globe...");
-// Wine region data (updated with United Kingdom, Switzerland, Hungary, Canada, Mexico)
+// Wine region data (updated with new locations: Ethiopia, Madagascar, China, India, Japan, Thailand)
 const wineRegions = {
   USA: { 
     lat: 39.8283, lng: -98.5795, zoom: 4,
@@ -177,7 +177,6 @@ const wineRegions = {
       ]}
     }
   },
-
   France: { 
     lat: 46.6034, lng: 1.8883, zoom: 5,
     regions: {
@@ -228,7 +227,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Italy: { 
     lat: 41.8719, lng: 12.5674, zoom: 5,
     regions: {
@@ -268,7 +266,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Spain: { 
     lat: 40.4637, lng: -3.7492, zoom: 5,
     regions: {
@@ -306,7 +303,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Portugal: { 
     lat: 39.3999, lng: -8.2245, zoom: 5,
     regions: {
@@ -344,7 +340,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Australia: { 
     lat: -25.2744, lng: 133.7751, zoom: 4,
     regions: {
@@ -383,7 +378,6 @@ const wineRegions = {
       ]}
     }
   },
-
   "New Zealand": { 
     lat: -40.9006, lng: 174.8860, zoom: 5,
     regions: {
@@ -396,7 +390,7 @@ const wineRegions = {
       "Central Otago": { lat: -45.033, lng: 169.217, zoom: 10, subregions: [
         { name: "Bannockburn", lat: -45.050, lng: 169.150 },
         { name: "Gibbston", lat: -45.017, lng: 169.200 },
-        { name: "Wanaka", lat: -44.700, lng: 169.133 }, // Added Wanaka
+        { name: "Wanaka", lat: -44.700, lng: 169.133 },
         { name: "Cromwell", lat: -45.033, lng: 169.200 },
         { name: "Alexandra", lat: -45.250, lng: 169.383 }
       ]},
@@ -418,7 +412,6 @@ const wineRegions = {
       ]}
     }
   },
-
   "South Africa": { 
     lat: -30.5595, lng: 22.9375, zoom: 5,
     regions: {
@@ -454,7 +447,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Argentina: { 
     lat: -38.4161, lng: -63.6167, zoom: 4,
     regions: {
@@ -486,7 +478,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Chile: { 
     lat: -35.6751, lng: -71.5430, zoom: 4,
     regions: {
@@ -521,7 +512,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Germany: { 
     lat: 51.1657, lng: 10.4515, zoom: 5,
     regions: {
@@ -559,7 +549,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Austria: { 
     lat: 47.5162, lng: 14.5501, zoom: 5,
     regions: {
@@ -591,7 +580,6 @@ const wineRegions = {
       ]}
     }
   },
-
   Greece: { 
     lat: 39.0742, lng: 21.8243, zoom: 5,
     regions: {
@@ -625,8 +613,6 @@ const wineRegions = {
       ]}
     }
   },
-
-  // New European Countries
   "United Kingdom": { 
     lat: 54.0000, lng: -2.0000, zoom: 5,
     regions: {
@@ -645,8 +631,7 @@ const wineRegions = {
       ]}
     }
   },
-
-  "Switzerland": { 
+  Switzerland: { 
     lat: 46.8182, lng: 8.2275, zoom: 5,
     regions: {
       "Valais": { lat: 46.200, lng: 7.350, zoom: 10, subregions: [
@@ -669,8 +654,7 @@ const wineRegions = {
       ]}
     }
   },
-
-  "Hungary": { 
+  Hungary: { 
     lat: 47.1625, lng: 19.5033, zoom: 5,
     regions: {
       "Tokaj": { lat: 48.117, lng: 21.417, zoom: 10, subregions: [
@@ -693,10 +677,8 @@ const wineRegions = {
       ]}
     }
   },
-
-  // New North American Countries
-  "Canada": { 
-    lat: 56.1304, lng: -106.3468, zoom: 4,
+  Canada: { 
+    lat: 50.0000, lng: -100.0000, zoom: 4, // Adjusted to center on wine regions
     regions: {
       "Okanagan Valley": { lat: 49.500, lng: -119.500, zoom: 10, subregions: [
         { name: "Kelowna", lat: 49.883, lng: -119.483 },
@@ -719,9 +701,8 @@ const wineRegions = {
       ]}
     }
   },
-
-  "Mexico": { 
-    lat: 23.6345, lng: -102.5528, zoom: 4,
+  Mexico: { 
+    lat: 29.0000, lng: -113.0000, zoom: 4, // Adjusted to center on Baja California
     regions: {
       "Baja California": { lat: 30.500, lng: -115.500, zoom: 10, subregions: [
         { name: "Valle de Guadalupe", lat: 32.100, lng: -116.567 },
@@ -739,6 +720,126 @@ const wineRegions = {
       "Guanajuato": { lat: 21.000, lng: -101.250, zoom: 10, subregions: [
         { name: "San Miguel de Allende", lat: 20.917, lng: -100.750 },
         { name: "Dolores Hidalgo", lat: 21.150, lng: -100.933 }
+      ]}
+    }
+  },
+  Ethiopia: { 
+    lat: 9.0000, lng: 38.0000, zoom: 5,
+    regions: {
+      "Awash Valley": { lat: 9.0833, lng: 40.1667, zoom: 10, subregions: [
+        { name: "Awash Valley", lat: 9.0833, lng: 40.1667 }
+      ]},
+      "Rift Valley": { lat: 8.5000, lng: 38.5000, zoom: 10, subregions: [
+        { name: "Rift Valley", lat: 8.5000, lng: 38.5000 }
+      ]},
+      "Ziway": { lat: 7.9333, lng: 38.7167, zoom: 10, subregions: [
+        { name: "Ziway", lat: 7.9333, lng: 38.7167 }
+      ]},
+      "Addis Ababa": { lat: 9.0300, lng: 38.7400, zoom: 10, subregions: [
+        { name: "Addis Ababa", lat: 9.0300, lng: 38.7400 }
+      ]},
+      "Meki": { lat: 8.1500, lng: 38.8167, zoom: 10, subregions: [
+        { name: "Meki", lat: 8.1500, lng: 38.8167 }
+      ]}
+    }
+  },
+  Madagascar: { 
+    lat: 20.0000, lng: 47.0000, zoom: 5,
+    regions: {
+      "Fianarantsoa": { lat: 21.4333, lng: 47.0833, zoom: 10, subregions: [
+        { name: "Fianarantsoa", lat: 21.4333, lng: 47.0833 }
+      ]},
+      "Ambalavao": { lat: 21.8333, lng: 46.9333, zoom: 10, subregions: [
+        { name: "Ambalavao", lat: 21.8333, lng: 46.9333 }
+      ]},
+      "Isandra": { lat: 21.5000, lng: 46.9000, zoom: 10, subregions: [
+        { name: "Isandra", lat: 21.5000, lng: 46.9000 }
+      ]},
+      "Antsirabe": { lat: 19.8667, lng: 47.0333, zoom: 10, subregions: [
+        { name: "Antsirabe", lat: 19.8667, lng: 47.0333 }
+      ]},
+      "Betafo": { lat: 19.8333, lng: 46.8333, zoom: 10, subregions: [
+        { name: "Betafo", lat: 19.8333, lng: 46.8333 }
+      ]}
+    }
+  },
+  China: { 
+    lat: 35.0000, lng: 105.0000, zoom: 4,
+    regions: {
+      "Shandong": { lat: 37.4646, lng: 121.4478, zoom: 10, subregions: [
+        { name: "Shandong", lat: 37.4646, lng: 121.4478 }
+      ]},
+      "Ningxia": { lat: 38.4680, lng: 106.2731, zoom: 10, subregions: [
+        { name: "Ningxia", lat: 38.4680, lng: 106.2731 }
+      ]},
+      "Hebei": { lat: 40.8119, lng: 114.8794, zoom: 10, subregions: [
+        { name: "Hebei", lat: 40.8119, lng: 114.8794 }
+      ]},
+      "Xinjiang": { lat: 42.9476, lng: 89.1841, zoom: 10, subregions: [
+        { name: "Xinjiang", lat: 42.9476, lng: 89.1841 }
+      ]},
+      "Yunnan": { lat: 24.4042, lng: 103.4422, zoom: 10, subregions: [
+        { name: "Yunnan", lat: 24.4042, lng: 103.4422 }
+      ]}
+    }
+  },
+  India: { 
+    lat: 20.0000, lng: 78.0000, zoom: 4,
+    regions: {
+      "Nashik": { lat: 20.0059, lng: 73.7900, zoom: 10, subregions: [
+        { name: "Nashik", lat: 20.0059, lng: 73.7900 }
+      ]},
+      "Bangalore": { lat: 12.9716, lng: 77.5946, zoom: 10, subregions: [
+        { name: "Bangalore", lat: 12.9716, lng: 77.5946 }
+      ]},
+      "Nandi Hills": { lat: 13.3700, lng: 77.6833, zoom: 10, subregions: [
+        { name: "Nandi Hills", lat: 13.3700, lng: 77.6833 }
+      ]},
+      "Maharashtra": { lat: 18.5204, lng: 73.8567, zoom: 10, subregions: [
+        { name: "Maharashtra", lat: 18.5204, lng: 73.8567 }
+      ]},
+      "Krishna Valley": { lat: 16.8544, lng: 74.5815, zoom: 10, subregions: [
+        { name: "Krishna Valley", lat: 16.8544, lng: 74.5815 }
+      ]}
+    }
+  },
+  Japan: { 
+    lat: 36.0000, lng: 138.0000, zoom: 5,
+    regions: {
+      "Yamanashi": { lat: 35.6639, lng: 138.5683, zoom: 10, subregions: [
+        { name: "Yamanashi", lat: 35.6639, lng: 138.5683 }
+      ]},
+      "Nagano": { lat: 36.4019, lng: 138.2491, zoom: 10, subregions: [
+        { name: "Nagano", lat: 36.4019, lng: 138.2491 }
+      ]},
+      "Hokkaido": { lat: 43.1907, lng: 140.9947, zoom: 10, subregions: [
+        { name: "Hokkaido", lat: 43.1907, lng: 140.9947 }
+      ]},
+      "Yamagata": { lat: 38.3535, lng: 140.3697, zoom: 10, subregions: [
+        { name: "Yamagata", lat: 38.3535, lng: 140.3697 }
+      ]},
+      "Okayama": { lat: 34.6617, lng: 133.9350, zoom: 10, subregions: [
+        { name: "Okayama", lat: 34.6617, lng: 133.9350 }
+      ]}
+    }
+  },
+  Thailand: { 
+    lat: 15.0000, lng: 100.0000, zoom: 5,
+    regions: {
+      "Khao Yai": { lat: 14.4300, lng: 101.3700, zoom: 10, subregions: [
+        { name: "Khao Yai", lat: 14.4300, lng: 101.3700 }
+      ]},
+      "Hua Hin": { lat: 12.5684, lng: 99.9577, zoom: 10, subregions: [
+        { name: "Hua Hin", lat: 12.5684, lng: 99.9577 }
+      ]},
+      "Pak Chong": { lat: 14.7060, lng: 101.4160, zoom: 10, subregions: [
+        { name: "Pak Chong", lat: 14.7060, lng: 101.4160 }
+      ]},
+      "Chiang Mai": { lat: 18.7883, lng: 98.9853, zoom: 10, subregions: [
+        { name: "Chiang Mai", lat: 18.7883, lng: 98.9853 }
+      ]},
+      "Phuket": { lat: 7.8804, lng: 98.3923, zoom: 10, subregions: [
+        { name: "Phuket", lat: 7.8804, lng: 98.3923 }
       ]}
     }
   }
@@ -801,27 +902,33 @@ map.on("load", () => {
   // Dynamically generate the list of all wine-producing countries from wineRegions
   const allWineCountries = Object.keys(wineRegions);
 
-  // Define approximate centroids for each country (you can refine these with more precise data)
-  const countryCentroids = {
-    "USA": { lat: 39.8283, lng: -98.5795 },
-    "France": { lat: 46.6034, lng: 1.8883 },
-    "Italy": { lat: 41.8719, lng: 12.5674 },
-    "Spain": { lat: 40.4637, lng: -3.7492 },
-    "Portugal": { lat: 39.3999, lng: -8.2245 },
-    "Australia": { lat: -25.2744, lng: 133.7751 },
-    "New Zealand": { lat: -40.9006, lng: 174.8860 },
-    "South Africa": { lat: -30.5595, lng: 22.9375 },
-    "Argentina": { lat: -38.4161, lng: -63.6167 },
-    "Chile": { lat: -35.6751, lng: -71.5430 },
-    "Germany": { lat: 51.1657, lng: 10.4515 },
-    "Austria": { lat: 47.5162, lng: 14.5501 },
-    "Greece": { lat: 39.0742, lng: 21.8243 },
-    "United Kingdom": { lat: 54.0000, lng: -2.0000 },
-    "Switzerland": { lat: 46.8182, lng: 8.2275 },
-    "Hungary": { lat: 47.1625, lng: 19.5033 },
-    "Canada": { lat: 56.1304, lng: -106.3468 },
-    "Mexico": { lat: 23.6345, lng: -102.5528 }
-  };
+// Country centroids for initial view (updated with new countries and adjusted coordinates)
+const countryCentroids = {
+  USA: { lat: 39.8283, lng: -98.5795, zoom: 4 },
+  France: { lat: 46.6034, lng: 1.8883, zoom: 5 },
+  Italy: { lat: 41.8719, lng: 12.5674, zoom: 5 },
+  Spain: { lat: 40.4637, lng: -3.7492, zoom: 5 },
+  Portugal: { lat: 39.3999, lng: -8.2245, zoom: 5 },
+  Australia: { lat: -25.2744, lng: 133.7751, zoom: 4 },
+  "New Zealand": { lat: -40.9006, lng: 174.8860, zoom: 5 },
+  "South Africa": { lat: -30.5595, lng: 22.9375, zoom: 5 },
+  Argentina: { lat: -38.4161, lng: -63.6167, zoom: 4 },
+  Chile: { lat: -35.6751, lng: -71.5430, zoom: 4 },
+  Germany: { lat: 51.1657, lng: 10.4515, zoom: 5 },
+  Austria: { lat: 47.5162, lng: 14.5501, zoom: 5 },
+  Greece: { lat: 39.0742, lng: 21.8243, zoom: 5 },
+  "United Kingdom": { lat: 54.0000, lng: -2.0000, zoom: 5 },
+  Switzerland: { lat: 46.8182, lng: 8.2275, zoom: 5 },
+  Hungary: { lat: 47.1625, lng: 19.5033, zoom: 5 },
+  Canada: { lat: 50.0000, lng: -100.0000, zoom: 4 }, // Adjusted
+  Mexico: { lat: 29.0000, lng: -113.0000, zoom: 4 }, // Adjusted
+  Ethiopia: { lat: 9.0000, lng: 38.0000, zoom: 5 },
+  Madagascar: { lat: 20.0000, lng: 47.0000, zoom: 5 },
+  China: { lat: 35.0000, lng: 105.0000, zoom: 4 },
+  India: { lat: 20.0000, lng: 78.0000, zoom: 4 },
+  Japan: { lat: 36.0000, lng: 138.0000, zoom: 5 },
+  Thailand: { lat: 15.0000, lng: 100.0000, zoom: 5 }
+};
 
   // Create GeoJSON features for country labels
   const countryFeatures = allWineCountries.map(country => {

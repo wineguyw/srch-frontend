@@ -19,85 +19,167 @@
   <!-- Header -->
   <header class="header">
     <div class="header-container">
-<a href="/index.html" class="site-title-link">
+      <a href="/index.html" class="site-title-link">
         <h1 class="site-title">SRCH</h1>
       </a>
       <nav class="nav">
         <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/ExplorePage/">Explore</a></li>
-          <li><a href="/RegionsPage/">Regions</a></li>
-          <li><a href="#">Stories</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
         </ul>
       </nav>
-            <div class="auth-section">
-                <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
-                     onclick="window.location.href='/ProfilePage/index.html'"/>
-                <div id="auth-buttons">
-                    <button id="login-button" class="login-btn">Login</button>
-                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
-                </div>
-            </div>    
-        </div>
-    </header>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
 
-    <!-- Large Banner Section -->
-    <section class="region-banner">
-        <div class="region-banner-overlay">
-            <h1 class="region-title">Bordeaux</h1>
-            <p>The birthplace of legendary wines, where tradition and terroir shape every bottle.</p>
-        </div>
-    </section>
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Bordeaux</h1>
+              <p>Where tradition meets the art of blending.</p>
+          </div>
+      </section>
 
-    <!-- Main Content -->
-    <main class="region-content">
+      <!-- Content Panels -->
+      <div class="content-container">
+          <div class="content-container-inner">
+              <!-- Left Panel: Historical Insights -->
+              <div class="panel left-panel">
+                  <div class="panel-header">
+                      <h2>Historical Insights</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post" id="early-bordeaux-post">
+                          <div class="post-header">
+                              <span class="post-author">Roman Influence</span>
+                              <span class="post-time">1st Century AD</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Ancient Beginnings</h3>
+                              <p>The Romans planted vines in Bordeaux, establishing its winemaking roots.</p>
+                              <a href="#" class="post-link expand-link" data-target="early-bordeaux-expanded">Learn More</a>
+                              <!-- Expanded Content (Hidden by Default) -->
+                              <div class="expanded-content" id="early-bordeaux-expanded">
+                                  <h4>How Did Bordeaux’s Winemaking Begin?</h4>
+                                  <p>Bordeaux’s winemaking history dates back to the 1st century AD when the Romans planted vineyards to supply wine for their garrisons. The region’s strategic location along the Garonne River made it ideal for trade, and by the Middle Ages, Bordeaux wines were exported to England, particularly after the marriage of Eleanor of Aquitaine to Henry II in 1152. The region’s focus on blending grape varieties like Cabernet Sauvignon and Merlot began to take shape, setting the stage for its global reputation.</p>
+                                  <a href="#" class="post-link collapse-link" data-target="early-bordeaux-expanded">Collapse</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">1855 Classification</span>
+                              <span class="post-time">1855</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Defining Excellence</h3>
+                              <p>The 1855 Classification ranked Bordeaux’s best wines, a system still in use today.</p>
+                              <a href="/RegionsPage/Bordeaux/History1855.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">Modern Bordeaux</span>
+                              <span class="post-time">Today</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Innovation in Tradition</h3>
+                              <p>Bordeaux balances tradition with modern techniques, producing 700 million bottles annually.</p>
+                              <a href="/RegionsPage/Bordeaux/HistoryToday.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-        <!-- Historical Overview -->
-        <section class="history-section">
-            <h2>A Legacy in Every Sip</h2>
-            <div class="history-grid">
-                <div class="history-card">
-                    <h3>12th Century - The English Influence</h3>
-                    <p>Bordeaux’s wine trade flourished under English rule, exporting wines across Europe.</p>
-                </div>
-                <div class="history-card">
-                    <h3>1855 - The Bordeaux Classification</h3>
-                    <p>Napoleon III’s classification ranked Bordeaux’s top estates, solidifying their prestige.</p>
-                </div>
-                <div class="history-card">
-                    <h3>Today - The Global Standard</h3>
-                    <p>Bordeaux remains the world’s benchmark for fine wine, blending heritage with innovation.</p>
-                </div>
-            </div>
-        </section>
+              <!-- Middle Panel: Winemaking Journey -->
+              <div class="panel middle-panel">
+                  <div class="panel-header">
+                      <h2>Winemaking Journey</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post featured-post">
+                          <div class="post-header">
+                              <span class="post-author">Bordeaux Vineyards</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>The Art of Bordeaux Blending</h3>
+                              <img src="/images/Regions/bordeaux-vineyards.jpg" alt="Bordeaux Vineyards" class="post-image">
+                              <p>Explore how Bordeaux’s terroir and blending create iconic wines.</p>
+                              <div class="post-actions">
+                                  <span class="post-action">🌱</span>
+                                  <span class="post-action">5 replies</span>
+                                  <span class="post-action">· Liked by others</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <img src="/images/Regions/bordeaux-icon.png" alt="Bordeaux Icon" class="post-icon">
+                              <span class="post-author">Marie Dubois</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Hello Bordeaux Lovers! 🍷</h3>
+                              <p>Let’s dive into the rich history of Bordeaux winemaking!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-        <!-- Modern Bordeaux -->
-        <section class="modern-napa">
-            <h2>The Bordeaux of Today</h2>
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <h3>Popular Grapes</h3>
-                    <p>Merlot, Cabernet Sauvignon, Cabernet Franc, Malbec, Petit Verdot, Sémillon, Sauvignon Blanc</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Acres Under Vine</h3>
-                    <p>Over 290,000 acres of vineyards, producing some of the world’s most sought-after wines.</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Famous Wineries</h3>
-                    <p>Château Margaux, Château Latour, Château Mouton Rothschild, Château Haut-Brion, Château Pétrus</p>
-                </div>
-            </div>
-        </section>
+              <!-- Right Panel: Explore More -->
+              <div class="panel right-panel">
+                  <div class="panel-header">
+                      <h2>Explore More</h2>
+                      <a href="#" class="view-all">View All</a>
+                  </div>
+                  <div class="panel-body">
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/chateau-margaux.png" alt="Château Margaux Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Château Margaux</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/chateau-lafite.png" alt="Château Lafite Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Château Lafite</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/chateau-haut-brion.png" alt="Château Haut-Brion Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Château Haut-Brion</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion-group">
+                          <span class="suggestion-group-title">@BordeauxWineries</span>
+                          <a href="#" class="view-all">View All</a>
+                          <div class="suggestion">
+                              <img src="/images/Icons/winery/chateau-mouton.png" alt="Winery Icon" class="suggestion-icon">
+                              <span class="suggestion-name">Château Mouton</span>
+                              <a href="#" class="suggestion-action">Follow</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
 
-    </main>
+  <!-- Footer -->
+  <footer id="main-footer">
+      <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer id="main-footer">
-        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="/scripts/headerLogic.js" defer></script>
+  <!-- JavaScript -->
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/RegionsPage/expandContent.js" defer></script>
 </body>
 </html>

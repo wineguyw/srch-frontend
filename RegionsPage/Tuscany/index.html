@@ -30,74 +30,156 @@
             <li><a href="#">Stories</a></li>
         </ul>
       </nav>
-            <div class="auth-section">
-                <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
-                     onclick="window.location.href='/ProfilePage/index.html'"/>
-                <div id="auth-buttons">
-                    <button id="login-button" class="login-btn">Login</button>
-                    <button id="get-started-btn" class="get-started-btn">Get Started</button>
-                </div>
-            </div>    
-        </div>
-    </header>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
 
-    <!-- Large Banner Section -->
-    <section class="region-banner">
-        <div class="region-banner-overlay">
-            <h1 class="region-title">Tuscany</h1>
-            <p>Rolling hills, historic vineyards, and world-renowned wines define the heart of Italy.</p>
-        </div>
-    </section>
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Tuscany</h1>
+              <p>Italy’s Chianti region where tradition and innovation blend perfectly.</p>
+          </div>
+      </section>
 
-    <!-- Main Content -->
-    <main class="region-content">
+      <!-- Content Panels -->
+      <div class="content-container">
+          <div class="content-container-inner">
+              <!-- Left Panel: Historical Insights -->
+              <div class="panel left-panel">
+                  <div class="panel-header">
+                      <h2>Historical Insights</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post" id="early-tuscany-post">
+                          <div class="post-header">
+                              <span class="post-author">Etruscan Roots</span>
+                              <span class="post-time">8th Century BC</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Ancient Winemaking</h3>
+                              <p>The Etruscans cultivated vines in Tuscany, laying the groundwork for its wine culture.</p>
+                              <a href="#" class="post-link expand-link" data-target="early-tuscany-expanded">Learn More</a>
+                              <!-- Expanded Content (Hidden by Default) -->
+                              <div class="expanded-content" id="early-tuscany-expanded">
+                                  <h4>How Did Tuscany’s Winemaking Begin?</h4>
+                                  <p>Tuscany’s winemaking history dates back to the 8th century BC with the Etruscans, who cultivated vines and developed early winemaking techniques. The Romans later expanded viticulture, but it was during the Renaissance that Tuscany’s wines, particularly from the Chianti region, gained prominence. In 1716, the Grand Duke of Tuscany established the boundaries of the Chianti wine region, one of the first official wine appellations in history, cementing Tuscany’s legacy.</p>
+                                  <a href="#" class="post-link collapse-link" data-target="early-tuscany-expanded">Collapse</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">Super Tuscans</span>
+                              <span class="post-time">1970s</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Revolution in Winemaking</h3>
+                              <p>Winemakers broke tradition, creating the innovative Super Tuscan wines.</p>
+                              <a href="/RegionsPage/Tuscany/History1970s.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <span class="post-author">Tuscany Today</span>
+                              <span class="post-time">Today</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Blending Tradition</h3>
+                              <p>Tuscany produces 60 million gallons of wine annually, balancing heritage and innovation.</p>
+                              <a href="/RegionsPage/Tuscany/HistoryToday.html" class="post-link">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-        <!-- Historical Overview -->
-        <section class="history-section">
-            <h2>A Legacy in Every Sip</h2>
-            <div class="history-grid">
-                <div class="history-card">
-                    <h3>800 BC - The Etruscans</h3>
-                    <p>Ancient Etruscans cultivated vineyards, establishing Tuscany as a historic wine region.</p>
-                </div>
-                <div class="history-card">
-                    <h3>1716 - The First Wine Laws</h3>
-                    <p>Cosimo III de' Medici defined Chianti’s borders, making it one of the first protected wine regions.</p>
-                </div>
-                <div class="history-card">
-                    <h3>Today - A Symbol of Italian Excellence</h3>
-                    <p>Tuscany’s wines, from Chianti Classico to Super Tuscans, set the global standard for fine Italian wine.</p>
-                </div>
-            </div>
-        </section>
+              <!-- Middle Panel: Winemaking Journey -->
+              <div class="panel middle-panel">
+                  <div class="panel-header">
+                      <h2>Winemaking Journey</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post featured-post">
+                          <div class="post-header">
+                              <span class="post-author">Tuscany Vineyards</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>The Essence of Tuscan Wines</h3>
+                              <img src="/images/Regions/tuscany-vineyards.jpg" alt="Tuscany Vineyards" class="post-image">
+                              <p>Discover how Sangiovese defines Tuscany’s winemaking heritage.</p>
+                              <div class="post-actions">
+                                  <span class="post-action">🌱</span>
+                                  <span class="post-action">6 replies</span>
+                                  <span class="post-action">· Liked by others</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <img src="/images/Regions/tuscany-icon.png" alt="Tuscany Icon" class="post-icon">
+                              <span class="post-author">Luca Bianchi</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Hello Tuscany Enthusiasts! 🍇</h3>
+                              <p>Excited to explore Tuscany’s winemaking traditions with you!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-        <!-- Modern Tuscany -->
-        <section class="modern-napa">
-            <h2>The Tuscany of Today</h2>
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <h3>Popular Grapes</h3>
-                    <p>Sangiovese, Cabernet Sauvignon, Merlot, Vernaccia, Trebbiano, Canaiolo</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Acres Under Vine</h3>
-                    <p>Over 150,000 acres of vineyards, home to some of Italy’s most prestigious wines.</p>
-                </div>
-                <div class="modern-card">
-                    <h3>Famous Wineries</h3>
-                    <p>Antinori, Biondi Santi, Castello Banfi, Frescobaldi, Tenuta San Guido (Sassicaia)</p>
-                </div>
-            </div>
-        </section>
+              <!-- Right Panel: Explore More -->
+              <div class="panel right-panel">
+                  <div class="panel-header">
+                      <h2>Explore More</h2>
+                      <a href="#" class="view-all">View All</a>
+                  </div>
+                  <div class="panel-body">
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/antinori.png" alt="Antinori Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Antinori</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/castello-banfi.png" alt="Castello Banfi Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Castello Banfi</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/frescobaldi.png" alt="Frescobaldi Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Frescobaldi</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion-group">
+                          <span class="suggestion-group-title">@TuscanyWineries</span>
+                          <a href="#" class="view-all">View All</a>
+                          <div class="suggestion">
+                              <img src="/images/Icons/winery/ruffino.png" alt="Ruffino Icon" class="suggestion-icon">
+                              <span class="suggestion-name">Ruffino</span>
+                              <a href="#" class="suggestion-action">Follow</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
 
-    </main>
+  <!-- Footer -->
+  <footer id="main-footer">
+      <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer id="main-footer">
-        <p>&copy; 2025 SRCH. Explore, Learn, and Celebrate.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="/scripts/headerLogic.js" defer></script>
+  <!-- JavaScript -->
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/RegionsPage/expandContent.js" defer></script>
 </body>
 </html>
