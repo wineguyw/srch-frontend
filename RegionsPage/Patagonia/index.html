@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendoza | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/Mendoza/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Patagonia</h1>
+              <p>World-class Malbecs from Argentina’s high-altitude vineyards.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="early-mendoza-post">
+                    <div class="post-header">
+                        <span class="post-author">Spanish Colonization</span>
+                        <span class="post-time">16th Century</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Vines in the Andes</h3>
+                        <p>Spanish settlers brought vines to Mendoza, planting in the Andes foothills.</p>
+                        <a href="#" class="post-link expand-link" data-target="early-mendoza-expanded">Learn More</a>
+                        <div class="expanded-content" id="early-mendoza-expanded">
+                            <h4>How Did Mendoza’s Winemaking Begin?</h4>
+                            <p>In the 16th century, Spanish colonizers introduced viticulture to Mendoza, planting vines in the high-altitude foothills of the Andes. The region’s dry climate and abundant sunlight, combined with irrigation from Andean snowmelt, created ideal conditions for grape growing. By the 19th century, European immigrants, particularly from Italy and Spain, brought Malbec cuttings, which thrived in Mendoza’s unique terroir, eventually making it the region’s signature grape.</p>
+                            <a href="#" class="post-link collapse-link" data-target="early-mendoza-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="malbec-boom-post">
+                    <div class="post-header">
+                        <span class="post-author">Malbec Boom</span>
+                        <span class="post-time">1990s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Global Rise of Malbec</h3>
+                        <p>Mendoza’s Malbec gained worldwide fame for its bold, fruity profile.</p>
+                        <a href="#" class="post-link expand-link" data-target="malbec-boom-expanded">Learn More</a>
+                        <div class="expanded-content" id="malbec-boom-expanded">
+                            <h4>How Did Malbec Become Mendoza’s Flagship?</h4>
+                            <p>In the 1990s, international wine critics and consumers began to take notice of Mendoza’s Malbec — a grape once overshadowed in France. The combination of high-altitude sunlight, large diurnal temperature swings, and alluvial soils gave Malbec from Mendoza a vibrant, fruit-forward profile with rich color and soft tannins. This surge in popularity helped put Argentine wine on the global map.</p>
+                            <a href="#" class="post-link collapse-link" data-target="malbec-boom-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="high-altitude-post">
+                    <div class="post-header">
+                        <span class="post-author">High-Altitude Innovation</span>
+                        <span class="post-time">Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Altitude Advantage</h3>
+                        <p>Vineyards at 3,000+ feet produce concentrated, vibrant wines.</p>
+                        <a href="#" class="post-link expand-link" data-target="high-altitude-expanded">Learn More</a>
+                        <div class="expanded-content" id="high-altitude-expanded">
+                            <h4>What Makes Mendoza’s Altitude Unique?</h4>
+                            <p>Modern winemakers in Mendoza are pushing vineyards to ever higher elevations — some over 5,000 feet. These extreme altitudes contribute to slower ripening, greater acidity, and intense aromas. Combined with sustainable irrigation practices and improved technology, Mendoza continues to evolve as a world-class wine region known for both innovation and tradition.</p>
+                            <a href="#" class="post-link collapse-link" data-target="high-altitude-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+              <!-- Middle Panel: Winemaking Journey -->
+              <div class="panel middle-panel">
+                  <div class="panel-header">
+                      <h2>Winemaking Journey</h2>
+                  </div>
+                  <div class="panel-body">
+                      <div class="post featured-post">
+                          <div class="post-header">
+                              <span class="post-author">Mendoza Vineyards</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>The Magic of Mendoza Malbec</h3>
+                              <img src="/images/Regions/mendoza-vineyards.jpg" alt="Mendoza Vineyards" class="post-image">
+                              <p>Learn how Mendoza’s altitude and terroir craft exceptional Malbecs.</p>
+                              <div class="post-actions">
+                                  <span class="post-action">🌱</span>
+                                  <span class="post-action">4 replies</span>
+                                  <span class="post-action">· Liked by others</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="post">
+                          <div class="post-header">
+                              <img src="/images/Regions/mendoza-icon.png" alt="Mendoza Icon" class="post-icon">
+                              <span class="post-author">Carlos Rivera</span>
+                          </div>
+                          <div class="post-content">
+                              <h3>Hello Mendoza Fans! 🌄</h3>
+                              <p>Join me in exploring Mendoza’s high-altitude winemaking!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Right Panel: Explore More -->
+              <div class="panel right-panel">
+                  <div class="panel-header">
+                      <h2>Explore More</h2>
+                      <a href="#" class="view-all">View All</a>
+                  </div>
+                  <div class="panel-body">
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/catena-zapata.png" alt="Catena Zapata Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Catena Zapata</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/achaval-ferrer.png" alt="Achaval-Ferrer Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Achaval-Ferrer</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion">
+                          <img src="/images/Icons/winery/terrazas.png" alt="Terrazas Icon" class="suggestion-icon">
+                          <span class="suggestion-name">Terrazas</span>
+                          <a href="#" class="suggestion-action">Follow</a>
+                      </div>
+                      <div class="suggestion-group">
+                          <span class="suggestion-group-title">@MendozaWineries</span>
+                          <a href="#" class="view-all">View All</a>
+                          <div class="suggestion">
+                              <img src="/images/Icons/winery/zuccardi.png" alt="Winery Icon" class="suggestion-icon">
+                              <span class="suggestion-name">Zuccardi</span>
+                              <a href="#" class="suggestion-action">Follow</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="main-footer">
+      <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

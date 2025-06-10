@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiang Mai | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/ChiangMai/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="/CellarPage/">Cellar</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Chiang Mai</h1>
+              <p>Thailand’s emerging wine region, blending tradition with innovation.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="early-post">
+                    <div class="post-header">
+                        <span class="post-author">Early Beginnings</span>
+                        <span class="post-time">1990s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Pioneering Viticulture</h3>
+                        <p>Chiang Mai’s wine journey began with experimental vineyards.</p>
+                        <a href="#" class="post-link expand-link" data-target="early-expanded">Learn More</a>
+                        <div class="expanded-content" id="early-expanded">
+                            <h4>How Did Winemaking Start in Chiang Mai?</h4>
+                            <p>In the 1990s, Thailand’s government and private investors began exploring viticulture in Chiang Mai as part of a broader agricultural diversification effort. The region’s high altitude and cooler climate, compared to Thailand’s tropical lowlands, made it a promising area for grape cultivation. Early pioneers like Chateau de Brumes planted experimental vineyards, testing varieties such as Shiraz and Chenin Blanc to adapt to the unique terroir.</p>
+                            <a href="#" class="post-link collapse-link" data-target="early-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-era-post">
+                    <div class="post-header">
+                        <span class="post-author">Modern Growth</span>
+                        <span class="post-time">2000s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Rise of Boutique Wineries</h3>
+                        <p>Chiang Mai saw a boom in small-scale wineries.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-era-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-era-expanded">
+                            <h4>What Fueled Chiang Mai’s Wine Boom?</h4>
+                            <p>By the 2000s, Chiang Mai’s wine industry gained momentum as boutique wineries emerged, focusing on quality and innovation. Wineries like Monsoon Valley and GranMonte leveraged modern winemaking techniques, producing award-winning wines that gained recognition at international competitions. The region’s unique microclimate, with its cool nights and dry season, allowed for the cultivation of grapes with balanced acidity, contributing to the growing reputation of Thai wines.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-era-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="tourism-post">
+                    <div class="post-header">
+                        <span class="post-author">Wine Tourism</span>
+                        <span class="post-time">2010s-Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Vineyard Experiences</h3>
+                        <p>Chiang Mai became a wine tourism destination.</p>
+                        <a href="#" class="post-link expand-link" data-target="tourism-expanded">Learn More</a>
+                        <div class="expanded-content" id="tourism-expanded">
+                            <h4>Why Visit Chiang Mai Wineries?</h4>
+                            <p>In the 2010s, Chiang Mai’s wineries began attracting tourists with vineyard tours, tastings, and events. The annual Chiang Mai Wine Festival draws visitors to sample local wines amidst the region’s stunning landscapes. Wineries like Mae Chan Vineyard offer immersive experiences, pairing wine tastings with Thai cuisine. The region’s proximity to cultural landmarks, such as ancient temples and night markets, makes it a unique destination for wine enthusiasts.</p>
+                            <a href="#" class="post-link collapse-link" data-target="tourism-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Chiang Mai Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Thai Terroir</h3>
+                        <img src="/images/Regions/chiang-mai-vineyards.jpg" alt="Chiang Mai Vineyards" class="post-image">
+                        <p>Discover the tropical elegance of Shiraz and Chenin Blanc.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">6 replies</span>
+                            <span class="post-action">· Liked by sommeliers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/chiang-mai-icon.png" alt="Chiang Mai Icon" class="post-icon">
+                        <span class="post-author">Monsoon Valley</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Taste Our Signature Wines! 🍇</h3>
+                        <p>Experience our award-winning Shiraz in Chiang Mai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/monsoon-valley.png" alt="Monsoon Valley Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Monsoon Valley</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/granmonte.png" alt="GranMonte Icon" class="suggestion-icon">
+                    <span class="suggestion-name">GranMonte</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/mae-chan.png" alt="Mae Chan Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Mae Chan Vineyard</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@ChiangMaiWinemakers</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/chateau-brumes.png" alt="Chateau de Brumes Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Chateau de Brumes</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Selector - SRCH</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/CentralCSS/base.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="/WineSelector/styles.css">
+</head>
+<body>
+  <!-- Header (Reused from Landing Page) -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/ExplorePage/">Explore</a></li>
+          <li><a href="/RegionsPage/">Regions</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+        <img
+          id="profile-icon"
+          src="/images/Icons/default-profile.png"
+          alt="Profile"
+          class="profile-img hidden"
+          onclick="window.location.href='/ProfilePage/'"
+        />
+        <div id="auth-buttons">
+          <button id="login-button" class="login-btn">Login</button>
+          <button id="get-started-btn" class="get-started-btn">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section id="wine-selector-main">
+    <div class="selector-container">
+      <h1 class="page-title">Wine Selector</h1>
+      <p class="page-subtitle">Discover the perfect wine for your moment with our expert-guided tool.</p>
+
+      <div id="progress-indicator">
+        <span id="current-step">1</span> of <span id="total-steps">5</span>
+      </div>
+
+      <div id="selector-form">
+        <!-- Question 1: Scenario -->
+        <div class="question active" data-step="1">
+          <h2>What’s the occasion?</h2>
+          <div class="options">
+            <button data-value="date-night">Date Night at a Restaurant</button>
+            <button data-value="important-occasion">Important Occasion (Dinner Party, Gift, etc.)</button>
+            <button data-value="casual">Casual (For Yourself)</button>
+          </div>
+        </div>
+
+        <!-- Question 2: Flavor Preference -->
+        <div class="question" data-step="2">
+          <h2>What flavor profile do you prefer?</h2>
+          <div class="options">
+            <button data-value="sweet">Sweet and Fruity</button>
+            <button data-value="dry">Dry and Crisp</button>
+            <button data-value="bold">Bold and Tannic</button>
+            <button data-value="light">Light and Refreshing</button>
+          </div>
+        </div>
+
+        <!-- Question 3: Food Pairing (Optional) -->
+        <div class="question" data-step="3">
+          <h2>Are you pairing with food? (Optional)</h2>
+          <div class="options">
+            <button data-value="red-meat">Red Meat</button>
+            <button data-value="seafood">Seafood</button>
+            <button data-value="pasta">Pasta</button>
+            <button data-value="cheese">Cheese</button>
+            <button data-value="none">Not Pairing</button>
+          </div>
+        </div>
+
+        <!-- Question 4: Budget -->
+        <div class="question" data-step="4">
+          <h2>What’s your budget per bottle?</h2>
+          <div class="options">
+            <button data-value="under-20">Under $20</button>
+            <button data-value="20-50">$20–$50</button>
+            <button data-value="over-50">Over $50</button>
+          </div>
+        </div>
+
+        <!-- Question 5: Color Preference -->
+        <div class="question" data-step="5">
+          <h2>Do you prefer red, white, or either?</h2>
+          <div class="options">
+            <button data-value="red">Red</button>
+            <button data-value="white">White</button>
+            <button data-value="either">Either</button>
+          </div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="result" class="hidden">
+          <h2>Your Perfect Wine</h2>
+          <div id="recommendation-details">
+            <h3 id="wine-recommendation"></h3>
+            <p id="why-recommendation"></p>
+            <p id="terroir-notes"></p>
+            <p id="aroma-notes"></p>
+            <p id="value-notes"></p>
+          </div>
+          <button id="start-over" class="cta-button">Try Again</button>
+          <a href="/ExplorePage/" class="explore-link">Explore More Wines</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Reused from Landing Page) -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>About SRCH</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Wine Resources</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/ExplorePage/">Wine Regions</a></li>
+            <li><a href="#">Wine Styles</a></li>
+            <li><a href="#">Top Deals</a></li>
+            <li><a href="#">Stories & Insights</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Get the Best Wine Deals & Insights Weekly</h4>
+        <p>Subscribe to receive curated wine recommendations and exclusive offers.</p>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SRCH. Explore, Learn, and Celebrate. | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- FontAwesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- JavaScript -->
+  <script src="/scripts/authLogic.js" defer></script>
+  <script src="/scripts/headerLogic.js" defer></script>
+  <script src="/WineSelector/wineSelector.js" defer></script>
+</body>
+</html>

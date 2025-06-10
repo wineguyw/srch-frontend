@@ -1,0 +1,203 @@
+/* Main Section */
+#wine-selector-main {
+    padding: 120px 20px 80px; /* Adjusted padding-top to clear header */
+    background: linear-gradient(135deg, #f7f3ed, #ffffff); /* Light gradient for a clean look */
+    text-align: center;
+    min-height: calc(100vh - 160px); /* Adjust for header/footer */
+  }
+  
+  .selector-container {
+    max-width: 900px; /* Slightly wider for more content */
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-family: 'Shrikhand', cursive;
+    font-size: 3rem;
+    color: #311212; /* Burgundy */
+    margin-bottom: 15px;
+  }
+  
+  .page-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  /* Progress Indicator */
+  #progress-indicator {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #311212;
+    margin-bottom: 20px;
+  }
+  
+  #progress-indicator span {
+    font-weight: 600;
+  }
+  
+  /* Selector Form */
+  #selector-form {
+    position: relative;
+  }
+  
+  .question {
+    display: none;
+  }
+  
+  .question.active {
+    display: block;
+  }
+  
+  .question h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #311212;
+    margin-bottom: 30px;
+  }
+  
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .options button {
+    padding: 12px 25px;
+    background-color: #f5f1ed; /* Light cream background */
+    color: #311212;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #311212;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .options button:hover {
+    background-color: #c5a46d; /* Gold accent */
+    color: #1e1e1e;
+    transform: translateY(-3px);
+  }
+  
+  /* Result Section */
+  #result {
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #result h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #311212;
+    margin-bottom: 20px;
+  }
+  
+  #recommendation-details {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  #wine-recommendation {
+    font-family: 'Shrikhand', cursive;
+    font-size: 1.8rem;
+    color: #311212;
+    margin-bottom: 15px;
+  }
+  
+  #why-recommendation,
+  #terroir-notes,
+  #aroma-notes,
+  #value-notes {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #c5a46d; /* Gold button */
+    color: #1e1e1e;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 10px;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .explore-link {
+    display: inline-block;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #311212;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+  }
+  
+  .explore-link:hover {
+    border-bottom: 2px solid #311212;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+  
+    .page-subtitle {
+      font-size: 1.1rem;
+    }
+  
+    .question h2 {
+      font-size: 1.5rem;
+    }
+  
+    .options button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  
+    #result {
+      padding: 20px;
+    }
+  
+    #result h2 {
+      font-size: 1.8rem;
+    }
+  
+    #wine-recommendation {
+      font-size: 1.5rem;
+    }
+  
+    #why-recommendation,
+    #terroir-notes,
+    #aroma-notes,
+    #value-notes {
+      font-size: 1rem;
+    }
+  }

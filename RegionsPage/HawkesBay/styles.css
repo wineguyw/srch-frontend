@@ -1,0 +1,527 @@
+/* Reset Margins & Ensure Consistency */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, rgba(252, 232, 206, 0.1) 0%, rgba(250, 252, 240, 0.7) 100%);
+    color: #e6e6e6;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+/* Ambient Background Elements */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/ambient-chair.png') no-repeat 10% 70%,
+                url('/images/ambient-plant.png') no-repeat 90% 60%,
+                url('/images/ambient-lamp.png') no-repeat 5% 20%;
+    background-size: 200px, 150px, 100px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Ensure Content Starts Below Header */
+body {
+    padding-top: 80px;
+}
+
+/* Large Banner Section */
+.region-banner {
+    width: 100%;
+    min-height: 45vh;
+    max-height: 50vh;
+    background-image: url('/images/Regions/hawkes-bay-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.region-banner-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    width: 80%;
+    position: absolute;
+    bottom: 10%;
+}
+
+.region-title {
+    font-family: 'Shrikhand', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.region-banner-overlay p {
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Content Container */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    gap: 0;
+    box-sizing: border-box;
+}
+
+.content-container.expanded {
+    justify-content: flex-start;
+}
+
+/* Inner wrapper to control panel widths */
+.content-container-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Individual Panels */
+.panel {
+    background: linear-gradient(135deg, rgba(151, 107, 107, 0.793), rgba(30, 30, 30, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    transition: width 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.left-panel {
+    width: 35%;
+}
+
+.left-panel.expanded {
+    width: 65%;
+    transition: width 0.3s ease;
+}
+
+.middle-panel {
+    width: 30%;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.middle-panel.hidden {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.right-panel {
+    width: 25%;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.panel-header h2 {
+    font-size: 1.2rem;
+    color: #e6e6e6;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.view-all {
+    font-size: 0.9rem;
+    color: #1da1f2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.panel-body {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Post Styling */
+.post {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+}
+
+.post:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.post-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #666;
+    object-fit: cover;
+}
+
+.post-author {
+    font-weight: 600;
+    color: #e6e6e6;
+    font-size: 0.9rem;
+}
+
+.post-time {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* Adjust post-content margin based on presence of icon */
+.post-content {
+    margin-left: 0;
+}
+
+/* Apply margin only when icon is present */
+.post-header:has(.post-icon) + .post-content {
+    margin-left: 40px;
+}
+
+.post-content h3 {
+    font-size: 1.1rem;
+    color: #d3c9b6;
+    margin: 5px 0;
+}
+
+.post-content h4 {
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin: 10px 0 5px;
+}
+
+.post-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.post-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.post-link {
+    color: #1da1f2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/* Expanded Content Styling */
+.expanded-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expanded-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.featured-post {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+}
+
+/* Right Panel Suggestions */
+.suggestion {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.suggestion:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.suggestion-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #666;
+    object-fit: cover;
+}
+
+.suggestion-name {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #e6e6e6;
+}
+
+.suggestion-action {
+    color: #1da1f2;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.suggestion-action:hover {
+    text-decoration: underline;
+}
+
+.suggestion-group {
+    margin-top: 10px;
+}
+
+.suggestion-group-title {
+    font-size: 0.9rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    overflow: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #faf3e0;
+    padding: 50px;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    color: #1a1a5e;
+    position: relative;
+    animation: slideIn 0.5s ease-out;
+}
+
+.modal-content.hidden {
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #6a1b1a;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #311212;
+    transform: scale(1.1);
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content input,
+.modal-content button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content button:focus {
+    outline: none;
+    border-color: #6a1b1a;
+    box-shadow: 0 0 8px rgba(106, 27, 26, 0.5);
+}
+
+.modal-content button {
+    background: #6a1b1a;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+    background: #311212;
+    transform: scale(1.05);
+}
+
+.modal-content button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .content-container-inner {
+        width: 100%;
+    }
+    .panel {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .left-panel, .middle-panel, .right-panel {
+        width: 90%;
+    }
+    .left-panel.expanded {
+        width: 90%;
+    }
+    .middle-panel.hidden {
+        display: none;
+    }
+    .content-container.expanded {
+        justify-content: center;
+    }
+}
+
+/* Responsive Design for Modals */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 85%;
+        max-width: 350px;
+        padding: 20px;
+    }
+    .close-btn {
+        font-size: 24px;
+        right: 10px;
+        top: 10px;
+    }
+    .modal-content input,
+    .modal-content button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #5a2d2f;
+    color: white;
+    position: relative;
+    z-index: 2;
+}

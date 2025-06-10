@@ -117,15 +117,15 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Wine Stories Section */
-#stories-section {
-  background: linear-gradient(135deg, #1e1e1e, #3d2c2e);
+/* How to Choose the Right Wine Teaser Section */
+#wine-chooser-section {
+  background: linear-gradient(135deg, #1e1e1e, #3d2c2e); /* Matches the dark gradient from stories */
   padding: 80px 5%;
   color: #f5f1ed;
   text-align: center;
 }
 
-.stories-container {
+.wine-chooser-container {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -143,15 +143,15 @@
   color: #c4b6b6;
 }
 
-.stories-grid {
+.wine-chooser-teaser {
   display: flex;
   gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.story-card {
-  background: #2b1e1e;
+.teaser-card {
+  background: #2b1e1e; /* Dark card background */
   border-radius: 12px;
   overflow: hidden;
   width: 320px;
@@ -159,44 +159,56 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.story-card img {
+.teaser-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.teaser-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
-.story-card:hover img {
+.teaser-card:hover img {
   transform: scale(1.05);
 }
 
-.story-card h3 {
+.teaser-card h3 {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #c5a46d;
+  color: #c5a46d; /* Gold accent */
   margin: 20px 15px 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.story-card p {
+.teaser-card p {
   font-size: 1rem;
   font-weight: 300;
   color: #e5e5e5;
   margin: 0 15px 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.read-more {
+.cta-button {
   display: inline-block;
-  font-size: 1rem;
+  margin-top: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #c5a46d;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: #c5a46d; /* Gold button */
+  color: #1e1e1e;
+  border-radius: 25px;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding: 10px;
-  transition: border-bottom 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.read-more:hover {
-  border-bottom: 2px solid #c5a46d;
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Explore More Section */
@@ -210,26 +222,6 @@
 .explore-container {
   max-width: 900px;
   margin: 0 auto;
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 12px 28px;
-  background: #c5a46d;
-  color: #1e1e1e;
-  border-radius: 25px;
-  text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Modal Styles (Reintroduced for Landing Page Only) */

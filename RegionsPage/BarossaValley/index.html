@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barossa Valley | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/BarossaValley/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Barossa Valley</h1>
+              <p>Australia’s wine icon, where bold Shiraz and rich heritage thrive.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="early-barossa-post">
+                    <div class="post-header">
+                        <span class="post-author">German Settlers</span>
+                        <span class="post-time">1840s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Roots of Barossa</h3>
+                        <p>German immigrants planted the first vines in Barossa Valley.</p>
+                        <a href="#" class="post-link expand-link" data-target="early-barossa-expanded">Learn More</a>
+                        <div class="expanded-content" id="early-barossa-expanded">
+                            <h4>How Did Barossa Valley’s Wine Story Begin?</h4>
+                            <p>In the 1840s, German Lutheran settlers, fleeing persecution, established vineyards in Barossa Valley. Their early plantings of Shiraz and Riesling, combined with traditional winemaking, set the stage for the region’s enduring wine legacy.</p>
+                            <a href="#" class="post-link collapse-link" data-target="early-barossa-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="global-post">
+                    <div class="post-header">
+                        <span class="post-author">Global Rise</span>
+                        <span class="post-time">20th Century</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>International Acclaim</h3>
+                        <p>Barossa’s Shiraz gained worldwide fame.</p>
+                        <a href="#" class="post-link expand-link" data-target="global-expanded">Learn More</a>
+                        <div class="expanded-content" id="global-expanded">
+                            <h4>What Propelled Barossa to Global Fame?</h4>
+                            <p>In the 20th century, wineries like Penfolds and Jacob’s Creek elevated Barossa’s reputation with powerful Shiraz and Cabernet Sauvignon. Iconic wines like Penfolds Grange became symbols of Australian winemaking excellence, winning international awards.</p>
+                            <a href="#" class="post-link collapse-link" data-target="global-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-post">
+                    <div class="post-header">
+                        <span class="post-author">Wine Prestige</span>
+                        <span class="post-time">Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Modern Excellence</h3>
+                        <p>Barossa shines with bold wines and vibrant tourism.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-expanded">
+                            <h4>Why Is Barossa Valley Celebrated Today?</h4>
+                            <p>Today, Barossa Valley is a global wine leader, renowned for its intense Shiraz and innovative blends. With over 150 wineries and events like the Barossa Vintage Festival, it draws wine lovers worldwide, blending heritage with modern flair.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Barossa Valley Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Shiraz-Driven Terroir</h3>
+                        <img src="/images/Regions/barossa-valley-vineyards.jpg" alt="Barossa Valley Vineyards" class="post-image">
+                        <p>Discover how Barossa’s climate crafts its iconic, bold wines.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">10 replies</span>
+                            <span class="post-action">· Liked by sommeliers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/barossa-valley-icon.png" alt="Barossa Valley Icon" class="post-icon">
+                        <span class="post-author">Penfolds</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Taste Barossa’s Legacy! 🍇</h3>
+                        <p>Our wines embody Barossa’s bold spirit. Visit us for a tasting!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/penfolds.png" alt="Penfolds Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Penfolds</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/jacobs-creek.png" alt="Jacob’s Creek Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Jacob’s Creek</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/wolf-blass.png" alt="Wolf Blass Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Wolf Blass</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@BarossaWineLovers</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/torbreck.png" alt="Torbreck Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Torbreck</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

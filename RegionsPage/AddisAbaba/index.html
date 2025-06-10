@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addis Ababa | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/AddisAbaba/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Addis Ababa</h1>
+              <p>Ethiopia’s rising wine scene blends altitude, tradition, and modern varietals near the capital.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="early-addis-post">
+                    <div class="post-header">
+                        <span class="post-author">Cultural Roots</span>
+                        <span class="post-time">Ancient Era</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Tej and Tradition</h3>
+                        <p>Ethiopians have long produced Tej, a traditional honey wine tied to ceremonies.</p>
+                        <a href="#" class="post-link expand-link" data-target="early-addis-expanded">Learn More</a>
+                        <div class="expanded-content" id="early-addis-expanded">
+                            <h4>How Did Winemaking Begin in Addis?</h4>
+                            <p>While Addis Ababa is relatively new in the global wine scene, Ethiopia has a deep cultural history with Tej, a fermented honey wine served at weddings and feasts. The introduction of grape-based wine production began in the late 20th century, blending tradition with viticulture near the highlands surrounding the capital.</p>
+                            <a href="#" class="post-link collapse-link" data-target="early-addis-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-start-post">
+                    <div class="post-header">
+                        <span class="post-author">Wine Emergence</span>
+                        <span class="post-time">2000s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Modern Beginnings</h3>
+                        <p>New wineries launched with international support, introducing varietals like Syrah and Chardonnay.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-start-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-start-expanded">
+                            <h4>How Did Modern Wineries Begin?</h4>
+                            <p>In the early 2000s, international partnerships brought vine plantings to areas surrounding Addis Ababa. Supported by French and Italian expertise, the wineries experimented with Syrah, Merlot, and Chardonnay, capitalizing on Ethiopia’s unique climate and volcanic soils.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-start-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="growth-today-post">
+                    <div class="post-header">
+                        <span class="post-author">Urban Growth</span>
+                        <span class="post-time">Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>City Meets Vineyard</h3>
+                        <p>Addis Ababa’s growing middle class fuels demand for quality Ethiopian wines.</p>
+                        <a href="#" class="post-link expand-link" data-target="growth-today-expanded">Learn More</a>
+                        <div class="expanded-content" id="growth-today-expanded">
+                            <h4>What’s Driving Wine Popularity in Addis?</h4>
+                            <p>With Ethiopia’s economy growing, demand for premium local wine has surged. Urban wineries near Addis Ababa cater to restaurants, hotels, and a curious domestic market. Wineries are experimenting with branding, tasting rooms, and exports, putting Ethiopian wine on the map.</p>
+                            <a href="#" class="post-link collapse-link" data-target="growth-today-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Addis Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Grapes Above the Capital</h3>
+                        <img src="/images/Regions/addis-ababa-vineyards.jpg" alt="Addis Ababa Vineyards" class="post-image">
+                        <p>Discover how highland vineyards near Addis are changing Ethiopia’s wine identity.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">3 replies</span>
+                            <span class="post-action">· Liked by sommeliers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/addis-ababa-icon.png" alt="Addis Icon" class="post-icon">
+                        <span class="post-author">Samuel Bekele</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Welcome to Addis Wines! 🍇</h3>
+                        <p>We're cultivating more than just grapes—we’re building culture. Follow along!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/castel.png" alt="Castel Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Castel Winery</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/ethiowine.png" alt="Ethiowine Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Ethiowine</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/ababa-estate.png" alt="Ababa Estate Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Ababa Estate</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@AddisWineMakers</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/teff-vineyard.png" alt="Teff Vineyard Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Teff Vineyards</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

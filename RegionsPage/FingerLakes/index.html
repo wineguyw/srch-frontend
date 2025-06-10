@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finger Lakes | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/FingerLakes/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="/CellarPage/">Cellar</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Finger Lakes</h1>
+              <p>New York’s scenic region known for world-class Riesling.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="early-post">
+                    <div class="post-header">
+                        <span class="post-author">Early Beginnings</span>
+                        <span class="post-time">1829</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>First Vineyards</h3>
+                        <p>Finger Lakes’ wine history began with early settlers.</p>
+                        <a href="#" class="post-link expand-link" data-target="early-expanded">Learn More</a>
+                        <div class="expanded-content" id="early-expanded">
+                            <h4>How Did Winemaking Start in Finger Lakes?</h4>
+                            <p>In 1829, Reverend William Bostwick planted the first vineyard in Hammondsport, marking the start of winemaking in the Finger Lakes. The region’s cool climate and glacial soils proved ideal for grape growing, particularly for native varieties like Concord.</p>
+                            <a href="#" class="post-link collapse-link" data-target="early-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-era-post">
+                    <div class="post-header">
+                        <span class="post-author">Modern Growth</span>
+                        <span class="post-time">1960s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Riesling Revolution</h3>
+                        <p>The region became renowned for Riesling.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-era-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-era-expanded">
+                            <h4>What Fueled Finger Lakes’ Modern Wine Scene?</h4>
+                            <p>In the 1960s, Dr. Konstantin Frank introduced European grape varieties like Riesling to the Finger Lakes, revolutionizing the region’s wine industry. His success with vinifera grapes established the area as a premier cool-climate wine region in the U.S.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-era-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="tourism-post">
+                    <div class="post-header">
+                        <span class="post-author">Wine Tourism</span>
+                        <span class="post-time">1980s-Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Wine Trails</h3>
+                        <p>Finger Lakes became a top wine tourism destination.</p>
+                        <a href="#" class="post-link expand-link" data-target="tourism-expanded">Learn More</a>
+                        <div class="expanded-content" id="tourism-expanded">
+                            <h4>Why Visit Finger Lakes Wineries?</h4>
+                            <p>Since the 1980s, the Finger Lakes has drawn visitors with its scenic wine trails around lakes like Seneca and Cayuga. Wineries like Dr. Konstantin Frank offer tastings and events, showcasing award-winning Rieslings against the backdrop of stunning lake views.</p>
+                            <a href="#" class="post-link collapse-link" data-target="tourism-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Finger Lakes Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Cool-Climate Excellence</h3>
+                        <img src="/images/Regions/finger-lakes-vineyards.jpg" alt="Finger Lakes Vineyards" class="post-image">
+                        <p>Experience the crispness of Riesling and Cabernet Franc.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">12 replies</span>
+                            <span class="post-action">· Liked by sommeliers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/finger-lakes-icon.png" alt="Finger Lakes Icon" class="post-icon">
+                        <span class="post-author">Dr. Konstantin Frank</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Taste Our Legacy! 🍇</h3>
+                        <p>Explore our iconic Riesling in Finger Lakes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/dr-konstantin-frank.png" alt="Dr. Konstantin Frank Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Dr. Konstantin Frank</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/ravines.png" alt="Ravines Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Ravines Wine Cellars</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/heron-hill.png" alt="Heron Hill Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Heron Hill Winery</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@FingerLakesWines</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/fox-run.png" alt="Fox Run Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Fox Run Vineyards</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

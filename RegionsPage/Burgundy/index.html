@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgundy | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/Burgundy/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Burgundy</h1>
+              <p>France’s wine legend, where Pinot Noir and Chardonnay reign supreme.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="roman-burgundy-post">
+                    <div class="post-header">
+                        <span class="post-author">Roman Roots</span>
+                        <span class="post-time">1st Century</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Ancient Beginnings</h3>
+                        <p>Romans planted the first vineyards in Burgundy.</p>
+                        <a href="#" class="post-link expand-link" data-target="roman-burgundy-expanded">Learn More</a>
+                        <div class="expanded-content" id="roman-burgundy-expanded">
+                            <h4>How Did Burgundy’s Wine Story Begin?</h4>
+                            <p>In the 1st century, Romans introduced viticulture to Burgundy, recognizing the region’s limestone soils as ideal for grapevines. Early plantings in areas like Côte d’Or set the stage for Burgundy’s enduring wine legacy.</p>
+                            <a href="#" class="post-link collapse-link" data-target="roman-burgundy-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="monastic-post">
+                    <div class="post-header">
+                        <span class="post-author">Monastic Influence</span>
+                        <span class="post-time">Middle Ages</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Monastic Mastery</h3>
+                        <p>Cistercian monks refined Burgundy’s winemaking.</p>
+                        <a href="#" class="post-link expand-link" data-target="monastic-expanded">Learn More</a>
+                        <div class="expanded-content" id="monastic-expanded">
+                            <h4>What Role Did Monks Play in Burgundy?</h4>
+                            <p>In the Middle Ages, Cistercian and Benedictine monks meticulously mapped Burgundy’s terroirs, establishing iconic vineyards like Clos de Vougeot. Their precise winemaking techniques elevated Pinot Noir and Chardonnay to new heights.</p>
+                            <a href="#" class="post-link collapse-link" data-target="monastic-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-post">
+                    <div class="post-header">
+                        <span class="post-author">Global Prestige</span>
+                        <span class="post-time">Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Modern Legend</h3>
+                        <p>Burgundy’s wines command global reverence.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-expanded">
+                            <h4>Why Is Burgundy Iconic Today?</h4>
+                            <p>Today, Burgundy’s small domaines produce some of the world’s most coveted wines, with Grand Cru vineyards like Romanée-Conti fetching record prices. Its terroir-driven approach and vibrant wine tourism solidify its status as a global wine legend.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Burgundy Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Terroir-Driven Excellence</h3>
+                        <img src="/images/Regions/burgundy-vineyards.jpg" alt="Burgundy Vineyards" class="post-image">
+                        <p>Explore how Burgundy’s soils shape its iconic wines.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">12 replies</span>
+                            <span class="post-action">· Liked by sommeliers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/burgundy-icon.png" alt="Burgundy Icon" class="post-icon">
+                        <span class="post-author">Domaine de la Romanée-Conti</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Taste Burgundy’s Legacy! 🍇</h3>
+                        <p>Our wines embody Burgundy’s timeless elegance. Visit us!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/romanee-conti.png" alt="Domaine de la Romanée-Conti Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Domaine de la Romanée-Conti</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/bouchard-pere.png" alt="Bouchard Père & Fils Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Bouchard Père & Fils</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/louis-latour.png" alt="Maison Louis Latour Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Maison Louis Latour</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@BurgundyWineLovers</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/faiveley.png" alt="Domaine Faiveley Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Domaine Faiveley</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>

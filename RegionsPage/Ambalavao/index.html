@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambalavao | SRCH</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/CentralCSS/base.css">
+    <!-- Unique Region Page Styles -->
+    <link rel="stylesheet" href="/RegionsPage/Ambalavao/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/index.html" class="site-title-link">
+        <h1 class="site-title">SRCH</h1>
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/ExplorePage/">Explore</a></li>
+            <li><a href="/RegionsPage/">Regions</a></li>
+            <li><a href="#">Stories</a></li>
+        </ul>
+      </nav>
+      <div class="auth-section">
+          <img id="profile-icon" src="/images/Icons/default-profile.png" alt="Profile" class="profile-img hidden" 
+               onclick="window.location.href='/ProfilePage/index.html'"/>
+          <div id="auth-buttons">
+              <button id="login-button" class="login-btn">Login</button>
+              <button id="get-started-btn" class="get-started-btn">Get Started</button>
+          </div>
+      </div>    
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="region-content">
+      <!-- Banner Section -->
+      <section class="region-banner">
+          <div class="region-banner-overlay">
+              <h1 class="region-title">Ambalavao</h1>
+              <p>Madagascar’s highland gem, crafting unique wines with French-Malagasy flair.</p>
+          </div>
+      </section>
+
+  <!-- Content Panels -->
+<div class="content-container">
+    <div class="content-container-inner">
+        <!-- Left Panel: Historical Insights -->
+        <div class="panel left-panel">
+            <div class="panel-header">
+                <h2>Historical Insights</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post" id="colonial-ambalavao-post">
+                    <div class="post-header">
+                        <span class="post-author">French Influence</span>
+                        <span class="post-time">19th Century</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Colonial Beginnings</h3>
+                        <p>French settlers introduced winemaking to Ambalavao’s highlands.</p>
+                        <a href="#" class="post-link expand-link" data-target="colonial-ambalavao-expanded">Learn More</a>
+                        <div class="expanded-content" id="colonial-ambalavao-expanded">
+                            <h4>How Did Winemaking Start in Ambalavao?</h4>
+                            <p>In the 19th century, French colonialists planted vineyards in Ambalavao, leveraging the region’s high altitude and cool nights. These early efforts focused on sacramental and table wines, setting the stage for Madagascar’s wine culture.</p>
+                            <a href="#" class="post-link collapse-link" data-target="colonial-ambalavao-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="post-independence-post">
+                    <div class="post-header">
+                        <span class="post-author">Local Revival</span>
+                        <span class="post-time">1960s</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Post-Independence Growth</h3>
+                        <p>Local producers revived winemaking with hybrid grape varieties.</p>
+                        <a href="#" class="post-link expand-link" data-target="post-independence-expanded">Learn More</a>
+                        <div class="expanded-content" id="post-independence-expanded">
+                            <h4>What Fueled Ambalavao’s Wine Revival?</h4>
+                            <p>After Madagascar’s independence in 1960, Ambalavao’s winemakers adopted hybrid grapes suited to the tropical climate. These resilient varieties, combined with traditional Malagasy farming practices, helped the region’s wine industry grow locally.</p>
+                            <a href="#" class="post-link collapse-link" data-target="post-independence-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post" id="modern-post">
+                    <div class="post-header">
+                        <span class="post-author">Emerging Star</span>
+                        <span class="post-time">Today</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Modern Recognition</h3>
+                        <p>Ambalavao’s wines gain traction with unique flavors and tourism.</p>
+                        <a href="#" class="post-link expand-link" data-target="modern-expanded">Learn More</a>
+                        <div class="expanded-content" id="modern-expanded">
+                            <h4>Why Is Ambalavao Gaining Attention?</h4>
+                            <p>Today, Ambalavao is an emerging wine region, with wineries blending French techniques and Malagasy heritage. Its wines, paired with cultural festivals and eco-tourism, attract visitors, while local reds and whites earn praise for their distinct profiles.</p>
+                            <a href="#" class="post-link collapse-link" data-target="modern-expanded">Collapse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Winemaking Journey -->
+        <div class="panel middle-panel">
+            <div class="panel-header">
+                <h2>Winemaking Journey</h2>
+            </div>
+            <div class="panel-body">
+                <div class="post featured-post">
+                    <div class="post-header">
+                        <span class="post-author">Ambalavao Wineries</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Highland Terroir</h3>
+                        <img src="/images/Regions/ambalavao-vineyards.jpg" alt="Ambalavao Vineyards" class="post-image">
+                        <p>Discover how Ambalavao’s altitude shapes its vibrant wines.</p>
+                        <div class="post-actions">
+                            <span class="post-action">🍷</span>
+                            <span class="post-action">3 replies</span>
+                            <span class="post-action">· Liked by wine explorers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/images/Regions/ambalavao-icon.png" alt="Ambalavao Icon" class="post-icon">
+                        <span class="post-author">Lazan’i Betsileo</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>Welcome to Ambalavao Wines! 🍇</h3>
+                        <p>Our wines reflect Madagascar’s heart and soul. Come taste our story!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Explore More -->
+        <div class="panel right-panel">
+            <div class="panel-header">
+                <h2>Explore More</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="panel-body">
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/lazan-betsileo.png" alt="Lazan’i Betsileo Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Lazan’i Betsileo</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/clos-nomena.png" alt="Clos Nomena Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Clos Nomena</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion">
+                    <img src="/images/Icons/winery/cote-sud.png" alt="Côte Sud Icon" class="suggestion-icon">
+                    <span class="suggestion-name">Côte Sud</span>
+                    <a href="#" class="suggestion-action">Follow</a>
+                </div>
+                <div class="suggestion-group">
+                    <span class="suggestion-group-title">@MadagascarWine</span>
+                    <a href="#" class="view-all">View All</a>
+                    <div class="suggestion">
+                        <img src="/images/Icons/winery/terres-roches.png" alt="Terres Roches Icon" class="suggestion-icon">
+                        <span class="suggestion-name">Terres Roches</span>
+                        <a href="#" class="suggestion-action">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Sign Up Modal - Step 1 (Email Entry) -->
+<div id="signup-modal-step1" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">×</span>
+    <h2>Join SRCH</h2>
+    <p>Create a profile to explore wine, save preferences, and discover deals.</p>
+    <form id="signup-form-step1">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal - Step 2 (User Info) -->
+<div id="signup-modal-step2" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="back-to-email">← Back</span>
+    <h2>Create Your Account</h2>
+    <form id="signup-form-step2">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="password" name="password" placeholder="Set a Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="close-login-btn">×</span>
+    <h2>Log in to SRCH</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="main-footer">
+    <p>© 2025 SRCH. Explore, Learn, and Celebrate.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="/scripts/authLogic.js" defer></script>
+<script src="/scripts/headerLogic.js" defer></script>
+<script src="/RegionsPage/expandContent.js" defer></script>
+</body>
+</html>
